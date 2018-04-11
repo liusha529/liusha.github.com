@@ -1471,9 +1471,9 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}
 .sidebar .glyphicon{font-size:12px;margin-left:10px}
 @media (min-width:992px){.sidebar,.sidebar .nav>.active>ul{display:block}
 .sidebar{padding-top:15px}
-/*.sidebar.affix,.sidebar.affix-bottom{width:213px}*/
+.sidebar.affix,.sidebar.affix-bottom{width:213px}
 .sidebar.affix{position:fixed;}
-/*.sidebar.affix-bottom{position:relative}*/
+.sidebar.affix-bottom{position:relative}
 .sidebar.affix .sidenav,.sidebar.affix-bottom .sidenav{margin-top:10px;margin-bottom:0}
 }
 @media (min-width:1200px){.sidebar.affix,.sidebar.affix-bottom{width:263px}
@@ -1773,7 +1773,7 @@ to{transform:translateY(0) scale(1);opacity:1}
 .rectangle-list a:before{content:counter(li);counter-increment:li;position:absolute;left:-2.4em;top:50%;margin-top:-1em;background:#87abfa;height:2em;width:2em;line-height:2em;text-align:center;font-weight:700}
 .rectangle-list a:after{position:absolute;content:'';border:.5em solid transparent;left:-1em;top:50%;margin-top:-.5em;-webkit-transition:all .3s ease-out;-moz-transition:all .3s ease-out;-ms-transition:all .3s ease-out;-o-transition:all .3s ease-out;transition:all .3s ease-out}
 .rectangle-list a:hover:after{left:-.5em;border-left-color:#87abfa}
-#tagscloud{height:200px;position:relative;font-size:12px}
+#tagscloud{height:100px;position:relative;font-size:12px}
 #tagscloud a{position:absolute;top:0;left:0;color:#fff;background-color:#2a485d;text-decoration:none;margin:0 10px 15px 0;line-height:18px;padding:1px 5px;display:inline-block;border-radius:3px}
 #tagscloud a:hover{color:#fff;background:#09f}
 .mt12{margin-top:12px}.title-border{margin:0 0 0 125px;padding:18px 0 18px 26px;border-left:4px solid #666;color:#4183c4}
