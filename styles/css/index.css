@@ -1471,9 +1471,9 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}
 .sidebar .glyphicon{font-size:12px;margin-left:10px}
 @media (min-width:992px){.sidebar,.sidebar .nav>.active>ul{display:block}
 .sidebar{padding-top:15px}
-.sidebar.affix,.sidebar.affix-bottom{width:213px}
-.sidebar.affix{position:fixed;top:45px}
-.sidebar.affix-bottom{position:absolute}
+/*.sidebar.affix,.sidebar.affix-bottom{width:213px}*/
+.sidebar.affix{position:fixed;}
+/*.sidebar.affix-bottom{position:relative}*/
 .sidebar.affix .sidenav,.sidebar.affix-bottom .sidenav{margin-top:10px;margin-bottom:0}
 }
 @media (min-width:1200px){.sidebar.affix,.sidebar.affix-bottom{width:263px}
