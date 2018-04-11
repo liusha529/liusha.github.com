@@ -1,16 +1,16 @@
 # Site settings
 name: 云飞的博客
 email: 12403205@qq.com
-author: LiuSha
+author: liusha
 url: https://liusha529.github.io/
 resume_site: https://liusha529.github.io/
 github: https://github.com/liusha529
 baseurl: ""  #根目录
-description: 假如生活欺骗了你，不要悲伤，不要哭泣。
-motto: 我们笑着说再见，却深知再见遥遥无期。
+description: 奇迹不过是努力的另一个名字，愿机会永远对你有利。
+motto: 你，是我生命里的一抹阳光。
 #motto: 如果生活欺骗了你，不要悲伤，不要哭泣。
-banner: 我想带你去看绚丽的山峦，去看秀丽的溪谷，这份心情，人类是如何称呼的呢。
-#permalink: /:categories/:year/:month/:day/:title/
+banner: 要把昨天当作回忆，今天继续努力，明天就随他去。
+permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/
 excerpt_separator:  '<!-- more -->' #文章摘要
 paginate: 8
@@ -24,4 +24,4 @@ FB:
   comments :
     provider : disqus
     disqus :
-        short_name : xiaokedada
+        short_name : liusha529
