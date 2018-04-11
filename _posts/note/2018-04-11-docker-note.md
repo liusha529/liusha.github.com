@@ -1,10 +1,16 @@
 ---
-layout: original
-title: "测试，文章"
-date: 2018-04-11 18:21:26 +0800 
+layout: post
+title: "docker 学习笔记"
+date: 2018-04-11 18:25:15 +0800 
 categories: 我的笔记
-tag: note
+tag: Node
 ---
+* content
+{:toc}
+
+`Node`docker 学习笔记
+
+<!-- more -->
 
 # docker 学习笔记
     

@@ -2,75 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8c30048-6bb5-4e93-a7d3-098c2e4c17f2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/novel/Hey-young/2015-02-24-hello-young1.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Algorithms/2017-03-08-Algorithms-from-freecodecamp.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Algorithms/2017-03-12-Sort-and-search-algorithm.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Algorithms/2017-05-05-heap-algorithms.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Algorithms/2017-06-26-Set-Map-Hash.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Algorithms/2017-06-26-Tree.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Algorithms/2017-06-27-Graph-theory.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-05-13-CSS-secrets.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-05-16-specificity-of-css.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-06-10-Center.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-06-11-Layout.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-07-15-Flex.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-07-16-Two-or-Three.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/CSS/2017-07-23-BFC.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/DOM/2017-03-31-Javascript-dom.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/DOM/2017-04-11-DOM.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/DOM/2017-08-14-Web-Worker.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-04-25-First-Meet-Sass.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-04-26-First-Meet-Gulp.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-05-17-First-meet-Webpack.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-05-18-Webpack-second.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-05-19-Webpack-third.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-07-01-First-Meet-TypeScript.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-07-04-First-Meet-Angular.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-07-06-Angular-Second.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-07-12-Angular-Third.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-08-15-First-Meet-Cache.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-08-16-First-Meet-HTTPS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2017-10-18-First-Meet-JSON.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Dev/2018-01-05-First-Meet-ChromeDevTool.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-07-AJAX.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-07-Loops-and-iteration.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-10-Expressions-and-operators.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-13-Indexed-collections.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-13-Number-and-date.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-13-String.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-15-Object-model.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-21-Data-Structures-and-Types-and-Literals.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-21-Functions.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-22-Objects.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-23-More-of-prototype.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-03-24-Object-pattern.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-04-12-Map-and-reduce.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-04-14-Coercion.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-05-03-Closures.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-08-16-This.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-08-22-Async-Programming.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/JavaScript/2017-10-21-Understanding-ES6.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Jekyll/2017-02-22-Jekyll-Cpanel.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Jekyll/2017-05-09-Jekyll-second.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-01-17-NPM-and-Package.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-02-18-CommonJS.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-03-06-Features-of-Node.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-06-07-Asyn-Programing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-06-08-Node-Http.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-06-09-MognoDB.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-06-20-Connect-and-Express.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Node/2017-07-28-REST-and-RESTful.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Python/2017-06-04-Python-Base.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/postgraduate/Responsive/2017-05-25-High-Performance-Responsive-Design.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2017-06-21-Stdio.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2017-06-22-Questions-of-front-end.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2017-06-23-Questions-of-Node.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2017-07-20-Clean-Code.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2017-10-08-Translation.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2017-10-22-JS-Tips.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_posts/skill/summary/2018-01-21-JavaScript-Tricks.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" afterPath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" />
     </list>
     <ignored path="liusha529.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -165,8 +97,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="668">
-                <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+              <first_editor relative-caret-position="960">
+                <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -209,8 +141,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="283" />
-    <option name="y" value="112" />
+    <option name="x" value="144" />
+    <option name="y" value="88" />
     <option name="width" value="1475" />
     <option name="height" value="862" />
   </component>
@@ -350,18 +282,18 @@
       <workItem from="1523422651469" duration="2311000" />
       <workItem from="1523432551972" duration="4132000" />
       <workItem from="1523438239870" duration="1088000" />
-      <workItem from="1523439777780" duration="2354000" />
+      <workItem from="1523439777780" duration="2550000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9885000" />
+    <option name="totallyTimeSpent" value="10081000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="283" y="112" width="1475" height="862" extended-state="0" />
-    <editor active="false" />
+    <frame x="144" y="88" width="1475" height="862" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2568039" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2568039" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -758,8 +690,8 @@
     <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="668">
-            <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+          <first_editor relative-caret-position="960">
+            <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
