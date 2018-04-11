@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>Node异步编程</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>Node异步编程</h1>
+		    <p>Post on Jun 07, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#Node-ref">Node</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Node异步编程</h1>
+              <!--
+                <p class="post-meta">Jun 7, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Jun 07, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#回调--callback" id="markdown-toc-回调--callback">回调 – Callback</a></li>
+  <li><a href="#事件发生器--eventemitter" id="markdown-toc-事件发生器--eventemitter">事件发生器 – EventEmitter</a>    <ul>
+      <li><a href="#on-方法响应事件" id="markdown-toc-on-方法响应事件">on 方法响应事件</a></li>
+      <li><a href="#自定eventemitter" id="markdown-toc-自定eventemitter">自定EventEmitter</a></li>
+    </ul>
+  </li>
+  <li><a href="#用匿名函数保留全局变量的值" id="markdown-toc-用匿名函数保留全局变量的值">用匿名函数保留全局变量的值</a></li>
+  <li><a href="#异步逻辑的顺序化" id="markdown-toc-异步逻辑的顺序化">异步逻辑的顺序化</a></li>
+</ul>
+
+<p>在讲解异步编程的时候，有必要先提到<code class="highlighter-rouge">Event Loop</code>(事件轮询)的概念。首先是运行时的一些概念。</p>
+
+<ul>
+  <li>函数调用形成了一个<code class="highlighter-rouge">Stack</code>(栈)</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">bar</span><span class="p">(){</span>
+    <span class="nx">foo</span><span class="p">();</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="nx">bar</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>代码的最后一行调用<code class="highlighter-rouge">bar()</code>时，会在栈内创建第一个<em>帧</em>(帧的概念就是想表达一个意思)，包含了<code class="highlighter-rouge">bar</code>的参数和局部变量。当<code class="highlighter-rouge">bar</code>调用<code class="highlighter-rouge">foo</code>时，第二帧被创建，并压到<code class="highlighter-rouge">bar</code>创建的帧上。<code class="highlighter-rouge">foo</code>返回时，<code class="highlighter-rouge">foo</code>创建的帧就被弹出。直到所有函数返回，栈空。。</p>
+
+<!-- more -->
+
+<p><img src="/styles/images/node/event-model.svg" alt="event-model" /></p>
+
+<ul>
+  <li>对象被分配在<code class="highlighter-rouge">Heap</code>(堆)中</li>
+</ul>
+
+<p>对象，也就是我们的引用类型。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">JavaScript</code>运行时包含了一个待处理的消息队列。</li>
+</ul>
+
+<p>每个消息都是一个函数想关联。一旦我们的栈为空，就会从消息队列中取出一个消息进行处理。这个处理过程包含了调用于这个消息相关联的函数(同时，这个函数也会创建一个对应的堆或栈)。</p>
+
+<p>所谓的异步编程，就是我们并不将函数处理完成，而是当回调函数产生结果时，再将其加入消息队列。所谓事件轮询，就是我们如何处理<em>消息队列</em>的这个过程。</p>
+
+<blockquote>
+  <p>参考： <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/EventLoop</a></p>
+</blockquote>
+
+<p>比如我们调用<code class="highlighter-rouge">setTimeout()</code>函数，我们会在一个时间段过后向队列中添加一个消息(也就是将回调函数放进消息队列中)。如果消息队列中没有其他消息，消息就会被马上处理。但是，如果有其他消息，就必须要等其他消息处理完。所以说，<code class="highlighter-rouge">setTimeout()</code>的时间并不是确切时间。</p>
+
+<p>再举个例子，当浏览器进行<code class="highlighter-rouge">I/O</code>操作时，因为这个<code class="highlighter-rouge">I/O</code>是异步的，所以该操作会在事件轮询的外面执行(?具体是哪里呢)，当这个<code class="highlighter-rouge">I/O</code>操作完成时，就会发出一个事件(消息)，进入消息队列，会有一个函数(也就是回调)处理它。</p>
+
+<blockquote>
+  <p>第二个例子参考：<code class="highlighter-rouge">Node.js in Action</code>第一章的1.2节。</p>
+</blockquote>
+
+<p>接下来，我们重点讨论<code class="highlighter-rouge">Node</code>中的异步编程技术，其一是<strong>回调</strong>，其二是<strong>事件监听器</strong>。</p>
+
+<h2 id="回调--callback">回调 – Callback</h2>
+
+<p>回调通常用来定义<em>一次性</em>响应的逻辑。以<code class="highlighter-rouge">I/O</code>读写为例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'fs'</span><span class="p">);</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="s1">'./xxx.txt'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span><span class="nx">data</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+        <span class="p">...</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">function(err, data){}</code>就是一个回调函数，定义如何处理其中的内容。<code class="highlighter-rouge">fs</code>对<code class="highlighter-rouge">xxx.txt</code>文件的处理就是处于事件轮询之外(执行的主程序之外)的，处理结束后返回<code class="highlighter-rouge">error</code>或者数据。</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Node</code>的大多数内置模块子啊使用回调时都会带有两个参数，第一个用来存放可能会发生的错误，第二个存放结果。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="事件发生器--eventemitter">事件发生器 – EventEmitter</h2>
+
+<p>事件发射器会触发事件，并且在那些事件被触发时能处理它们。事件是通过监听器进行处理的。监听器是跟事件相关的，事件出现时就会被触发的回调函数。</p>
+
+<blockquote>
+  <p>一些重要的<code class="highlighter-rouge">Node API</code>组件，比如<code class="highlighter-rouge">HTTP</code>服务器、<code class="highlighter-rouge">TCP</code>服务器和流，都被做成了事件发射器。</p>
+</blockquote>
+
+<h3 id="on-方法响应事件">on 方法响应事件</h3>
+
+<p><code class="highlighter-rouge">Node</code>中的<code class="highlighter-rouge">TCP socket</code>就可以使用<code class="highlighter-rouge">on</code>方法<strong>添加监听器</strong>响应<code class="highlighter-rouge">data</code>事件。只要<code class="highlighter-rouge">socket</code>有新数据过来，就会触发<code class="highlighter-rouge">data</code>事件。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">socket</span><span class="p">.</span><span class="nx">on</span> <span class="p">(</span><span class="s1">'data'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">data</code>是一个事件，紧随之后的回调函数就是一个监听器。</p>
+
+<h3 id="自定eventemitter">自定EventEmitter</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//EventEmitter被定义在Node的events模块中，所以直接使用EventEmitter类需要先引入模块</span>
+<span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'events'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">channel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">events</span><span class="p">.</span><span class="nx">EventEmitter</span><span class="p">();</span>
+<span class="nx">channel</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'join'</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>这里使用了<code class="highlighter-rouge">on</code>方法(也可以使用较长的<code class="highlighter-rouge">addListener</code>)给事件发射器添加了监听器。事件命名可以是任意字符串，除了一个特殊的<code class="highlighter-rouge">error</code>。</p>
+
+<p>但是，上面的<code class="highlighter-rouge">join</code>事件的回调函数永远都不会调用，因为你还没有发射任何事件。所以，你在你需要的地方，用<code class="highlighter-rouge">emit()</code>函数发射这个事件。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">channel</span><span class="p">.</span><span class="nx">emit</span><span class="p">(</span><span class="s1">'join'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="用匿名函数保留全局变量的值">用匿名函数保留全局变量的值</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">asyncFunction</span> <span class="p">(</span><span class="nx">callback</span><span class="p">){</span>
+    <span class="nx">setTimeout</span> <span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">;</span>
+<span class="nx">asyncFunction</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">color</span><span class="p">);</span>    <span class="c1">//'green'</span>
+<span class="p">});</span>
+<span class="nx">color</span> <span class="o">=</span> <span class="s1">'green'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>如果我们想输出<code class="highlighter-rouge">blue</code>，该怎么做呢？使用闭包。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">asyncFunction</span> <span class="p">(</span><span class="nx">callback</span><span class="p">){</span>
+    <span class="nx">setTimeout</span> <span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s1">'blue'</span><span class="p">;</span>
+
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">){</span>
+    <span class="nx">asyncFunction</span> <span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">color</span><span class="p">);</span>    <span class="c1">//'blue'</span>
+    <span class="p">})</span>
+<span class="p">})(</span><span class="nx">color</span><span class="p">);</span>
+
+<span class="nx">color</span> <span class="o">=</span> <span class="s1">'green'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="异步逻辑的顺序化">异步逻辑的顺序化</h2>
+
+<p>其一是串行化流程控制，一个是并行化流程控制。建议使用比较流行的工具，比如<code class="highlighter-rouge">Nimble</code>。</p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

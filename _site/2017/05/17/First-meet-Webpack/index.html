@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>Webpack第一课 -- 初识Webpack</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>Webpack第一课 -- 初识Webpack</h1>
+		    <p>Post on May 17, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#Webpack-ref">Webpack</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Webpack第一课 -- 初识Webpack</h1>
+              <!--
+                <p class="post-meta">May 17, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">May 17, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#基本概念" id="markdown-toc-基本概念">基本概念</a>    <ul>
+      <li><a href="#入口--entry" id="markdown-toc-入口--entry">入口 – entry</a></li>
+      <li><a href="#输出--output" id="markdown-toc-输出--output">输出 – output</a></li>
+      <li><a href="#loader" id="markdown-toc-loader">Loader</a></li>
+      <li><a href="#插件--plugins" id="markdown-toc-插件--plugins">插件 – Plugins</a></li>
+    </ul>
+  </li>
+  <li><a href="#第一个webpack项目" id="markdown-toc-第一个webpack项目">第一个webpack项目</a>    <ul>
+      <li><a href="#webpack的安装" id="markdown-toc-webpack的安装">webpack的安装</a></li>
+      <li><a href="#第一个bundle文件" id="markdown-toc-第一个bundle文件">第一个bundle文件</a></li>
+      <li><a href="#配置webpack" id="markdown-toc-配置webpack">配置webpack</a>        <ul>
+          <li><a href="#配合npm来使用" id="markdown-toc-配合npm来使用">配合npm来使用</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>其他链接：</p>
+
+<ul>
+  <li><a href="/2017/05/18/Webpack-second">Webpack第二课 – HTML、插件和webpack-dev-server篇</a></li>
+  <li><a href="/2017/05/19/Webpack-third">Webpack第三课 – HTML、CSS篇</a></li>
+</ul>
+
+<p>代码<code class="highlighter-rouge">Github</code>地址：</p>
+
+<ul>
+  <li><a href="https://github.com/maoxiaoke/You-know-what-is-webpack">https://github.com/maoxiaoke/You-know-what-is-webpack</a></li>
+</ul>
+
+<p>想不到<code class="highlighter-rouge">webpack</code>比我想象中要难一点。</p>
+
+<p><code class="highlighter-rouge">webpack</code>是一个现代的<code class="highlighter-rouge">JavaScript</code>应用程序的<strong>模块打包器</strong>(<code class="highlighter-rouge">module bundler</code>)。但随着它的发展，有向前端代码管理工具演变的趋势。</p>
+
+<p>对于一个网站而言，之前的管理方式是：<code class="highlighter-rouge">HTML</code>文件、<code class="highlighter-rouge">CSS</code>样式、<code class="highlighter-rouge">JavaScript</code>文件、图片文件各自都是独立的，需要分开地管理每一个文件，然后确保一切正常运行。<code class="highlighter-rouge">Gulp</code>这样的任务管理工具就是在这个基础上发展而来，能处理不同的预处理器和编译器，任务一个接着一个进行。</p>
+
+<p>而<code class="highlighter-rouge">webpack</code>抛开了这种管理方式，在开发过程中的某一个阶段通过<code class="highlighter-rouge">JavaScript</code>去处理所有的依赖。比如说，我们可以利用<code class="highlighter-rouge">loader</code>将<code class="highlighter-rouge">HTML/CSS</code>文件打包成<code class="highlighter-rouge">JS</code>文件，然后再解析出来(这里说的有点糊涂，下次理解透彻再来)。</p>
+
+<!-- more -->
+
+<h2 id="基本概念">基本概念</h2>
+
+<p>我觉得最先应该对基本概念有个了解(就算这些名词你半知半解或者完全不知道，我觉得也是有必要的)。</p>
+
+<blockquote>
+  <p>以下基本概念都摘自官方文档：<a href="https://doc.webpack-china.org/concepts/">https://doc.webpack-china.org/concepts/</a></p>
+</blockquote>
+
+<h3 id="入口--entry">入口 – entry</h3>
+
+<p><code class="highlighter-rouge">webpack</code>将创建所有应用程序的依赖关系图表(dependency graph)。图表的起点被称之为入口起点(entry point)。入口起点告诉<code class="highlighter-rouge">webpack</code>从哪里开始，并遵循着依赖关系图表知道要打包什么。可以将您应用程序的入口起点认为是根上下文(contextual root)或app第一个启动文件。</p>
+
+<p>在<code class="highlighter-rouge">webpack</code>中，我们使用<strong>webpack 配置对象</strong>(webpack configuration object)中的<code class="highlighter-rouge">entry</code>属性来定义入口。</p>
+
+<h3 id="输出--output">输出 – output</h3>
+
+<p>有<code class="highlighter-rouge">Entry</code>就有<code class="highlighter-rouge">Output</code>，该选项影响<code class="highlighter-rouge">compilation</code>对象的输出。<code class="highlighter-rouge">output</code>选项控制<code class="highlighter-rouge">webpack</code>如何向硬盘写入编译文件。</p>
+
+<blockquote>
+  <p>注意，即使可以存在多个入口起点，但只指定一个输出配置。</p>
+</blockquote>
+
+<h3 id="loader">Loader</h3>
+
+<p><code class="highlighter-rouge">loader</code>用于对模块的源代码进行转换。<code class="highlighter-rouge">loader</code>可以使你在<code class="highlighter-rouge">require()</code>或”加载”模块时预处理文件。因此，<code class="highlighter-rouge">loader</code>类似于其他构建工具中“任务(task)”，并提供了处理前端构建步骤的强大方法。</p>
+
+<p><code class="highlighter-rouge">loader</code>可以将文件从不同的语言(如<code class="highlighter-rouge">TypeScript</code>)转换为<code class="highlighter-rouge">JavaScript</code>，或将内联图像转换为<code class="highlighter-rouge">data URL</code>。<code class="highlighter-rouge">loader</code>甚至允许你在<code class="highlighter-rouge">JavaScript</code>中<code class="highlighter-rouge">require()</code> CSS文件。</p>
+
+<h3 id="插件--plugins">插件 – Plugins</h3>
+
+<p>插件是<code class="highlighter-rouge">webpack</code>的<em>支柱</em>功能。</p>
+
+<p>插件目的在于解决<code class="highlighter-rouge">loader</code>无法实现的功能。</p>
+
+<p>以上四点的关系有点类似与下面这个图：</p>
+
+<p><img src="/styles/images/webpack/webpack-04.png" alt="relationship-map" /></p>
+
+<hr />
+
+<h2 id="第一个webpack项目">第一个webpack项目</h2>
+
+<p>我们第一个项目使用了官方的一个例子。作为起步，非常有指导意义。主要的步骤先列举如下：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">webpack</code>的安装</li>
+  <li>创建一个<code class="highlighter-rouge">bundle</code>文件</li>
+  <li>配置<code class="highlighter-rouge">webpack.config.js</code></li>
+</ul>
+
+<h3 id="webpack的安装">webpack的安装</h3>
+
+<p>对于一个<code class="highlighter-rouge">nodejs</code>项目，我们通常会先建立一个<code class="highlighter-rouge">package.json</code>，这个我们在<a href="/2017/04/26/First-Meet-Gulp">初识Gulp</a>进行进一步了解。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm init <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>然后，我们可以进行全局安装：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> webpack
+</code></pre></div></div>
+
+<p>或本地依赖安装：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">--save-dev</span> webpack
+</code></pre></div></div>
+
+<h3 id="第一个bundle文件">第一个bundle文件</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>demo-01 <span class="o">&amp;&amp;</span> <span class="nb">cd </span>demo-01
+<span class="nv">$ </span>npm init <span class="nt">-y</span>
+<span class="nv">$ </span><span class="nb">install</span> <span class="nt">--save-dev</span> webpack
+</code></pre></div></div>
+
+<p>然后，我们建立一个<code class="highlighter-rouge">app</code>子目录并创建一个<code class="highlighter-rouge">index.js</code>文件。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir </span>app <span class="o">&amp;&amp;</span> <span class="nb">cd </span>app
+<span class="nv">$ </span><span class="nb">touch </span>index.js
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//index.js</span>
+<span class="kd">function</span> <span class="nx">component</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+  <span class="cm">/* 需要引入 lodash，下一行才能正常工作 */</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">_</span><span class="p">.</span><span class="nx">join</span><span class="p">([</span><span class="s1">'Hello'</span><span class="p">,</span><span class="s1">'webpack'</span><span class="p">],</span> <span class="s1">' '</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="nx">element</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">component</span><span class="p">());</span>
+</code></pre></div></div>
+
+<p>这里，我们<code class="highlighter-rouge">_.join(['Hello','webpack'], ' ')</code>代码需要依赖<code class="highlighter-rouge">lodash</code>，而且是运行时依赖。</p>
+
+<p>正常情况下，我们会在相应的<code class="highlighter-rouge">.html</code>文件中利用<code class="highlighter-rouge">&lt;script&gt;</code>标签引入这个依赖。这样的管理方式有一些问题：</p>
+
+<ul>
+  <li>如果依赖不存在或引入顺序错误，程序将无法运行</li>
+  <li>如果依赖被引入但是没有使用，就会浪费很多时间下载无用的代码</li>
+</ul>
+
+<p>我们来利用<code class="highlighter-rouge">webpack</code>解决。</p>
+
+<p>首先，我们安装<code class="highlighter-rouge">lodash</code>运行时依赖。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">--save</span> lodash
+</code></pre></div></div>
+
+<p>然后，我们在<code class="highlighter-rouge">index.js</code>文件中import <code class="highlighter-rouge">lodash</code>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">_</span> <span class="k">from</span> <span class="s1">'lodash'</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">component</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>在项目根目录下，我么创建一个<code class="highlighter-rouge">index.html</code>文件将它显示出来。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>webpack 2 demo<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"dist/bundle.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这里的代码明显告诉我们：<code class="highlighter-rouge">index.html</code>只引入<code class="highlighter-rouge">bundle.js</code>文件，即<code class="highlighter-rouge">webpack</code>最终编译的文件。</p>
+</blockquote>
+
+<h3 id="配置webpack">配置webpack</h3>
+
+<p>通常情况下，我们使用一个配置文件来打包代码。在项目根目录下，我们创建一个<code class="highlighter-rouge">webpack.config.js</code>文件。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">entry</span><span class="p">:</span> <span class="s1">'./app/index.js'</span><span class="p">,</span> <span class="c1">//入口文件</span>
+  <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="s1">'bundle.js'</span><span class="p">,</span> <span class="c1">//输出文件名</span>
+    <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'dist'</span><span class="p">)</span> <span class="c1">//输出文件地址</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>然后，此文件可以被执行：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>.<span class="se">\n</span>ode_modules<span class="se">\.</span>bin<span class="se">\w</span>ebpack
+</code></pre></div></div>
+
+<p><img src="/styles/images/webpack/webpack-01.png" alt="" /></p>
+
+<p>输出的编译文件就存放在<code class="highlighter-rouge">dist</code>文件夹中。</p>
+
+<blockquote>
+  <p>如果全局安装了<code class="highlighter-rouge">webpack</code>的话，我们直接<code class="highlighter-rouge">$ webpack</code>就可以。但这并不是最佳实践，最佳实践还是利用本地命令。</p>
+</blockquote>
+
+<h4 id="配合npm来使用">配合npm来使用</h4>
+
+<p>考虑到用<code class="highlighter-rouge">CLI</code>的方式来运行<code class="highlighter-rouge">webpack</code>不是特别方便，我们可以设置一个快捷方式。像这样调整<code class="highlighter-rouge">package.json</code>：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="err">...</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span></code></pre></div></div>
+
+<p>这样，我们可以用以下命令来运行<code class="highlighter-rouge">webpack</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run build
+</code></pre></div></div>
+
+<p><img src="/styles/images/webpack/webpack-02.png" alt="" /></p>
+
+<p>第一个章节到此结束。</p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

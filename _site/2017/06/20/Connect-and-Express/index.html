@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>Node的Express框架初体验</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>Node的Express框架初体验</h1>
+		    <p>Post on Jun 20, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#Node-ref">Node</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Node的Express框架初体验</h1>
+              <!--
+                <p class="post-meta">Jun 20, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Jun 20, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#connect" id="markdown-toc-connect">Connect</a></li>
+  <li><a href="#安装connect" id="markdown-toc-安装connect">安装Connect</a>    <ul>
+      <li><a href="#中间件--middleware" id="markdown-toc-中间件--middleware">中间件 – Middleware</a>        <ul>
+          <li><a href="#挂载中间件--mount-middleware" id="markdown-toc-挂载中间件--mount-middleware">挂载中间件 – Mount middleware</a></li>
+          <li><a href="#差错中间件--error-middleware" id="markdown-toc-差错中间件--error-middleware">差错中间件 – Error middleware</a></li>
+        </ul>
+      </li>
+      <li><a href="#可配置的中间件" id="markdown-toc-可配置的中间件">可配置的中间件</a></li>
+      <li><a href="#已经不是connect自带的中间件" id="markdown-toc-已经不是connect自带的中间件">已经不是Connect自带的中间件</a></li>
+    </ul>
+  </li>
+  <li><a href="#express" id="markdown-toc-express">Express</a>    <ul>
+      <li><a href="#使用express-application-generator生成程序骨架" id="markdown-toc-使用express-application-generator生成程序骨架">使用Express application generator生成程序骨架</a></li>
+      <li><a href="#路由" id="markdown-toc-路由">路由</a>        <ul>
+          <li><a href="#route-methods" id="markdown-toc-route-methods">Route methods</a></li>
+          <li><a href="#route-paths" id="markdown-toc-route-paths">Route paths</a></li>
+          <li><a href="#route-handlers" id="markdown-toc-route-handlers">Route handlers</a></li>
+          <li><a href="#approute" id="markdown-toc-approute">app.route()</a></li>
+          <li><a href="#expressrouter" id="markdown-toc-expressrouter">express.Router</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#遇到的bug" id="markdown-toc-遇到的bug">遇到的Bug</a>    <ul>
+      <li><a href="#refusing-to-install-xxx-as-a-dependency-of-itself" id="markdown-toc-refusing-to-install-xxx-as-a-dependency-of-itself">Refusing to install xxx as a dependency of itself</a></li>
+      <li><a href="#如何使用express命令行工具" id="markdown-toc-如何使用express命令行工具">如何使用Express命令行工具</a></li>
+      <li><a href="#error-cant-set-headers-after-they-are-sent-to-the-client" id="markdown-toc-error-cant-set-headers-after-they-are-sent-to-the-client">Error: Can’t set headers after they are sent to the client</a></li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>Connect is an extensible HTTP server framework for node using “plugins” known as middleware.</p>
+</blockquote>
+
+<p>这是引自Connect<a href="https://github.com/senchalabs/connect">官方仓库</a>的一段文字，可以看到：Connect是一个服务器端框架。在Connnect中，中间件是一个函数，它拦截<code class="highlighter-rouge">HTTP</code>服务器提供的请求和响应对象，执行特定的逻辑，然后结束响应或者把她传递给下一个中间件组件。
+<br />
+<a href="http://expressjs.com/">Express</a>也是一个Web框架，官方是这样介绍的：</p>
+
+<blockquote>
+  <p>Fast, unopinionated, minimalist web framework for Node.js.</p>
+</blockquote>
+
+<p>前期版本中，Express框架是构建在Connect之上，但是在最新的<code class="highlighter-rouge">4.x</code>版本中，我们<a href="http://expressjs.com/en/guide/migrating-4.html">引述了下面这段话</a>：</p>
+
+<blockquote>
+  <p>Express 4 no longer depends on Connect, and removes all built-in middleware from its core, except for the express.static function. This means that Express is now an independent routing and middleware web framework, and Express versioning and releases are not affected by middleware updates.</p>
+</blockquote>
+
+<p>但是，对Connect的介绍仍对我们理解Express很有帮助。</p>
+
+<!-- more -->
+
+<h2 id="connect">Connect</h2>
+
+<p>两个HTTP请求穿过Connect服务器生命周期如下图。</p>
+
+<p><img src="/styles/images/node/connect.png" alt="两个HTTP请求穿过Connect服务器生命周期" /></p>
+
+<h2 id="安装connect">安装Connect</h2>
+
+<p>Connect是一个第三方模块，所以需要下载安装。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>connect
+</code></pre></div></div>
+
+<p>则，我们可以创建一个最小的Connect程序。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">connect</span> <span class="o">=</span> <span class="nx">require</span> <span class="p">(</span><span class="s1">'connect'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">connect</span><span class="p">();</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="中间件--middleware">中间件 – Middleware</h3>
+
+<p>Connect的核心就是中间件。在Connect中，中间件组件是一个JavaScript函数，按惯例会接受三个参数：<code class="highlighter-rouge">req</code>、<code class="highlighter-rouge">res</code>、<code class="highlighter-rouge">next</code>。这是一个回调函数，如果没有下一个中间件，<code class="highlighter-rouge">next</code>参数是不必要的。类似这种:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span> <span class="nx">middleware1</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// middleware 1</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span> <span class="nx">middleware2</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// middleware 2</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>那么如何挂载中间件呢？我们使用<code class="highlighter-rouge">.use()</code>函数。</p>
+
+<h4 id="挂载中间件--mount-middleware">挂载中间件 – Mount middleware</h4>
+
+<p>使用挂载中间件，你可以在<code class="highlighter-rouge">.use()</code>函数中接受一个<strong>路径前缀</strong>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/foo'</span><span class="p">,</span> <span class="kd">function</span> <span class="nx">fooMiddleware</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// req.url starts with "/foo"</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/bar'</span><span class="p">,</span> <span class="kd">function</span> <span class="nx">barMiddleware</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// req.url starts with "/bar"</span>
+  <span class="nx">next</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>也是说，我们第一个中间件我们将它挂载在<code class="highlighter-rouge">/foo</code>路径上，代码中<code class="highlighter-rouge">/xxx/xxx</code>的<code class="highlighter-rouge">req.url</code>通过浏览器访问就是<code class="highlighter-rouge">/foo/xxx/xxx</code>。也就是说，这可以很方便的让我们重用代码。</p>
+
+<h4 id="差错中间件--error-middleware">差错中间件 – Error middleware</h4>
+
+<p>Connect中，有一个特殊的<code class="highlighter-rouge">Error middleware</code>来处理程序错误。它接受四个参数: <code class="highlighter-rouge">err</code>、<code class="highlighter-rouge">req</code>、<code class="highlighter-rouge">res</code>、<code class="highlighter-rouge">next</code>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// regular middleware</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// i had an error</span>
+  <span class="nx">next</span><span class="p">(</span><span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">'boom!'</span><span class="p">));</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">next</span><span class="p">();</span>   <span class="c1">//skipped</span>
+<span class="p">});</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span> <span class="nx">onerror</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// an error occurred!</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>第一个中间件抛出了一个错误，而第二个中间件从它的表现看来并不错误处理中间件，所以它会<code class="highlighter-rouge">skipped</code>直到<code class="highlighter-rouge">Connect</code>看到一个差错处理中间件。</p>
+
+<h3 id="可配置的中间件">可配置的中间件</h3>
+
+<p>创建更通用的、可重用的中间件是非常有必要的。为此，中间件通常会遵循一个简单的惯例: 用函数返回另一个函数(也就是闭包)。结构类似这种:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">setup</span> <span class="p">(</span><span class="nx">options</span><span class="p">){</span>
+    <span class="c1">//设置逻辑</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+        <span class="c1">//中间件逻辑</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这种中间件的用法如下:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span> <span class="p">(</span><span class="nx">setup</span><span class="p">({</span><span class="na">some</span><span class="p">:</span><span class="s1">'options'</span><span class="p">}))</span>
+</code></pre></div></div>
+
+<h3 id="已经不是connect自带的中间件">已经不是Connect自带的中间件</h3>
+
+<p>在新的版本中，以前是Connect内置的中间件都被移除了。Express 4.x也移除了自带的中间件(所以说，Express 4.x已不再依赖Connect了)，除了<code class="highlighter-rouge">express.static</code>函数，并对其中一些命名进行了更新。以下的中间件被Connect和Express同时官方支持，且已是第三方模块。</p>
+
+<ul>
+  <li><a href="https://www.npmjs.com/package/body-parser">body-parser</a> – 解析请求体</li>
+  <li><a href="https://www.npmjs.com/package/compression">compression</a> – Node.js压缩中间件</li>
+  <li><a href="https://www.npmjs.com/package/connect-timeout">connect-timeout</a> – 在Connect/Express应用框架中将请求超时</li>
+  <li><a href="https://www.npmjs.com/package/cookie-parser">cookie-parser</a> – 解析cookie</li>
+  <li><a href="https://www.npmjs.com/package/csurf">csurf</a> – Node.js CSRF保护中间件</li>
+  <li><a href="https://www.npmjs.com/package/errorhandler">errorhandler</a> – 仅在开发期间的差错控制中间件</li>
+  <li><a href="https://www.npmjs.com/package/express-session">express-session</a></li>
+  <li><a href="https://www.npmjs.com/package/method-override">method-override</a> – 当你的客户端不支持HTTP谓词的时候你可以使用它</li>
+  <li><a href="https://www.npmjs.com/package/morgan">morgan</a> – 请求日志中间件</li>
+  <li><a href="https://www.npmjs.com/package/response-time">response-time</a></li>
+  <li><a href="https://www.npmjs.com/package/serve-favicon">serve-favicon</a> – 提供favicon的中间件</li>
+  <li><a href="https://www.npmjs.com/package/serve-index">serve-index</a> – 提供包含给定路径的页面</li>
+  <li><a href="https://www.npmjs.com/package/serve-static">server-static</a></li>
+  <li><a href="https://www.npmjs.com/package/vhost">vhost</a></li>
+</ul>
+
+<blockquote>
+  <p>可以参考: <a href="https://github.com/senchalabs/connect#middleware">https://github.com/senchalabs/connect#middleware</a></p>
+</blockquote>
+
+<hr />
+
+<h2 id="express">Express</h2>
+
+<p>Express也是一个第三方模块，所以全局或项目依赖安装。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>express <span class="nt">--save</span>
+</code></pre></div></div>
+
+<p>在目录下，我们创建一个<code class="highlighter-rouge">app.js</code>(或者<code class="highlighter-rouge">index.js</code>)作为入口文件，我们来创建一个最简单的<code class="highlighter-rouge">hello world</code>程序。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//app.js</span>
+<span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Hello World!'</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Example app listening on port 3000!'</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>我们使用<code class="highlighter-rouge">$ node app.js</code>运行这个应用。那么，它会开启服务器，并在<code class="highlighter-rouge">3000</code>端口进行监听。当我们使用浏览器访问<code class="highlighter-rouge">http://localhost:3000</code>地址发送<code class="highlighter-rouge">GET</code>请求，应用就会响应<code class="highlighter-rouge">Hello World</code>。</p>
+
+<h3 id="使用express-application-generator生成程序骨架">使用Express application generator生成程序骨架</h3>
+
+<p>在<code class="highlighter-rouge">4.x</code>版本中，<code class="highlighter-rouge">express-generator</code>从express中独立出来。同时，它也是express的一个命令行工具。我们将这个模块进行全局安装。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install </span>express-generator <span class="nt">-g</span>
+</code></pre></div></div>
+
+<p>然后我们使用如下命令：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>λ express <span class="nt">--view</span><span class="o">=</span>pug myblog
+
+   create : myblog
+   create : myblog/package.json
+   create : myblog/app.js
+   create : myblog/public
+   create : myblog/routes
+   create : myblog/routes/index.js
+   create : myblog/routes/users.js
+   create : myblog/views
+   create : myblog/views/index.pug
+   create : myblog/views/layout.pug
+   create : myblog/views/error.pug
+   create : myblog/bin
+   create : myblog/bin/www
+   create : myblog/public/images
+   create : myblog/public/javascripts
+   create : myblog/public/stylesheets
+   create : myblog/public/stylesheets/style.css
+
+   <span class="nb">install </span>dependencies:
+     <span class="o">&gt;</span> <span class="nb">cd </span>myblog <span class="o">&amp;&amp;</span> npm <span class="nb">install
+
+   </span>run the app:
+     <span class="o">&gt;</span> SET <span class="nv">DEBUG</span><span class="o">=</span>myblog:<span class="k">*</span> &amp; npm start
+</code></pre></div></div>
+
+<blockquote>
+  <p>Express还支持<code class="highlighter-rouge">jade</code>、<code class="highlighter-rouge">ejs</code>等多种模板引擎。其中，默认为<code class="highlighter-rouge">jade</code>。因为版权之争，<code class="highlighter-rouge">jade</code>更名为<code class="highlighter-rouge">Pug</code>，我的猜测是，Express的默认模板引擎也会更改为<code class="highlighter-rouge">Pug</code>。</p>
+</blockquote>
+
+<p>命令中我们使用<a href="https://pugjs.org/api/getting-started.html"><code class="highlighter-rouge">pug</code></a>作为我们的模板引擎，创建<code class="highlighter-rouge">myblog</code>项目。结构如下:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">│</span>  <span class="nx">app</span><span class="p">.</span><span class="nx">js</span>
+<span class="err">│</span>  <span class="kr">package</span><span class="p">.</span><span class="nx">json</span>
+<span class="err">│</span>
+<span class="err">├─</span><span class="nx">bin</span>
+<span class="err">│</span>      <span class="nx">www</span>
+<span class="err">│</span>
+<span class="err">├─</span><span class="kr">public</span>
+<span class="err">│</span>  <span class="err">├─</span><span class="nx">images</span>
+<span class="err">│</span>  <span class="err">├─</span><span class="nx">javascripts</span>
+<span class="err">│</span>  <span class="err">└─</span><span class="nx">stylesheets</span>
+<span class="err">│</span>          <span class="nx">style</span><span class="p">.</span><span class="nx">css</span>
+<span class="err">│</span>
+<span class="err">├─</span><span class="nx">routes</span>
+<span class="err">│</span>      <span class="nx">index</span><span class="p">.</span><span class="nx">js</span>
+<span class="err">│</span>      <span class="nx">users</span><span class="p">.</span><span class="nx">js</span>
+<span class="err">│</span>
+<span class="err">└─</span><span class="nx">views</span>
+        <span class="nx">error</span><span class="p">.</span><span class="nx">pug</span>
+        <span class="nx">index</span><span class="p">.</span><span class="nx">pug</span>
+        <span class="nx">layout</span><span class="p">.</span><span class="nx">pug</span>
+</code></pre></div></div>
+
+<p>打开<code class="highlighter-rouge">package.json</code>会发现，入口文件是<code class="highlighter-rouge">./bin/www</code>，而且包含众多依赖项。所以我们需要用<code class="highlighter-rouge">npm install</code>安装依赖项，然后运行这个应用。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>λ npm <span class="nb">install
+</span>λ SET <span class="nv">DEBUG</span><span class="o">=</span>myblog:<span class="k">*</span> &amp; npm start
+</code></pre></div></div>
+
+<p>此时，应用已经监听在<code class="highlighter-rouge">3000</code>端口，可以通过浏览器<code class="highlighter-rouge">http://localhost:3000</code>访问。</p>
+
+<p>备注：<code class="highlighter-rouge">SET DEBUG=myblog:*</code>是什么意思？</p>
+
+<p>接下来，我们重点看一下<code class="highlighter-rouge">app.js</code>中的内容，如下:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//app.js</span>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">);</span>             <span class="c1">//Node自带的模块</span>
+<span class="kd">var</span> <span class="nx">favicon</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'serve-favicon'</span><span class="p">);</span> <span class="c1">//Node.js提供图标的中间件</span>
+<span class="kd">var</span> <span class="nx">logger</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'morgan'</span><span class="p">);</span>         <span class="c1">//Node.js提供HTTP请求logger的中间件</span>
+<span class="kd">var</span> <span class="nx">cookieParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cookie-parser'</span><span class="p">);</span><span class="c1">//解析Cookie header的中间件</span>
+<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span><span class="c1">//解析请求体的中间件</span>
+
+<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./routes/index'</span><span class="p">);</span>  <span class="c1">//默认的路由，和app.use('/', index)关联</span>
+<span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./routes/users'</span><span class="p">);</span>  <span class="c1">//默认的路由，和app.use('/users', users)关联</span>
+
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>                    <span class="c1">//生成express实例</span>
+
+<span class="c1">// view engine setup，模板引擎设置</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'views'</span><span class="p">,</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'views'</span><span class="p">));</span><span class="c1">//__dirname表示目录所在的绝对路径，以我的为例是，C:\Users\timi\node-vscode\inaction\express-test\myblog</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'view engine'</span><span class="p">,</span> <span class="s1">'pug'</span><span class="p">);</span>  <span class="c1">//使用Pug作为模板引擎</span>
+
+<span class="c1">// uncomment after placing your favicon in /public</span>
+<span class="c1">//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));  //设置favicon.ico图标，如果有的话，取消这句的注释</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">logger</span><span class="p">(</span><span class="s1">'dev'</span><span class="p">));</span>                 <span class="c1">//日志显示，可替换的参数有combined、common、dev、short、tiny。具体参见: https://www.npmjs.com/package/morgan</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">());</span>             <span class="c1">//只解析json并只查看Content-Type满足type的请求。具体参见: https://www.npmjs.com/package/body-parser#bodyparserjsonoptions</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="na">extended</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}));</span>    <span class="c1">//只解析URL-encoded bodies。具体参见: https://www.npmjs.com/package/body-parser#bodyparserurlencodedoptions</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cookieParser</span><span class="p">());</span>    <span class="c1">//cookie解析</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'public'</span><span class="p">)));</span>    <span class="c1">//Express唯一的内建的中间件，用来提供静态文件，都放在public文件中，具体参看Express API</span>
+
+<span class="c1">//路由处理</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="nx">index</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/users'</span><span class="p">,</span> <span class="nx">users</span><span class="p">);</span>
+
+<span class="c1">// catch 404 and forward to error handler</span>
+<span class="c1">//如果没有静态文件，没有找到被路由处理的文件，则交给它来处理。</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">err</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s1">'Not Found'</span><span class="p">);</span>
+  <span class="nx">err</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="mi">404</span><span class="p">;</span>
+  <span class="nx">next</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// error handler</span>
+<span class="c1">//差错控制中间件</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// set locals, only providing error in development</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">locals</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">err</span><span class="p">.</span><span class="nx">message</span><span class="p">;</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">locals</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'env'</span><span class="p">)</span> <span class="o">===</span> <span class="s1">'development'</span> <span class="p">?</span> <span class="nx">err</span> <span class="p">:</span> <span class="p">{};</span>
+
+  <span class="c1">// render the error page</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">status</span> <span class="o">||</span> <span class="mi">500</span><span class="p">);</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'error'</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">app</span><span class="p">;</span>
+
+</code></pre></div></div>
+
+<p>请对照我们在Connect这一节中的第一个图，Express应用使用中间件的顺序和图是一致的。比如，浏览器请求静态文件。服务器收到请求，将它传递给<code class="highlighter-rouge">favicon</code>中间件，然后交由<code class="highlighter-rouge">logger</code>中间件，如果有，请求体就会被解析，然后用静态文件进行响应。如果没有，就交由差错控制中间件。</p>
+
+<p>上面这个文件涵盖了大部分的Express的内容。所以我们需要对上面的几个关键概念进行阐述。</p>
+
+<h3 id="路由">路由</h3>
+
+<p>路由指的是一个由<code class="highlighter-rouge">URL</code>或者<code class="highlighter-rouge">path</code>和<code class="highlighter-rouge">HTTP request method</code>，用来响应客户端对某个站点的访问。</p>
+
+<blockquote>
+  <p>简而言之，它会把请求URL映射到实际业务逻辑的函数上</p>
+</blockquote>
+
+<p>路由定义由如下的结构:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">METHOD</span><span class="p">(</span><span class="nx">PATH</span><span class="p">,</span> <span class="nx">HANDLER</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>其中，<code class="highlighter-rouge">app</code>是<code class="highlighter-rouge">express</code>的实例。<code class="highlighter-rouge">METHOD</code>是<code class="highlighter-rouge">HTTP request method(get/post/head/put/delete...)</code>。<code class="highlighter-rouge">PATH</code>是服务器上的地址。<code class="highlighter-rouge">HANDLE</code>是路由匹配到时的执行函数，可以有多个。</p>
+
+<p>下面时一个基本的路由例子:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Hello World!'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h4 id="route-methods">Route methods</h4>
+
+<p>Express支持所有的<code class="highlighter-rouge">HTTP methods</code>: get, post, put, head, delete, options, trace, copy, lock, mkcol, move, purge, propfind, proppatch, unlock, report, mkactivity, checkout, merge, m-search, notify, subscribe, unsubscribe, patch, search, and connect.</p>
+
+<p>有一个特殊的Route method是<code class="highlighter-rouge">app.all()</code>，用来为所有的<code class="highlighter-rouge">request methods</code>加载中间件。</p>
+
+<h4 id="route-paths">Route paths</h4>
+
+<p>Route paths可以是字符串、字符串模式或者正则表达式。</p>
+
+<h4 id="route-handlers">Route handlers</h4>
+
+<p>Route handlers可以像中间件一样使用多个回调函数。一个例外是这些回调函数可能会调用<code class="highlighter-rouge">next()</code>来跳过剩下的路由回调函数。</p>
+
+<p>响应对象(<code class="highlighter-rouge">res</code>)能发送响应给客户端，并终止<code class="highlighter-rouge">request-response cycle</code>。<code class="highlighter-rouge">res</code>对象的方法有:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">res.download()</code> : 提供可供下载的文件</li>
+  <li><code class="highlighter-rouge">res.end()</code> : 结束响应</li>
+  <li><code class="highlighter-rouge">res.json()</code> : 发送一个JSON响应</li>
+  <li><code class="highlighter-rouge">res.jsonp()</code> : 发送一个JSONP支持的JSON响应</li>
+  <li><code class="highlighter-rouge">res.redirect()</code> : 重定向一个请求</li>
+  <li><code class="highlighter-rouge">res.render()</code> : 渲染一个模板视图</li>
+  <li><code class="highlighter-rouge">res.send()</code> : 发送一个多类型的响应</li>
+  <li><code class="highlighter-rouge">res.sendFile()</code> : 以八字节发送一个文件</li>
+  <li><code class="highlighter-rouge">res.sendStatus()</code> : 发送响应状态字</li>
+</ul>
+
+<blockquote>
+  <p>如果上述方法没有一个被调用，则客户端请求被悬挂。</p>
+</blockquote>
+
+<h4 id="approute">app.route()</h4>
+
+<p>通过<code class="highlighter-rouge">app.route()</code>，我们可以创建一个<strong>链式的route handlers</strong>，这样可以避免很多冗余。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">route</span><span class="p">(</span><span class="s1">'/book'</span><span class="p">)</span>
+  <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Get a random book'</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Add a book'</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Update the book'</span><span class="p">)</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+
+<h4 id="expressrouter">express.Router</h4>
+
+<p><code class="highlighter-rouge">express.Router</code>类可以创建<strong>模块化的，可挂载的route handlers</strong>，一个Router实例完全就是一个中间件和路由系统。</p>
+
+<p>举例，我们创建一个路由文件<code class="highlighter-rouge">birds.js</code>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//birds.js</span>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">router</span> <span class="o">=</span> <span class="nx">express</span><span class="p">.</span><span class="nx">Router</span><span class="p">()</span>
+
+<span class="c1">// middleware that is specific to this router</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span> <span class="nx">timeLog</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Time: '</span><span class="p">,</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">())</span>
+  <span class="nx">next</span><span class="p">()</span>
+<span class="p">})</span>
+<span class="c1">// define the home page route</span>
+<span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'Birds home page'</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="c1">// define the about route</span>
+<span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/about'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'About birds'</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">router</span>
+</code></pre></div></div>
+
+<p>然后，我们在主文件<code class="highlighter-rouge">app.js</code>中加载这个路由模块。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//app.js</span>
+<span class="kd">var</span> <span class="nx">birds</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./birds'</span><span class="p">)</span>
+<span class="c1">// ...</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/birds'</span><span class="p">,</span> <span class="nx">birds</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>这样，服务器就能响应客户端的<code class="highlighter-rouge">/birds</code>和<code class="highlighter-rouge">/birds/about</code>，并调用<code class="highlighter-rouge">timeLog</code>中间件。</p>
+
+<hr />
+
+<h2 id="遇到的bug">遇到的Bug</h2>
+
+<h3 id="refusing-to-install-xxx-as-a-dependency-of-itself">Refusing to install xxx as a dependency of itself</h3>
+
+<p>原因是安装的依赖包和项目名称有冲突，可以在<code class="highlighter-rouge">package.json</code>中修改<code class="highlighter-rouge">name</code>属性。</p>
+
+<h3 id="如何使用express命令行工具">如何使用Express命令行工具</h3>
+
+<p>在最新的<code class="highlighter-rouge">4.x</code>版本中，<code class="highlighter-rouge">express generator</code>从<code class="highlighter-rouge">express core</code>中独立出来，需要另外安装。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install express-generator
+</code></pre></div></div>
+
+<h3 id="error-cant-set-headers-after-they-are-sent-to-the-client">Error: Can’t set headers after they are sent to the client</h3>
+
+<blockquote>
+  <p>callback twice was my issue.</p>
+</blockquote>
+
+<p>参见<a href="https://stackoverflow.com/questions/7042340/error-cant-set-headers-after-they-are-sent-to-the-client"><code class="highlighter-rouge">stackflow</code></a></p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

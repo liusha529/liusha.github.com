@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>css的利器：使用Sass样式</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>css的利器：使用Sass样式</h1>
+		    <p>Post on Apr 25, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#Sass-ref">Sass</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">css的利器：使用Sass样式</h1>
+              <!--
+                <p class="post-meta">Apr 25, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Apr 25, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#安装sass" id="markdown-toc-安装sass">安装Sass</a></li>
+  <li><a href="#使用sass编译命令" id="markdown-toc-使用sass编译命令">使用Sass编译命令</a></li>
+  <li><a href="#sass变量" id="markdown-toc-sass变量">Sass变量</a></li>
+  <li><a href="#嵌套选择符" id="markdown-toc-嵌套选择符">嵌套选择符</a>    <ul>
+      <li><a href="#注意伪元素" id="markdown-toc-注意伪元素">注意伪元素</a></li>
+    </ul>
+  </li>
+  <li><a href="#扩展" id="markdown-toc-扩展">扩展</a>    <ul>
+      <li><a href="#使用占位符" id="markdown-toc-使用占位符">使用占位符</a></li>
+    </ul>
+  </li>
+  <li><a href="#mixin-混入" id="markdown-toc-mixin-混入">Mixin 混入</a></li>
+</ul>
+
+<p><code class="highlighter-rouge">Sass</code>是怎么来的？我是这样理解的，有那么一群进入前端领域的攻城狮，发现<code class="highlighter-rouge">css</code>竟然不是程序语言，那怎么在其他前端攻城狮面前装逼呢？那能不能让<code class="highlighter-rouge">css</code>能听懂程序语言的指令呢？然后呢，他们就整了一套<code class="highlighter-rouge">css</code>预处理器，把编程的语法引入进来，然后美言之：<code class="highlighter-rouge">less is more</code>。</p>
+
+<p><code class="highlighter-rouge">Sass</code>更让人寻味的地方是它处理的是<code class="highlighter-rouge">.scss</code>文件。为什么不把后缀名改成<code class="highlighter-rouge">.sass</code>呢？</p>
+
+<p>下面是<code class="highlighter-rouge">Sass</code>的网络资源：</p>
+
+<ul>
+  <li>其一当然是官方网站：<a href="http://sass-lang.com/">http://sass-lang.com/</a></li>
+  <li>官方参考文档： <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html">http://sass-lang.com/documentation/file.SASS_REFERENCE.html</a></li>
+</ul>
+
+<p>现在，让我们开始<code class="highlighter-rouge">Sass</code>的旅途。</p>
+
+<!-- more -->
+
+<h2 id="安装sass">安装Sass</h2>
+
+<p><code class="highlighter-rouge">Sass</code>最初是使用<code class="highlighter-rouge">Ruby</code>编程语言开发的，所以我们需要安装<code class="highlighter-rouge">Ruby</code>，访问<a href="http://www.ruby-lang.org/en/downloads/">http://www.ruby-lang.org/en/downloads/</a>来下载。同时我们需要下载<code class="highlighter-rouge">Ruby</code>的包管理工具<code class="highlighter-rouge">gem</code>，访问<a href="https://rubygems.org/pages/download">https://rubygems.org/pages/download</a>来进行下载。</p>
+
+<p>之后，输入</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install sass
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="使用sass编译命令">使用Sass编译命令</h2>
+
+<p>当然我们想实时看到编译的效果，所以我们使用<code class="highlighter-rouge">--watch</code>命令。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sass --watch &lt;存放.scss的文件夹&gt;:css
+</code></pre></div></div>
+
+<p>这个命令启动<code class="highlighter-rouge">Sass</code>预处理器，寻找<code class="highlighter-rouge">&lt;存放.scss的文件夹&gt;</code>中所有扩展名为<code class="highlighter-rouge">.scss</code>的文件夹，任何改动的结果都会存放到<code class="highlighter-rouge">css</code>文件中。</p>
+
+<p>如果想得到压缩的<code class="highlighter-rouge">.css</code>文件，操作是：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sass --watch &lt;存放.scss的文件夹&gt;:css --type compressed
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="local">使用Sass组织局部文件</h2>
+
+<p>通常，一个网站可能会要使用大量<code class="highlighter-rouge">css</code>，所以把所有<code class="highlighter-rouge">css</code>放在一个<code class="highlighter-rouge">.css</code>文件中是不方便开发者的。但如果将其分离成多个易于管理的小文件，则访客就要使用更多的时间请求来下载文件，所以这也是不建议的做法。</p>
+
+<p>没错，<code class="highlighter-rouge">Sass</code>能兼顾这两个方面。比如，我们按照一定的逻辑，把<code class="highlighter-rouge">Sass</code>规则分成多个文件，然后，让<code class="highlighter-rouge">Sass</code>预处理器把这些文件编译成一个<code class="highlighter-rouge">.css</code>文件。是不是很棒。它是怎么做到的呢？</p>
+
+<p>这些独立的文件，<code class="highlighter-rouge">Sass</code>称为<em>局部文件</em>，这种文件的名称和用法有特别之处，为了不让<code class="highlighter-rouge">Sass</code>预处理器把局部文件转换成单独的<code class="highlighter-rouge">.css</code>文件，局部文件的名称<strong>必须</strong>以下划线<code class="highlighter-rouge">(_)</code>开头。</p>
+
+<p>有设计师提供了一种基本的<code class="highlighter-rouge">Sass</code>文件夹结构：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>│  styles.scss          #Sass主文件
+│
+├─helpers               #特殊的Sass文件
+│      _mixins.scss
+│      _variables.scss
+├─base                  #项目的基础文件
+│      _grid.scss
+│      _reset.scss
+│      _typography.scss
+│
+├─layout                #装饰页面各个区域的文件
+|       _footer.scss
+|       _forms.scss
+|       _header.scss
+|       _sidebar.scss
+│
+└─components            #UI组件的文件
+       _buttons.scss
+       _dropdown.scss
+       _navigation.scss
+</code></pre></div></div>
+
+<p>由于文件中样式的顺序对层叠规则有影响，所以我们一般在<code class="highlighter-rouge">styles.scss</code>文件中这样引入：</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@import</span> <span class="s1">'helpers/variables'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'helpers/mixins'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'base/reset'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'base/grid'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'base/typography'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'layout/header'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'layout/footer'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'layout/sidebar'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'layout/forms'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'components/buttons'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'components/dropdown'</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s1">'components/navigtion'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>因为<code class="highlighter-rouge">Sass</code>处理局部文件超智能，所以我们可以省略后缀和<code class="highlighter-rouge">_</code>。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="sass变量">Sass变量</h2>
+
+<p>在<code class="highlighter-rouge">Sass</code>中，变量的名称以<code class="highlighter-rouge">$</code>开头。为变量赋值的方法是：在变量名后加英文<code class="highlighter-rouge">:</code>号。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*variables of colors*/</span>
+<span class="nv">$blue</span><span class="p">:</span> <span class="mh">#092B40</span><span class="p">;</span>
+<span class="nv">$lightBlue</span><span class="p">:</span> <span class="mh">#85DEF2</span><span class="p">;</span>
+<span class="nv">$water</span><span class="p">:</span> <span class="mh">#52A5D9</span><span class="p">;</span>
+<span class="nv">$sky</span><span class="p">:</span> <span class="mh">#5BB5D9</span><span class="p">;</span>
+<span class="nv">$orange</span><span class="p">:</span> <span class="mh">#D96F32</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>当然，不止是颜色，你可以大胆发挥自己的想象。</p>
+
+<p>有了变量之后，我们这样使用它。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">html</span> <span class="p">{</span>
+<span class="nl">background-color</span><span class="p">:</span> <span class="nv">$blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>变量之间的计算，也大胆地交给<code class="highlighter-rouge">Sass</code>来做吧。</p>
+
+<hr />
+
+<h2 id="嵌套选择符">嵌套选择符</h2>
+
+<p>在<code class="highlighter-rouge">css</code>中的后代选择器由多个选择器组成，来表示嵌套。如果你使用了<code class="highlighter-rouge">Sass</code>，就不必这么麻烦了。</p>
+
+<p>举例：</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.nav</span> <span class="p">{</span>
+    <span class="nt">display</span><span class="nd">:flex</span><span class="p">;</span>
+    <span class="cm">/*content*/</span>
+    <span class="nt">li</span> <span class="p">{</span>
+        <span class="nl">width</span><span class="p">:</span><span class="m">30%</span><span class="p">;</span>
+        <span class="cm">/*content*/</span>
+    <span class="p">}</span>
+    <span class="nt">a</span> <span class="p">{</span>
+        <span class="nt">text-decoration</span><span class="nd">:none</span><span class="p">;</span>
+        <span class="cm">/*content*/</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面的例子中，<code class="highlighter-rouge">.nav</code>样式中嵌套了<code class="highlighter-rouge">li</code>和<code class="highlighter-rouge">a</code>，其表现和后代选择器<code class="highlighter-rouge">.nav li</code>和<code class="highlighter-rouge">.nav a</code>是一致的。</p>
+
+<h3 id="注意伪元素">注意伪元素</h3>
+
+<p>如果像创建的不是后代选择器，而是伪类，<code class="highlighter-rouge">Sass</code>同样有办法：就是在伪类前加上<code class="highlighter-rouge">&amp;</code>符号。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+    <span class="nt">color</span><span class="nd">:blue</span><span class="p">;</span>
+    <span class="k">&amp;</span><span class="nd">:hover</span> <span class="p">{</span>
+        <span class="nt">color</span><span class="nd">:green</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面的<code class="highlighter-rouge">.scss</code>编译成<code class="highlighter-rouge">.css</code>文件就是：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">a</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">a</span><span class="nd">:hover</span> <span class="p">{</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">green</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>在这个过程中<code class="highlighter-rouge">Sass</code>把<code class="highlighter-rouge">&amp;</code>符号直接替换成父辈选择器的名称。只是简单的替换而已，所以也有其他的用法可以发掘。</p>
+
+<hr />
+
+<h2 id="扩展">扩展</h2>
+
+<p>比如说，我们有多个选择器想应用同一种样式，当然，这些选择器不是父子的关系，否则我们直接用嵌套就好了。为了这个需求，<code class="highlighter-rouge">Sass</code>就引入了<code class="highlighter-rouge">@extend</code>指令。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s2">"Raleway"</span><span class="o">,</span><span class="n">Arial</span><span class="o">,</span><span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="mh">#222</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nt">h1</span><span class="p">;</span>
+    <span class="nl">border-top</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="mh">#444</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>上面的<code class="highlighter-rouge">.scss</code>编译成<code class="highlighter-rouge">.css</code>文件就是：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span><span class="o">,</span> <span class="nt">h2</span> <span class="p">{</span>
+    <span class="nl">font-family</span><span class="p">:</span> <span class="s1">"Raleway"</span><span class="p">,</span><span class="n">Arial</span><span class="p">,</span><span class="nb">sans-serif</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="m">#222</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">h2</span> <span class="p">{</span>
+    <span class="nl">border-top</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="m">#444</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">@extend</code>指令可以放在任何位置，但我们一般放在其他属性之前，更容易显而易见。</p>
+
+<h3 id="使用占位符">使用占位符</h3>
+
+<p><code class="highlighter-rouge">@extend</code>是霸道总裁，因为它不仅会扩展指定的选择器，还会扩展引用了那个选择器的其他样式。所以我们使用它的时候需要小心。</p>
+
+<p><code class="highlighter-rouge">Sass</code>引入<code class="highlighter-rouge">%</code>符号来解决这个问题，来用作其他样式基底的样式。</p>
+
+<p>所以我们通常的做法是，用<code class="highlighter-rouge">%</code>表示一个基底样式，用作其他选择器的引入。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">%btn</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.btn-order</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nv">%btn</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+    <span class="nt">color</span><span class="nd">:white</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.btn-delete</span> <span class="p">{</span>
+    <span class="k">@extend</span> <span class="nv">%btn</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nt">color</span><span class="nd">:white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">%btn{}</code>当然是可以放在任何位置的。</p>
+</blockquote>
+
+<p>上面的<code class="highlighter-rouge">.scss</code>编译成<code class="highlighter-rouge">.css</code>文件就是：</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.btn</span><span class="o">,</span> <span class="nc">.btn-order</span><span class="o">,</span> <span class="nc">.btn-delete</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="n">inline-block</span><span class="p">;</span>
+    <span class="nl">padding</span><span class="p">:</span> <span class="m">1em</span><span class="p">;</span>
+    <span class="nl">border-radius</span><span class="p">:</span> <span class="m">3px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.btn-order</span> <span class="p">{</span>
+    <span class="err">@extend</span> <span class="err">%btn;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">white</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.btn-delete</span> <span class="p">{</span>
+    <span class="err">@extend</span> <span class="err">%btn;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">red</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span><span class="no">white</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>这当然也是一个很棒的设计。</p>
+
+<hr />
+
+<h2 id="mixin-混入">Mixin 混入</h2>
+
+<p>我的理解是，<code class="highlighter-rouge">Mixin</code>类似于<code class="highlighter-rouge">Word</code>里的<em>宏</em>指令，可以帮你执行很多操作的小型程序代码片段。一个很单纯的作用就是，我们编写<code class="highlighter-rouge">css</code>的时候，有些元素是需要提供厂商前缀的，如果你每个厂商前缀都敲出来，是不是很累。<code class="highlighter-rouge">Mixin</code>就可以帮你干这个事，利用可重用的代码来解放你的双手。</p>
+
+<p>比如，我们经常需要使用厂商前缀的弹性盒。我们<code class="highlighter-rouge">Mixin</code>一段可重用的代码(也许不是这样称呼，但我喜欢)。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">flex</span> <span class="p">{</span>
+    <span class="nl">display</span><span class="p">:</span> <span class="o">-</span><span class="n">webkit-flex</span><span class="p">;</span>
+    <span class="nt">display</span><span class="nd">:flex</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这个代码片段其实跟变量一样，可以放在局部文件中。<a href="#local">见上面的组织局部文件</a>。</p>
+</blockquote>
+
+<p>使用这个<code class="highlighter-rouge">Mixin</code>的方式是：在<code class="highlighter-rouge">@include</code>指令后写上混入的名称。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">flex</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span><span class="mh">#444</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>哦！厉害了。但是我们会这样去添加厂商前缀吗？当然不会，有人给我们做好这一切，比如<code class="highlighter-rouge">autoprefixer</code>。</p>
+
+<p>但是，<code class="highlighter-rouge">Mixin</code>的厉害之处不仅仅于此。某种情况下，你甚至可以把<code class="highlighter-rouge">Mixin</code>看成一个函数。比如，我们像创建一个混入，让它接受四个字体属性。</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">@mixin</span> <span class="nf">text</span> <span class="p">(</span><span class="nv">$size</span><span class="o">:</span><span class="m">1em</span><span class="o">,</span> <span class="o">&amp;</span><span class="n">line-height</span><span class="o">:</span><span class="n">null</span><span class="o">,</span> <span class="nv">$weight</span><span class="o">:</span><span class="n">null</span><span class="o">,</span> <span class="nv">$color</span><span class="o">:</span><span class="n">null</span><span class="p">){</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="nv">$size</span>
+    <span class="n">line-height</span><span class="o">:</span> <span class="nv">$line-height</span><span class="p">;</span>
+    <span class="nl">font-weight</span><span class="p">:</span> <span class="nv">$weight</span><span class="p">;</span>
+    <span class="nl">color</span><span class="p">:</span> <span class="nv">$color</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cm">/*使用这个Mixin*/</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">text</span> <span class="p">(</span><span class="m">1</span><span class="mi">.25em</span><span class="o">,</span><span class="m">1</span><span class="mi">.2</span><span class="o">,</span><span class="nb">bold</span><span class="o">,</span><span class="mh">#FF0000</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*
+*只想设置font-size 和 line-weight的值
+*null即表示参数是可选的
+* $size: 1em，则是为形参设定默认值*/</span>
+
+<span class="nt">h2</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">text</span> <span class="p">(</span><span class="m">1em</span><span class="o">,</span><span class="m">1</span><span class="mi">.2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="cm">/*我们只想明确font-size 和 color的值*/</span>
+
+<span class="nt">h3</span> <span class="p">{</span>
+    <span class="k">@include</span> <span class="nd">text</span> <span class="p">(</span><span class="m">1em</span><span class="o">,</span><span class="nv">$color</span><span class="o">:</span><span class="no">red</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>此外，还可以为媒体查询提供<code class="highlighter-rouge">Mixin</code>，所以能用上混入的地方真是不胜枚举。</p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

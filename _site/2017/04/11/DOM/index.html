@@ -1,0 +1,1542 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>再来仔细研究DOM</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>再来仔细研究DOM</h1>
+		    <p>Post on Apr 11, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#DOM-ref">DOM</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">再来仔细研究DOM</h1>
+              <!--
+                <p class="post-meta">Apr 11, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Apr 11, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#node-类型" id="markdown-toc-node-类型">Node 类型</a>    <ul>
+      <li><a href="#有关节点类型的属性" id="markdown-toc-有关节点类型的属性">有关节点类型的属性</a></li>
+      <li><a href="#有关节点关系的属性" id="markdown-toc-有关节点关系的属性">有关节点关系的属性</a></li>
+      <li><a href="#节点的操作" id="markdown-toc-节点的操作">节点的操作</a></li>
+    </ul>
+  </li>
+  <li><a href="#document-节点" id="markdown-toc-document-节点">Document 节点</a>    <ul>
+      <li><a href="#文档子节点" id="markdown-toc-文档子节点">文档子节点</a></li>
+      <li><a href="#文档信息" id="markdown-toc-文档信息">文档信息</a></li>
+      <li><a href="#取得元素的方法" id="markdown-toc-取得元素的方法">取得元素的方法</a></li>
+      <li><a href="#特殊集合" id="markdown-toc-特殊集合">特殊集合</a></li>
+    </ul>
+  </li>
+  <li><a href="#element-节点" id="markdown-toc-element-节点">Element 节点</a>    <ul>
+      <li><a href="#常见的-element-节点属性" id="markdown-toc-常见的-element-节点属性">常见的 Element 节点属性</a></li>
+      <li><a href="#有关特性的方法" id="markdown-toc-有关特性的方法">有关特性的方法</a></li>
+      <li><a href="#attributes-属性" id="markdown-toc-attributes-属性">attributes 属性</a></li>
+      <li><a href="#创建元素" id="markdown-toc-创建元素">创建元素</a></li>
+    </ul>
+  </li>
+  <li><a href="#文本节点" id="markdown-toc-文本节点">文本节点</a>    <ul>
+      <li><a href="#创建文本节点" id="markdown-toc-创建文本节点">创建文本节点</a></li>
+      <li><a href="#normalize-和-splittext-方法" id="markdown-toc-normalize-和-splittext-方法">normalize() 和 splitText() 方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#属性特性节点" id="markdown-toc-属性特性节点">属性(特性)节点</a></li>
+  <li><a href="#dom-扩展" id="markdown-toc-dom-扩展">DOM 扩展</a>    <ul>
+      <li><a href="#selectors-api" id="markdown-toc-selectors-api">Selectors API</a></li>
+      <li><a href="#element-traversal-api" id="markdown-toc-element-traversal-api">Element Traversal API</a></li>
+      <li><a href="#html5-扩充" id="markdown-toc-html5-扩充">HTML5 扩充</a>        <ul>
+          <li><a href="#和-class-属性相关的扩充" id="markdown-toc-和-class-属性相关的扩充">和 class 属性相关的扩充</a></li>
+          <li><a href="#焦点管理" id="markdown-toc-焦点管理">焦点管理</a></li>
+          <li><a href="#其他新增属性" id="markdown-toc-其他新增属性">其他新增属性</a></li>
+        </ul>
+      </li>
+      <li><a href="#专有扩展" id="markdown-toc-专有扩展">专有扩展</a>        <ul>
+          <li><a href="#children-属性" id="markdown-toc-children-属性">children 属性</a></li>
+        </ul>
+      </li>
+      <li><a href="#contains-方法" id="markdown-toc-contains-方法">contains 方法</a></li>
+      <li><a href="#innertext-属性和-outertext-属性" id="markdown-toc-innertext-属性和-outertext-属性">innerText 属性和 outerText 属性</a></li>
+    </ul>
+  </li>
+  <li><a href="#注意的几点" id="markdown-toc-注意的几点">注意的几点</a>    <ul>
+      <li><a href="#nodelisthtmlcollectionnamednodemap" id="markdown-toc-nodelisthtmlcollectionnamednodemap">NodeList/HTMLCollection/NamedNodeMap</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>之前，我们是通过«JavaScript DOM编程艺术»这本书来学习原生的 JavaScript DOM 编程。这里呢，想更加具体地将这些方法和属性都罗列出来。</p>
+
+<p>首先，理解节点(node)的概念。DOM 树其实就是一棵节点树，节点分为多种不同的类型。</p>
+
+<!-- more -->
+
+<h2 id="node-类型">Node 类型</h2>
+
+<h3 id="有关节点类型的属性">有关节点类型的属性</h3>
+
+<p>Node 是一个基本类型，是一个抽象的接口。其他所有的节点类型都继承自这个 Node 类型。所以<strong>对于每个节点</strong>，都有一个 <code class="highlighter-rouge">nodeType</code> 属性，用于表明节点类型。比较常用的就是以下两种：</p>
+
+<ul>
+  <li>Node.ELEMENT_NODE(1) 元素节点</li>
+  <li>Node.TEXT_NODE(3) 文本节点</li>
+</ul>
+
+<blockquote>
+  <p>注意，属性节点已经被spec废置了(因为确实没啥用)，详见<a href="https://www.w3.org/TR/2015/REC-dom-20151119/#interface-node">W3C DOM4</a></p>
+</blockquote>
+
+<p>除此之外，每个节点还有 <code class="highlighter-rouge">nodeName</code> 和 <code class="highlighter-rouge">nodeValue</code> 属性。前者会返回符合其类型的字符串，后者返回节点的值。比如:</p>
+
+<ul>
+  <li>如果是元素节点，<code class="highlighter-rouge">nodeName</code> 返回大写的标签名， <code class="highlighter-rouge">nodeValue</code> 永远返回 <code class="highlighter-rouge">null</code>;</li>
+  <li>如果是文本节点，<code class="highlighter-rouge">nodeName</code> 返回 <code class="highlighter-rouge">"#text"</code>, <code class="highlighter-rouge">nodeValue</code> 返回文本内容。</li>
+</ul>
+
+<h3 id="有关节点关系的属性">有关节点关系的属性</h3>
+
+<p>每个节点都有一个 <code class="highlighter-rouge">childNodes</code> 属性，其中保存一个 <code class="highlighter-rouge">NodeList</code> 对象，是一个类数组，用于保存一组有序的节点(还有个 HTMLCollection 对象，保存一组元素节点)。比如:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"main-wrapper"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"deleteItem"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"items"</span><span class="nt">&gt;</span>Yuer<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"items"</span><span class="nt">&gt;</span>Maoxiaoke<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"items"</span><span class="nt">&gt;</span>I Love you<span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+      <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'div'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">childNodes</span><span class="p">;</span> <span class="c1">//[text, ul.deleteItem, text]，其中 text 节点的 nodeValue 是""</span>
+      <span class="kd">var</span> <span class="nx">ul</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">childNodes</span><span class="p">;</span> <span class="c1">//[text, li.items, text, li.items, text, li.items, text]</span>
+      <span class="kd">var</span> <span class="nx">liValue1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'li'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">childNodes</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">nodeValue</span><span class="p">;</span> <span class="c1">// "Yuer"</span>
+      <span class="kd">var</span> <span class="nx">liValue2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'li'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">innerHTML</span><span class="p">;</span> <span class="c1">// "Yuer"</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>注意1. childNodes 属性获取的是<em>直接</em>子节点。
+注意2. 并非所有的空白都会变成文本节点</p>
+</blockquote>
+
+<p>举个栗子：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">class=</span><span class="s">e</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;head&gt;&lt;title&gt;</span>Aliens?<span class="nt">&lt;/title&gt;&lt;/head&gt;</span>
+ <span class="nt">&lt;body&gt;</span>Why yes.<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>节点树如下：</p>
+
+<p><img src="/styles/images/dom/nodetree.png" alt="nodeTree" /></p>
+
+<p>这个网址<a href="http://software.hixie.ch/utilities/js/live-dom-viewer/#">Live DOM Viewer</a>提供在线的 DOM Tree 查看。</p>
+
+<blockquote>
+  <p>如果让 IE 来解析解析这些代码，可能又是另一种情况了: 空白符的文本节点可能并不会计算在内。所以由于浏览器之间的这种差别，在执行某项操作之前，通常都要先检查以下 nodeType 的属性。</p>
+</blockquote>
+
+<p>每个节点都有一个 <code class="highlighter-rouge">parentNode</code> 属性，指向 DOM 树的父节点。<code class="highlighter-rouge">previousSibling</code> 属性指向前向节点，<code class="highlighter-rouge">nextSibling</code> 属性指向后向节点。<code class="highlighter-rouge">firstChild</code>指向第一个子节点，<code class="highlighter-rouge">lastChild</code>指向最后一个子节点。当然了，如果上述节点的属性没有指向，那都指向 <code class="highlighter-rouge">null</code>。</p>
+
+<p>所有节点还有一个 <code class="highlighter-rouge">ownerDocument</code> 属性，该属性指向表示整个文档的文档节点(DOCUMENT_NODE)，也就是 <code class="highlighter-rouge">Document</code>，nodeName 是 <code class="highlighter-rouge">"#document"</code>，nodeType 是 <code class="highlighter-rouge">9</code>。</p>
+
+<h3 id="节点的操作">节点的操作</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">appendChild(node)</code> 向 childNodes 列表末尾添加一个节点，返回新增节点。</li>
+  <li><code class="highlighter-rouge">insertBefore(node, child)</code> 方法接收两个参数: 要插入的节点和作为参照的节点，要插入的节点插入到参照节点的前面，返回新增节点</li>
+  <li><code class="highlighter-rouge">removeChild(node)</code> 移除节点，返回移除节点</li>
+  <li><code class="highlighter-rouge">replaceChild(node, child)</code> 方法接收两个参数: 要插入的节点和要替换的节点</li>
+</ul>
+
+<p>以上这四种方法必须先取得父节点(比如，使用 parentNode 属性)。另外，并不是所有类型都有子节点，如果在不支持子节点的节点上调用这些方法，将会导致错误。</p>
+
+<p>下面的这两个方法是所有类型的节点都有的。</p>
+<ul>
+  <li><code class="highlighter-rouge">cloneNode(boolean)</code> 接收一个布尔值，true 表示深复制；false 表示浅复制。</li>
+  <li><code class="highlighter-rouge">normalize()</code> 这个方法的唯一作用是处理文档树中的文本节点。</li>
+</ul>
+
+<hr />
+
+<h2 id="document-节点">Document 节点</h2>
+
+<p>Document 类型表示文档。在浏览器中，document 对象是 HTMLDocument (继承自 Document 类型)的一个实例，表示整个 HTML 文档。 而且，document 对象是 window 对象的一个属性，因此可以将其作为全局对象来访问。</p>
+
+<p>上面我们说到，节点的 <code class="highlighter-rouge">ownerDocument</code> 属性指向 Document 节点，nodeName 是 <code class="highlighter-rouge">"#document"</code>，nodeType 是 <code class="highlighter-rouge">9</code>，nodeValue 是 <code class="highlighter-rouge">null</code>，parentNode 是 <code class="highlighter-rouge">null</code>，ownerDocument 是 <code class="highlighter-rouge">null</code>。</p>
+
+<h3 id="文档子节点">文档子节点</h3>
+
+<p>有两个内置的方法访问其子节点的快捷方式。</p>
+<ul>
+  <li><code class="highlighter-rouge">documentElement</code> 属性，这个属性始终指向 HTML页面的 <code class="highlighter-rouge"><span class="nt">&lt;html&gt;</span></code> 的元素。当然，也可以通过 childNodes列表来访问。</li>
+  <li><code class="highlighter-rouge">body</code> 属性，直接指向 <code class="highlighter-rouge">&lt;body&gt;</code> 元素</li>
+</ul>
+
+<h3 id="文档信息">文档信息</h3>
+
+<p>作为 HTMLDocument 的一个实例，document 对象还有一些标准的 Document 对象所没有的属性。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">title</code> 属性，取得当前页面的标题</li>
+  <li><code class="highlighter-rouge">URL</code> 属性，取得页面完整的 URL</li>
+  <li><code class="highlighter-rouge">domain</code> 属性，只包含页面的域名</li>
+  <li><code class="highlighter-rouge">referrer</code> 属性，保存着链接到当前页面的那个页面的 URL</li>
+</ul>
+
+<h3 id="取得元素的方法">取得元素的方法</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">getElementById(id)</code> 接收元素的 id，如果页面中有多个 ID 值相同，只返回文档中第一次出现的元素</li>
+  <li><code class="highlighter-rouge">getElementsByTagName(tagName)</code> 接收要取得的元素的标签名，返回包含零或多个元素的 <code class="highlighter-rouge">HTMLCollection</code> 对象</li>
+  <li><code class="highlighter-rouge">getElementsByClassName(className)</code> 接收元素的属性名，返回零或多个元素 <code class="highlighter-rouge">HTMLCollection</code> 对象。这个方法是在 HTML5 中提出来的。</li>
+  <li><code class="highlighter-rouge">getElementsByName(name)</code> 接收元素的 name 特性，返回零或多个元素 <code class="highlighter-rouge">HTMLCollection</code> 对象。如果多个 name 特性的值相同，只返回第一个元素</li>
+</ul>
+
+<h3 id="特殊集合">特殊集合</h3>
+
+<p>除了属性和方法，document 对象还有一些特殊的集合。这些集合都是 HTMLCollection 对象，为访问文档常用的部分提供了快捷方式。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">document.anchors</code> 包含文档中所有带 name 特性的 <code class="highlighter-rouge">&lt;a&gt;</code> 元素</li>
+  <li><code class="highlighter-rouge">document.forms</code> 包含文档中所有 <code class="highlighter-rouge">&lt;form&gt;</code> 元素</li>
+  <li><code class="highlighter-rouge">document.images</code> 包含文档中所有 <code class="highlighter-rouge">&lt;img&gt;</code> 元素</li>
+  <li><code class="highlighter-rouge">document.links</code> 包含文档中所有带 href 特性的 <code class="highlighter-rouge">&lt;a&gt;</code> 元素</li>
+</ul>
+
+<hr />
+
+<h2 id="element-节点">Element 节点</h2>
+
+<p>Element 类型主要提供对元素标签名、子节点及特性的访问。</p>
+
+<p>Element 节点的 nodeType 是 1，nodeName 的值是元素标签名的<strong>大写形式</strong>，nodeValue 的值是 null。要访问元素的标签名，可以使用 nodeName属性，也可以使用 <code class="highlighter-rouge">tagName</code> 属性，两者的结果是一样的，后者只是为了表述更清晰。</p>
+
+<h3 id="常见的-element-节点属性">常见的 Element 节点属性</h3>
+
+<p>所有的 HTML 元素都由 HTMLElement 类型表示。<strong>所有的特性都是属性</strong>。有以下常见的属性：</p>
+<ul>
+  <li><code class="highlighter-rouge">id</code> 就是元素的 ID 标识符</li>
+  <li><code class="highlighter-rouge">className</code> 与元素的 class 特性对应</li>
+  <li><code class="highlighter-rouge">title</code></li>
+  <li><code class="highlighter-rouge">style</code> 与元素的 style 特性对应</li>
+</ul>
+
+<h3 id="有关特性的方法">有关特性的方法</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">getAttribute()</code> 获得特性值</li>
+  <li><code class="highlighter-rouge">setAttribute()</code> 设置特性，这个方法接收两个参数：要设置的特性名和值。</li>
+  <li><code class="highlighter-rouge">removeAttribute()</code> 彻底删除元素的特性</li>
+</ul>
+
+<p><code class="highlighter-rouge">getAttribute()</code> 其实大多数都可以直接由节点属性得到。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"myDiv"</span> <span class="na">class=</span><span class="s">"wrapper"</span> <span class="na">style=</span><span class="s">"color:red;background-color: yellow;"</span><span class="nt">&gt;</span>I Love Yuer<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"myDiv"</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">"id"</span><span class="p">);</span>  <span class="c1">//"myDiv"</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>  <span class="c1">//"myDiv"</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">"class"</span><span class="p">);</span>  <span class="c1">//"wrapper"，注意不是 className</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">className</span><span class="p">;</span>  <span class="c1">//"wrapper"</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">"style"</span><span class="p">);</span> <span class="c1">// "color:red;background-color: yellow;"</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">style</span><span class="p">;</span>  <span class="c1">//CSSStyleDeclaration</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>但有两类特殊的特性，虽然有对应的属性名，但属性的值与通过 <code class="highlighter-rouge">getAttribute()</code> 返回的值并不相同。一类是 style 属性，<code class="highlighter-rouge">getAttribute()</code> 返回 style 属性值的文本，而通过 <code class="highlighter-rouge">.style</code> 属性来访问则会返回一个对象。另一种就是就是 onclick 这样的事件处理函数。<code class="highlighter-rouge">getAttribute()</code> 相应代码的字符串，而访问 <code class="highlighter-rouge">.onclick</code> 属性则会返回一个函数。</p>
+
+<p><code class="highlighter-rouge">setAttribute()</code> 其实大多时候也可以直接由节点属性设置。比如:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">div</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="s2">"someOtherId"</span><span class="p">;</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"myDivClass"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>但是问题是，无法通过上面这个方式添加<strong>自定义属性</strong>。而 <code class="highlighter-rouge">setAttribute()</code> 是可以的。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">div</span><span class="p">.</span><span class="nx">myColor</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span> <span class="c1">//虽然为 div 添加了一个名为 myColor的属性，但大多数浏览器上，这个属性并不会变成特性。</span>
+</code></pre></div></div>
+
+<h3 id="attributes-属性">attributes 属性</h3>
+
+<p>attributes 属性中包含一个 <code class="highlighter-rouge">NamedNodeMap</code> 的对象，也是一个类数组。元素的每一个特性都保存在这个对象当中。有以下的方法：</p>
+<ul>
+  <li><code class="highlighter-rouge">getNamedItem(name)</code> 得到元素的特性</li>
+  <li><code class="highlighter-rouge">removeNamedItem(name)</code> 从列表中移除</li>
+  <li><code class="highlighter-rouge">setNamedItem(name)</code> 向列表中添加</li>
+  <li><code class="highlighter-rouge">item(pos)</code> 返回位于数字 pos 位置处的节点</li>
+</ul>
+
+<p>相比起前面 getAttribute() 等方法，上面这些方法并不方便，所以也很少使用。但是，<strong>如果向遍历元素的特性</strong>，attributes 属性倒是可以派上用场。</p>
+
+<h3 id="创建元素">创建元素</h3>
+
+<p>使用 <code class="highlighter-rouge">document.createElement(tagName)</code> 方法创建新元素。之后，还可以为此元素添加更多的特性。但是这个方法只是创建了新元素，新元素尚未被添加到文档树中，因此设置这些新特性不会影响浏览器的显示。所有最后，要使用 appenChild()、insertBefore() 或 replaceChild() 等方法。例如:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'div'</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"I Love Yuer"</span><span class="p">;</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">"lover"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+<span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">div</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="文本节点">文本节点</h2>
+
+<p>文本节点包含纯文本内容。纯文本中可以包含转义后的 HTML 字符，但不能包含 HTML 代码。</p>
+
+<p>Text 节点的 nodeType 是 3，nodeName 的值是 “#text”，nodeValue 的值为节点所包含的文本，没有子节点。要访问 Text 节点中的文本，可以通过 nodeValue 属性或 data 属性，这两个属性中包含的值相同。</p>
+
+<p>以下方法可以操作节点中的文本:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">apppendData(text)</code> 将 text 添加到节点的末尾</li>
+  <li><code class="highlighter-rouge">deleteData(offset, count)</code> 从 offset 指定的位置开始删除 count 个字符</li>
+  <li><code class="highlighter-rouge">insertData(offset, text)</code> 在 offset 指定的位置插入 text</li>
+  <li><code class="highlighter-rouge">repalceData(offset, count, text)</code> 用 text 替换从 offset 指定的位置开始到 offset + count 的文本</li>
+  <li><code class="highlighter-rouge">splitText(offset)</code> 从 offset 指定的位置将当前文本节点分成两个文本节点</li>
+  <li><code class="highlighter-rouge">substringData(offset, count)</code> 提取从 offset 指定的位置开始到 offset + count 为止处的字符串</li>
+</ul>
+
+<h3 id="创建文本节点">创建文本节点</h3>
+
+<p>使用 <code class="highlighter-rouge">document.createTextNode(text)</code> 创建新文本节点，这个方法接受一个参数 – 要插入节点中的文本。这当然是不够的，我们还需要将新文本节点添加到文档中已经存在的节点中，用的是 appenChild()、insertBefore() 或 replaceChild() 等方法。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'div'</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="kd">var</span> <span class="nx">textNode</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span> <span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">textNode</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="normalize-和-splittext-方法">normalize() 和 splitText() 方法</h3>
+
+<p>一般情况下，只有一个文本子节点。不过，某些情况下，也可能包含多个文本子节点。如果两个文本子节点是相邻的同胞节点，那么这两个节点中文本就会连起来显示，中间不会有空格。</p>
+
+<p>于是，催生了一种能够将相邻文本节点合并的方法，即 <code class="highlighter-rouge">normalize()</code>。该方法在包含两个或多个文本节点的<strong>父元素</strong>上调用，将所有文本节点合并成一个节点。</p>
+
+<p>相反操作，<code class="highlighter-rouge">splitText(num)</code> 。这个方法将一个文本节点分割成两个文本节点。该方法接收一个数值，返回新文本节点，新文本节点包含剩下的文本。注意注意。拿前面创建文本节点的栗子。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">newNode</span> <span class="o">=</span> <span class="nx">div</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nx">div</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">;</span> <span class="c1">// "Hello"</span>
+<span class="nx">newNode</span><span class="p">.</span><span class="nx">nodeValue</span><span class="p">;</span> <span class="c1">// " World!"</span>
+</code></pre></div></div>
+
+<p>分割文本节点是从文本节点中提取数据的一种常用的 DOM 解析技术。</p>
+
+<hr />
+
+<h2 id="属性特性节点">属性(特性)节点</h2>
+
+<p>之前我们说到，属性节点已被废置了。现在基本都是通过 getAttribute()、setAttribute() 和 removeAttribute()，或者直接进行属性节点的操作(因为所有的特新都是 Element 节点的属性)。</p>
+
+<p>但是，仍保留着一些方法可以创建属性节点。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">document.createAttribute()</code> 创建属性节点</li>
+  <li><code class="highlighter-rouge">(element).setAttributeNode()</code> 将创建的特性添加到元素中</li>
+</ul>
+
+<p>之后就可以使用 attributes 属性(上面提到的)、getAttributeNode()方法以及 getAttribute() 方法访问该特性。</p>
+
+<hr />
+
+<h2 id="dom-扩展">DOM 扩展</h2>
+
+<p>虽然上述的 API 已经非常完善了，但是社区还是 DOM API 进行了扩展。包括 Selectors API、Element Traversal API、HTML5 DOM 扩展、专用扩展。</p>
+
+<h3 id="selectors-api">Selectors API</h3>
+
+<p>Selectors API 致力于让浏览器原生支持 CSS 查询。有两个核心方法 <code class="highlighter-rouge">querySelector()</code> 和 <code class="highlighter-rouge">querySelectorAll()</code>。</p>
+
+<p><code class="highlighter-rouge">querySelector()</code> 方法接收一个 CSS 选择符，返回与该模式匹配的<strong>第一个元素</strong>，没有找到，返回 null。这个方法既可以通过 Document 类型调用，也可通过 Element 类型调用。前者会在文档元素的范围内查找匹配元素，后者只在该元素后代的范围内查找匹配的元素。</p>
+
+<p><code class="highlighter-rouge">querySelectorAll()</code> 返回所有匹配的元素，即一个 NodeList 的实例。</p>
+
+<h3 id="element-traversal-api">Element Traversal API</h3>
+
+<p>这个 API 出现的原因在于对于元素间的空白字符，IE9 之前的版本不会返回文本节点，而其他浏览器会返回文本节点。这样，在使用 childNodes 和 firstChild 等属性时的行为不一致。所以 Element Traversal 规范新定义了一组属性，主要针对元素节点。</p>
+<ul>
+  <li><code class="highlighter-rouge">firstElementChild</code> 指向第一个子元素</li>
+  <li><code class="highlighter-rouge">lastElementChild</code> 指向最后一个子元素</li>
+  <li><code class="highlighter-rouge">childElementCount</code> 只返回<strong>所有子元素</strong>的个数</li>
+  <li><code class="highlighter-rouge">previousElementSibling</code> 前向一个同辈元素</li>
+  <li><code class="highlighter-rouge">nextElementSibling</code> 后向一个同辈元素</li>
+</ul>
+
+<h3 id="html5-扩充">HTML5 扩充</h3>
+
+<h4 id="和-class-属性相关的扩充">和 class 属性相关的扩充</h4>
+
+<p><code class="highlighter-rouge">getElementsByClassName(className)</code> 可以通过 document 和所有 HTML 元素调用该方法。这个方法可以传入一个或多个类名。</p>
+
+<p><code class="highlighter-rouge">classList</code> 属性。</p>
+
+<p>主要是在操作多个类名时，对类型的删除和增加都非常不方便。为此，HTML5 新增一种操作类名的方法，即 classList 属性，是 <code class="highlighter-rouge">DOMTokenList</code> 的实例。很显然，也是一个类数组对象。有以下方法：</p>
+
+<ul>
+  <li>add(className) 添加类名，已经存在的话，就不用添加了</li>
+  <li>contains(className) 表示列表中是否存在给定类名，返回布尔值</li>
+  <li>remove(className) 从列表中删除给定的字符串</li>
+  <li>toggle(value) 如果列表中已经存在给定的值，删除它；否则，添加它。</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"user myDiv wrapper"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="kd">var</span> <span class="nx">div</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"div"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+  <span class="nx">div</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">"user"</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<h4 id="焦点管理">焦点管理</h4>
+
+<p><code class="highlighter-rouge">document.activeElement</code> 属性，这个属性始终会引用 DOM 中当前获得了焦点的元素。元素获得焦点的方式有页面加载、用户输入(通常是 Tab 键)、在代码中调用 focus() 方法。</p>
+
+<p>另外就是新增的 document.hasFocus() 方法，用于确定文档是否获得了焦点。</p>
+
+<h4 id="其他新增属性">其他新增属性</h4>
+
+<p><code class="highlighter-rouge">readyState</code> 属性，该属性有两个可能的值。使用方法： document.readyState</p>
+
+<ul>
+  <li>loading: 正在加载文档</li>
+  <li>complete: 文档加载完成</li>
+</ul>
+
+<p><code class="highlighter-rouge">head</code> 属性，这个属性引用文档的 <code class="highlighter-rouge">&lt;head&gt;</code> 元素。使用方法： document.head</p>
+
+<p><code class="highlighter-rouge">charset</code> 属性，表示文档中实际使用的字符集。</p>
+
+<p><code class="highlighter-rouge">dataset</code> 属性。HTML5 可以添加自定义属性，只需要前缀加上 <code class="highlighter-rouge">data-</code>，目的是为元素提供与渲染无关的信息，或者提供语义信息。添加完自定义属性之后，可以通过元素的 dataset 属性来访问自定义属性的值。dataset 属性的值是 DOMStringMap 的一个实例，是一个名值对的映射。</p>
+
+<p><code class="highlighter-rouge">innerHTML</code>属性</p>
+
+<p>在<strong>读模式</strong>下，innerHTML 属性返回与调用元素的所有<strong>子节点</strong>(包括元素，注释和文本节点)对应的 HTML 标记。在写模式下，innerHTML 会根据指定的值创建新的 DOM 树，然后用这个 DOM 树完全替换元素原先的<strong>所有子节点</strong>。</p>
+
+<blockquote>
+  <p>不要指望所有的浏览器返回的 innerHTML 值完全相同。另外就是，并不是所有元素都支持 innerHTML 属性。</p>
+</blockquote>
+
+<p>读模式下，如果设置的值仅是文本而没有标签，那么结果就是设置纯文本。比如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">div</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s2">"Hello World!"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">outerHTML</code> 属性</p>
+
+<p>在读模式下，outerHTML 返回<strong>调用它的元素及所有子节点的 HTML 标签</strong>。在写模式下，outerHTML 会根据指定的 HTML 字符串创建新的 DOM 子树，然后用这个 DOM 子树完全替代<strong>调用元素</strong>。</p>
+
+<h3 id="专有扩展">专有扩展</h3>
+
+<h4 id="children-属性">children 属性</h4>
+
+<p>还是因为 IE9 之前的版本与其他浏览器处理文本节点的空白符的差异，因此出现了 children 属性，这个属性是 HTMLCollection 的实例，只包含元素中<strong>还是元素的</strong>子节点。</p>
+
+<p>这个属性得到了大多数浏览器的支持。</p>
+
+<h3 id="contains-方法">contains 方法</h3>
+
+<p>这个方法用来检测节点是否是后代节点。方法接收一个参数，即要检测的后代节点。</p>
+
+<h3 id="innertext-属性和-outertext-属性">innerText 属性和 outerText 属性</h3>
+
+<p>innerText 和 outerText 属性没有 innerHTML 和 outerHTML 属性那么好的运气。</p>
+
+<p>innerText 属性操作元素中包含的所有文本内容，包括子文档树的文本。</p>
+
+<blockquote>
+  <p>注意和 innerHTML 的区别</p>
+</blockquote>
+
+<p>除了作用范围扩大到包含调用它的节点之外，outerText 和 innerText 基本没有什么多大区别。在读取文本时，outerText 和 innerText 的结果完全一样。但在写模式下，outerText 会替换整个元素(包括子节点)。</p>
+
+<hr />
+
+<h2 id="注意的几点">注意的几点</h2>
+
+<h3 id="nodelisthtmlcollectionnamednodemap">NodeList/HTMLCollection/NamedNodeMap</h3>
+
+<p>这三个集合是<strong>动态的</strong>，也就是说，每当文档结构发生变化时，它们都会得到更新。</p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

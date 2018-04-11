@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>JavaScript中的number和date</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>JavaScript中的number和date</h1>
+		    <p>Post on Mar 13, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#JavaScript-ref">JavaScript</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">JavaScript中的number和date</h1>
+              <!--
+                <p class="post-meta">Mar 13, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Mar 13, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#numbers" id="markdown-toc-numbers">Numbers</a>    <ul>
+      <li><a href="#decimal-numbers--十进制数据" id="markdown-toc-decimal-numbers--十进制数据">Decimal numbers – 十进制数据</a></li>
+      <li><a href="#binary-numbers--二进制数据" id="markdown-toc-binary-numbers--二进制数据">Binary numbers – 二进制数据</a></li>
+      <li><a href="#octal-numbers--八进制数据" id="markdown-toc-octal-numbers--八进制数据">Octal numbers – 八进制数据</a></li>
+      <li><a href="#hexadecimal-numbers--十六进制" id="markdown-toc-hexadecimal-numbers--十六进制">Hexadecimal numbers – 十六进制</a></li>
+      <li><a href="#指数形式--exponentiation" id="markdown-toc-指数形式--exponentiation">指数形式 – EXponentiation</a></li>
+    </ul>
+  </li>
+  <li><a href="#二进制浮点数的最大问题" id="markdown-toc-二进制浮点数的最大问题">二进制浮点数的最大问题</a></li>
+  <li><a href="#特殊的数字" id="markdown-toc-特殊的数字">特殊的数字</a>    <ul>
+      <li><a href="#nan" id="markdown-toc-nan">NaN</a></li>
+      <li><a href="#无穷数--infinity---infinity" id="markdown-toc-无穷数--infinity---infinity">无穷数 – Infinity &amp; -Infinity</a></li>
+      <li><a href="#零值--0---0" id="markdown-toc-零值--0---0">零值 – 0 &amp; -0</a></li>
+      <li><a href="#objectis" id="markdown-toc-objectis">Object.is()</a></li>
+    </ul>
+  </li>
+  <li><a href="#数字对象--number-object" id="markdown-toc-数字对象--number-object">数字对象 – Number object</a>    <ul>
+      <li><a href="#数字的属性" id="markdown-toc-数字的属性">数字的属性</a></li>
+      <li><a href="#数字的方法" id="markdown-toc-数字的方法">数字的方法</a></li>
+      <li><a href="#numberprototype中的方法" id="markdown-toc-numberprototype中的方法">Number.prototype中的方法</a></li>
+    </ul>
+  </li>
+  <li><a href="#math-object" id="markdown-toc-math-object">Math object</a></li>
+  <li><a href="#data-object--日期对象" id="markdown-toc-data-object--日期对象">Data object – 日期对象</a>    <ul>
+      <li><a href="#创建一个日期对象" id="markdown-toc-创建一个日期对象">创建一个日期对象：</a></li>
+      <li><a href="#date对象的方法" id="markdown-toc-date对象的方法">Date对象的方法</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>在<code class="highlighter-rouge">JavaScript</code>，所有的数字都是<strong>64-bit双精度浮点类型</strong>。<strong>没有特定的整数数据类型</strong>。除了可以表示浮点数，the number type has three symbolic values: <code class="highlighter-rouge">+Infinity</code>、<code class="highlighter-rouge">-Infinity</code>、<code class="highlighter-rouge">NaN</code>。</p>
+
+<!-- more -->
+
+<h2 id="numbers">Numbers</h2>
+
+<h3 id="decimal-numbers--十进制数据">Decimal numbers – 十进制数据</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12345678
+42
+//如果第一个数字为零
+0888 //被当作十进制处理
+0777 //被当作八进制处理
+</code></pre></div></div>
+
+<h3 id="binary-numbers--二进制数据">Binary numbers – 二进制数据</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">FLT_SIGNBIT</span>  <span class="o">=</span> <span class="mb">0b10000000000000000000000000000000</span><span class="p">;</span> <span class="c1">// 2147483648</span>
+<span class="kd">var</span> <span class="nx">FLT_EXPONENT</span> <span class="o">=</span> <span class="mb">0b01111111100000000000000000000000</span><span class="p">;</span> <span class="c1">// 2139095040</span>
+<span class="kd">var</span> <span class="nx">FLT_MANTISSA</span> <span class="o">=</span> <span class="mb">0B00000000011111111111111111111111</span><span class="p">;</span> <span class="c1">// 8388607</span>
+</code></pre></div></div>
+
+<h3 id="octal-numbers--八进制数据">Octal numbers – 八进制数据</h3>
+
+<p>八进制数字语法是以<code class="highlighter-rouge">0</code>为开头的。假如<code class="highlighter-rouge">0</code>后面的数字不在<code class="highlighter-rouge">0</code>到<code class="highlighter-rouge">7</code>的范围内，该数字将会被转换成十进制数字。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">0755</span><span class="p">;</span> <span class="c1">// 493</span>
+<span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">0644</span><span class="p">;</span> <span class="c1">// 420</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>在<code class="highlighter-rouge">ECMAScript 5</code>严格模式下禁止使用八进制语法，但是通过在八进制数字添加一个前缀<code class="highlighter-rouge">0</code>就可以被所有的浏览器支持。在<code class="highlighter-rouge">ECMAScript 6</code>中使用八进制数字是需要给一个数字添加前缀<code class="highlighter-rouge">0o</code>。</p>
+</blockquote>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mo">0o10</span><span class="p">;</span> <span class="c1">// ES6 :八进制</span>
+</code></pre></div></div>
+
+<h3 id="hexadecimal-numbers--十六进制">Hexadecimal numbers – 十六进制</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0xFFFFFFFFFFFFFFFFF // 295147905179352830000
+0x123456789ABCDEF   // 81985529216486900
+0XA                 // 10
+</code></pre></div></div>
+
+<h3 id="指数形式--exponentiation">指数形式 – EXponentiation</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1E3   // 1000
+2e6   // 2000000
+0.1e2 // 10
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="二进制浮点数的最大问题">二进制浮点数的最大问题</h2>
+
+<p>二进制浮点数最大问题，是会出现如下情况：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">===</span> <span class="mf">0.3</span><span class="p">;</span> <span class="c1">//false</span>
+</code></pre></div></div>
+
+<p>为什么呢，因为二进制浮点数中的<code class="highlighter-rouge">0.1</code>和<code class="highlighter-rouge">0.2</code>并不十分准确，所以他们相加的结果并非刚好等于<code class="highlighter-rouge">0.3</code>，而是一个比较接近于数字<code class="highlighter-rouge">0.30000000000000004</code>，所以判断条件是<code class="highlighter-rouge">false</code>。</p>
+
+<p>那如何判断相等呢？</p>
+
+<p>最常见的方法是设置一个误差范围值，通常称为<em>机器精度</em>(machine epsilon)，对<code class="highlighter-rouge">JavaScript</code>的数字来说，这个值通常是<code class="highlighter-rouge">2^-52(2.220446049250313e-16)</code>。从<code class="highlighter-rouge">ES6</code>开始，该值定义在<code class="highlighter-rouge">Number.EPSILON</code>中，当然你可以为<code class="highlighter-rouge">ES6</code>之前的版本写polyfill。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">numbersCloseEnoughToEqual</span><span class="p">(</span><span class="nx">n1</span><span class="p">,</span><span class="nx">n2</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">n1</span><span class="o">-</span><span class="nx">n2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">EPSILON</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">;</span>
+
+<span class="nx">numbersCloseEnoughToEqual</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">);</span><span class="c1">//true</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="特殊的数字">特殊的数字</h2>
+
+<h3 id="nan">NaN</h3>
+
+<p><code class="highlighter-rouge">NaN</code>意指<em>不是一个数字</em>(not a number)。可以理解为<em>失败数值</em>、<em>失败数值</em>、<em>坏数值</em>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="s2">"foo"</span><span class="p">;</span> <span class="c1">//NaN</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">a</span> <span class="o">===</span> <span class="s2">"number"</span><span class="p">);</span> <span class="c1">//true</span>
+</code></pre></div></div>
+
+<p>很奇怪的吧，既然不是数字，却又是<code class="highlighter-rouge">number</code>类型，或者我们可以称之为<em>不是数字的数字</em>。</p>
+
+<p><code class="highlighter-rouge">NaN</code>是一个特殊的值，它和自身不等，是唯一一个非自相反的值，即<code class="highlighter-rouge">NaN !=NaN</code>为<code class="highlighter-rouge">true</code>。所以，我们没办法直接与<code class="highlighter-rouge">NaN</code>进行比较来判断，有什么其他办法吗？有的，就是使用内建的全局工具函数<code class="highlighter-rouge">isNaN()</code>。但这个函数不太准确，如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="s2">"foo"</span><span class="p">;</span>
+<span class="nx">a</span><span class="p">;</span> <span class="c1">//NaN</span>
+<span class="nx">b</span><span class="p">;</span> <span class="c1">//"foo"</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="nb">window</span><span class="p">.</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">//true</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">b</code>既不是一个数字，当然也不是<code class="highlighter-rouge">NaN</code>，这个时候<code class="highlighter-rouge">window.isNaN()</code>就出现了错误，这个bug自JavaScript问世以来就一直存在。</p>
+</blockquote>
+
+<p>从<code class="highlighter-rouge">ES6</code>开始，我们使用工具函数<code class="highlighter-rouge">Number.isNaN()</code>来判断。我们尽量使用该函数来进行判断。</p>
+
+<h3 id="无穷数--infinity---infinity">无穷数 – Infinity &amp; -Infinity</h3>
+
+<h3 id="零值--0---0">零值 – 0 &amp; -0</h3>
+
+<h3 id="objectis">Object.is()</h3>
+
+<p><code class="highlighter-rouge">ES6</code>中心加入一个工具方法<code class="highlighter-rouge">Object.is()</code>来判断两个值是否绝对相等，可以用来处理上述所有的特殊情况。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">/</span> <span class="s2">"foo"</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="kc">NaN</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span> <span class="c1">//false</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="数字对象--number-object">数字对象 – Number object</h2>
+
+<h3 id="数字的属性">数字的属性</h3>
+
+<p>内置的<code class="highlighter-rouge">Number</code>对象有一些数字化常量属性:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Number.MAX_VALUE</code> 可表示的最大值: <code class="highlighter-rouge">2^53 - 1</code></li>
+  <li><code class="highlighter-rouge">Number.MIN_VALUE</code> 可表示的最小值: <code class="highlighter-rouge">-(2^53 - 1)</code></li>
+  <li><code class="highlighter-rouge">Number.NaN</code> 特指”非数字“</li>
+  <li><code class="highlighter-rouge">Number.NEGATIVE_INFINITY</code> 特指“负无穷”;在溢出时返回</li>
+  <li><code class="highlighter-rouge">Number.POSITIVE_INFINITY</code> 特指“正无穷”;在溢出时返回</li>
+  <li><code class="highlighter-rouge">Number.MIN_SAFE_INTEGER</code> JavaScript最小安全整数</li>
+  <li><code class="highlighter-rouge">Number.MAX_SAFE_INTEGER</code> JavaScript最大安全整数</li>
+</ul>
+
+<h3 id="数字的方法">数字的方法</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">Number.parseFloat()</code> 把字符串参数解析成浮点数，和全局方法<code class="highlighter-rouge">parseFloat()</code>作用一致</li>
+  <li><code class="highlighter-rouge">Number.parseInt()</code> 把字符串解析成特定基数对应的整型数字，和全局方法<code class="highlighter-rouge">parseInt()</code>作用一致</li>
+  <li><code class="highlighter-rouge">Number.isFinite()</code> 判断传递的值是否为有限数字</li>
+  <li><code class="highlighter-rouge">Number.isInteger()</code> 整数检测：判断传递的值是否为整数</li>
+  <li><code class="highlighter-rouge">Number.isNaN()</code> 判断传递的值是否为<code class="highlighter-rouge">NaN</code>，是全局函数<code class="highlighter-rouge">isNaN()</code>的健壮版本</li>
+  <li><code class="highlighter-rouge">Number.isSafeInteger()</code> 判断传递的值是否为安全整数</li>
+</ul>
+
+<h3 id="numberprototype中的方法">Number.prototype中的方法</h3>
+
+<p>因为数字值可以使用<code class="highlighter-rouge">Number</code>对象进行封装，所以可以调用<code class="highlighter-rouge">Number.prototype</code>中的方法。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">toExponential()</code> 返回一个数字的指数形式的字符串</li>
+  <li><code class="highlighter-rouge">toFixed()</code> 返回指定小数位数的显示位数，如<code class="highlighter-rouge">var a=123,b=a.toFixed(2)//b=123.00</code></li>
+  <li><code class="highlighter-rouge">toPrecision()</code> 返回一个指定精度的数字，如<code class="highlighter-rouge">var a=123,b=a.toPrecision(2)//b=1.2e+2</code></li>
+</ul>
+
+<p>需要注意的是<code class="highlighter-rouge">.</code>运算符，会被优先识别为数字常量的一部分。如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">42</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="c1">//SyntaxError</span>
+<span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="c1">//42.000</span>
+<span class="mi">42</span><span class="p">..</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="c1">//42.000</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">42.toFixed(3)</code>是错误语法，因为<code class="highlighter-rouge">.</code>被视为<code class="highlighter-rouge">42.</code>的一部分。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="math-object">Math object</h2>
+
+<p>对于内置的<code class="highlighter-rouge">Math</code>数字常数项和函数也有一些属性和方法。<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Math">具体参见</a>。</p>
+
+<hr />
+
+<h2 id="data-object--日期对象">Data object – 日期对象</h2>
+
+<p><code class="highlighter-rouge">JavaScript</code>没有日期数据类型。但是你可以在你的程序里使用<code class="highlighter-rouge">Date</code>对象和其方法来处理日期和时间。<code class="highlighter-rouge">Date</code>对象有大量的设置、获取和操作日期的方法。 它并不含有任何属性。</p>
+
+<h3 id="创建一个日期对象">创建一个日期对象：</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dateObjectName</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">([</span><span class="nx">parameters</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>无参数： 创建今天的日期和时间 例如：<code class="highlighter-rouge">var today = new Data()</code></li>
+  <li>一个符合以下格式的表示日期的字符串: “月 日, 年 时:分:秒.” 例如： <code class="highlighter-rouge">var Xmas95 = new Date("December 25, 1995 13:30:00")</code> 如果你省略时、分、秒，那么他们的值将被设置为<code class="highlighter-rouge">0</code></li>
+  <li>一个年，月，日的整型值的集合，例如： <code class="highlighter-rouge">var Xmas95 = new Date(1995, 11, 25)</code></li>
+  <li>一个年，月，日，时，分，秒的集合，例如： <code class="highlighter-rouge">var Xmas95 = new Date(1995, 11, 25, 9, 30, 0)</code></li>
+</ul>
+
+<h3 id="date对象的方法">Date对象的方法</h3>
+
+<p>处理日期时间的<code class="highlighter-rouge">Date</code>对象方法可分为以下几类：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">set</code>方法, 用于设置<code class="highlighter-rouge">Date</code>对象的日期和时间的值</li>
+  <li><code class="highlighter-rouge">get</code>方法, 用于获取`Date对象的日期和时间的值</li>
+  <li><code class="highlighter-rouge">to</code>方法, 用于返回<code class="highlighter-rouge">Date</code>对象的字符串格式的值</li>
+  <li><code class="highlighter-rouge">parse</code>和<code class="highlighter-rouge">UTC</code>方法, 用于解析<code class="highlighter-rouge">Date</code>字符串</li>
+</ul>
+
+<p>例如：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Xmas95</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="s2">"December 25, 1995"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>那么，<code class="highlighter-rouge">Xmas95.getMonth()</code>返回<code class="highlighter-rouge">11</code>，<code class="highlighter-rouge">Xmas95.getFullYear()</code>返回<code class="highlighter-rouge">1995</code>。</p>
+
+<p>以下代码展示了今年剩下的天数：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">today</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">endYear</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="mi">1995</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">999</span><span class="p">);</span> <span class="c1">// 设置日和月，注意，月份是0-11</span>
+<span class="nx">endYear</span><span class="p">.</span><span class="nx">setFullYear</span><span class="p">(</span><span class="nx">today</span><span class="p">.</span><span class="nx">getFullYear</span><span class="p">());</span> <span class="c1">// 把年设置为今年</span>
+<span class="kd">var</span> <span class="nx">msPerDay</span> <span class="o">=</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="c1">// 每天的毫秒数</span>
+<span class="kd">var</span> <span class="nx">daysLeft</span> <span class="o">=</span> <span class="p">(</span><span class="nx">endYear</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">-</span> <span class="nx">today</span><span class="p">.</span><span class="nx">getTime</span><span class="p">())</span> <span class="o">/</span> <span class="nx">msPerDay</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">daysLeft</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">daysLeft</span><span class="p">);</span> <span class="c1">//返回这一年剩下的天数</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">getTime()</code>返回从<strong>1970年1月1日00:00:00的毫秒数</strong></p>
+</blockquote>
+
+<p><code class="highlighter-rouge">parse()</code>方法对于从日期字符串赋值给现有的<code class="highlighter-rouge">Date</code>对象很有用。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">IPOdate</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="nx">IPOdate</span><span class="p">.</span><span class="nx">setTime</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="s2">"Aug 9, 1995"</span><span class="p">));</span>
+</code></pre></div></div>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>原生JavaScript的DOM操作</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>原生JavaScript的DOM操作</h1>
+		    <p>Post on Mar 31, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#DOM-ref">DOM</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">原生JavaScript的DOM操作</h1>
+              <!--
+                <p class="post-meta">Mar 31, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Mar 31, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#获取元素" id="markdown-toc-获取元素">获取元素</a>    <ul>
+      <li><a href="#getelementbyid--通过元素id" id="markdown-toc-getelementbyid--通过元素id">getElementById() – 通过元素ID</a></li>
+      <li><a href="#getelementbytagname--通过标签名字" id="markdown-toc-getelementbytagname--通过标签名字">getElementByTagName() – 通过标签名字</a></li>
+      <li><a href="#getelementbyclassname--通过类名来获取" id="markdown-toc-getelementbyclassname--通过类名来获取">getElementByClassName() – 通过类名来获取</a></li>
+    </ul>
+  </li>
+  <li><a href="#获取和设置属性" id="markdown-toc-获取和设置属性">获取和设置属性</a>    <ul>
+      <li><a href="#getattribute--获取你打算查询的属性名字" id="markdown-toc-getattribute--获取你打算查询的属性名字">getAttribute() – 获取你打算查询的属性名字</a></li>
+      <li><a href="#setattribute" id="markdown-toc-setattribute">setAttribute()</a></li>
+    </ul>
+  </li>
+  <li><a href="#dom属性" id="markdown-toc-dom属性">DOM属性</a>    <ul>
+      <li><a href="#childnodes属性" id="markdown-toc-childnodes属性">childNodes属性</a></li>
+      <li><a href="#nodetype属性" id="markdown-toc-nodetype属性">nodeType属性</a></li>
+      <li><a href="#nodevalue属性" id="markdown-toc-nodevalue属性">nodeValue属性</a></li>
+      <li><a href="#firstchild和lastchild属性" id="markdown-toc-firstchild和lastchild属性">firstChild和lastChild属性</a></li>
+    </ul>
+  </li>
+  <li><a href="#事件处理函数" id="markdown-toc-事件处理函数">事件处理函数</a>    <ul>
+      <li><a href="#dom0级事件处理函数" id="markdown-toc-dom0级事件处理函数">DOM0级事件处理函数</a></li>
+      <li><a href="#dom2级事件处理函数" id="markdown-toc-dom2级事件处理函数">DOM2级事件处理函数</a></li>
+      <li><a href="#ie事件处理函数" id="markdown-toc-ie事件处理函数">IE事件处理函数</a></li>
+    </ul>
+  </li>
+  <li><a href="#动态创建标记" id="markdown-toc-动态创建标记">动态创建标记</a>    <ul>
+      <li><a href="#传统方法" id="markdown-toc-传统方法">传统方法</a></li>
+      <li><a href="#dom方法" id="markdown-toc-dom方法">DOM方法</a>        <ul>
+          <li><a href="#createelement方法" id="markdown-toc-createelement方法">createElement()方法</a></li>
+          <li><a href="#appendchild方法" id="markdown-toc-appendchild方法">appendChild()方法</a></li>
+          <li><a href="#createtextnode方法" id="markdown-toc-createtextnode方法">createTextNode()方法</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#css-dom" id="markdown-toc-css-dom">CSS-DOM</a>    <ul>
+      <li><a href="#style属性" id="markdown-toc-style属性">style属性</a>        <ul>
+          <li><a href="#获取样式" id="markdown-toc-获取样式">获取样式</a></li>
+          <li><a href="#设置样式" id="markdown-toc-设置样式">设置样式</a></li>
+        </ul>
+      </li>
+      <li><a href="#classname属性" id="markdown-toc-classname属性">className属性</a></li>
+    </ul>
+  </li>
+  <li><a href="#总结" id="markdown-toc-总结">总结</a>    <ul>
+      <li><a href="#常用的dom方法和属性集合" id="markdown-toc-常用的dom方法和属性集合">常用的DOM方法和属性集合</a></li>
+      <li><a href="#混淆概念" id="markdown-toc-混淆概念">混淆概念</a></li>
+      <li><a href="#dom-core-vs-html-dom" id="markdown-toc-dom-core-vs-html-dom">DOM-Core vs HTML-DOM</a></li>
+      <li><a href="#dom-vs-bom" id="markdown-toc-dom-vs-bom">DOM vs BOM</a></li>
+      <li><a href="#冒泡型事件-vs-捕获型事件" id="markdown-toc-冒泡型事件-vs-捕获型事件">冒泡型事件 vs 捕获型事件</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><code class="highlighter-rouge">DOM</code>中的<code class="highlighter-rouge">D</code>指的是<code class="highlighter-rouge">document</code>，<code class="highlighter-rouge">O</code>指的是<code class="highlighter-rouge">Object</code>，在<code class="highlighter-rouge">JavaScript</code>语言中，有三种对象类型，分别是<code class="highlighter-rouge">user-defined object</code>、<code class="highlighter-rouge">native object</code>、<code class="highlighter-rouge">host object</code>，对于<code class="highlighter-rouge">host object</code>，指的是浏览器提供的对象，最基础的就是<code class="highlighter-rouge">window</code>本身了。其中的<code class="highlighter-rouge">M</code>，指的就是模型。</p>
+
+<p>那整个模型怎么解释呢？</p>
+
+<!-- more -->
+
+<p>下面是一个基本的网页。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">'utf-8'</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Shopping list<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;h1&gt;</span>What to buy<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">title=</span><span class="s">'a gentle reminder'</span><span class="nt">&gt;</span>Don't forget to buy this stuff.<span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">'purchases'</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li&gt;</span>A tin of beans<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">'sale'</span><span class="nt">&gt;</span>Cheese<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">'sale important'</span><span class="nt">&gt;</span>Milk<span class="nt">&lt;/li&gt;</span>
+        <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p>这份文档可以用下面这个模型来表示：</p>
+
+<p><img src="/styles/images/javascript/dom-model.png" alt="DOM-model" /></p>
+
+<p>这都是一些元素，有些有<em>父元素</em>、有些有<em>子元素</em>、有些有<em>兄弟元素</em>。</p>
+
+<p>同时每个元素标签又以<em>节点</em>(<code class="highlighter-rouge">node</code>)作为一个整体。比如，在<code class="highlighter-rouge">&lt;p&gt;&lt;/p&gt;</code>标签所包裹的区域。</p>
+
+<p><img src="/styles/images/javascript/node.png" alt="node" /></p>
+
+<blockquote>
+  <p>并不是所有元素都包裹<em>文本节点</em>和<em>属性节点</em>。</p>
+</blockquote>
+
+<p>总结以下：</p>
+
+<ul>
+  <li>一份文档就是一颗节点树</li>
+  <li>节点分为不同的类型：元素节点、属性节点和文本节点等</li>
+  <li>每个节点都是一个对象</li>
+</ul>
+
+<p>以上这些就是基本概念了，那么我们怎么去操纵这些元素呢？第一步，我们需要获取元素。</p>
+
+<hr />
+
+<h2 id="获取元素">获取元素</h2>
+
+<p>有三种<code class="highlighter-rouge">DOM</code>方法可以获取元素节点。</p>
+
+<h3 id="getelementbyid--通过元素id">getElementById() – 通过元素ID</h3>
+
+<p>方法返回一个与那个有着给定<code class="highlighter-rouge">id</code>属性值的元素节点对应的对象。它是<code class="highlighter-rouge">document</code>对象特有的函数，使用方法是：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="getelementbytagname--通过标签名字">getElementByTagName() – 通过标签名字</h3>
+
+<p>方法返回一个对象的数组。使用方法是：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementByTagName</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="getelementbyclassname--通过类名来获取">getElementByClassName() – 通过类名来获取</h3>
+
+<p>方法返回一个具有相同类名的元素的数组。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementByClassName</span><span class="p">(</span><span class="kd">class</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="获取和设置属性">获取和设置属性</h2>
+
+<p>得到需要的元素以后，我们就可以设法获取它的各个属性。</p>
+
+<h3 id="getattribute--获取你打算查询的属性名字">getAttribute() – 获取你打算查询的属性名字</h3>
+
+<p><code class="highlighter-rouge">getAttribute()</code>方法不属于<code class="highlighter-rouge">document</code>对象，所以不能通过<code class="highlighter-rouge">document</code>对象调用，它只能通过元素节点对象调用。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">object</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="nx">attribute</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="setattribute">setAttribute()</h3>
+
+<p><code class="highlighter-rouge">setAttribute()</code>允许我们对属性节点的值做出修改。与<code class="highlighter-rouge">getAttribute()</code>一样，<code class="highlighter-rouge">setAttribute()</code>也只能用于元元素节点。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">object</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="nx">attribute</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="dom属性">DOM属性</h2>
+
+<p>搭配DOM的各种属性，我们可以进行更多的操作。</p>
+
+<h3 id="childnodes属性">childNodes属性</h3>
+
+<p>在一棵节点树上，<code class="highlighter-rouge">childNodes</code>属性可以用来获取任何一个元素的所有子元素，它是一个包含这个元素全部子元素的数组。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">element</span><span class="p">.</span><span class="nx">childNodes</span>
+</code></pre></div></div>
+
+<h3 id="nodetype属性">nodeType属性</h3>
+
+<p>每个节点都有一个<code class="highlighter-rouge">nodeType</code>属性，通过这个属性我们知道我们在与哪种节点打交道。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">nodeType</code>属性总共有12种可取值，但其中仅有3种具有实用价值。</p>
+
+<ul>
+  <li>元素节点的<code class="highlighter-rouge">nodeType</code>属性值是1</li>
+  <li>属性节点的<code class="highlighter-rouge">nodeType</code>属性值是2</li>
+  <li>文本节点的<code class="highlighter-rouge">nodeType</code>属性值是3</li>
+</ul>
+
+<h3 id="nodevalue属性">nodeValue属性</h3>
+
+<p>如果想改变一个<strong>文本节点</strong>的值，那就使用<code class="highlighter-rouge">DOM</code>提供的<code class="highlighter-rouge">nodeValue</code>属性，它用来得到(或设置)一个节点的值。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span><span class="p">.</span><span class="nx">nodeValue</span>
+</code></pre></div></div>
+
+<h3 id="firstchild和lastchild属性">firstChild和lastChild属性</h3>
+
+<p>有时候我们只需要访问<code class="highlighter-rouge">childNodes</code>数组的第一个元素<code class="highlighter-rouge">childNodes[0]</code>，可以使用<code class="highlighter-rouge">firstChild</code>属性。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">node</span><span class="p">.</span><span class="nx">firstChild</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这与<code class="highlighter-rouge">node.childNodes[0]</code>完全等价。</p>
+</blockquote>
+
+<p>同理，<code class="highlighter-rouge">node.lastChild</code>代表<code class="highlighter-rouge">childNodes</code>数组的最后一个元素。</p>
+
+<hr />
+
+<h2 id="事件处理函数">事件处理函数</h2>
+
+<p>事件处理函数的作用是，在特定的事件发生时调用特定的<code class="highlighter-rouge">JavaScript</code>代码。</p>
+
+<ul>
+  <li>如果想在鼠标指针悬停在某个元素上时触发一个动作，就使用<code class="highlighter-rouge">onmouseover</code>事件处理函数</li>
+  <li>如果想在鼠标指针离开某个元素时触发一个动作，可以使用<code class="highlighter-rouge">onmouseout</code>事件处理函数</li>
+  <li>如果想点击某个链接时触发一个动作，可以使用<code class="highlighter-rouge">onclick</code>事件处理函数</li>
+</ul>
+
+<p>添加事件处理函数的语法如下：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">event</span> <span class="o">=</span> <span class="s2">"JavaScript statement(s)"</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">JavaScript</code>代码包含在一对引号之间。</p>
+</blockquote>
+
+<p>在<code class="highlighter-rouge">onclick</code>事件处理函数，我们可以这样使用。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">onclick</span> <span class="o">=</span> <span class="s2">"xxx(this);return false;"</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">xxx</code>是调用的<code class="highlighter-rouge">JavaScript</code>函数，使用<code class="highlighter-rouge">this</code>关键字指代<code class="highlighter-rouge">这个对象</code>，<code class="highlighter-rouge">return false;</code>是为了防止默认行为。</p>
+</blockquote>
+
+<p>这种在<code class="highlighter-rouge">HTML</code>中指定事件处理程序有缺点。</p>
+
+<ul>
+  <li>时差问题。如果页面在解析<code class="highlighter-rouge">JavaScript</code>就调用了事件处理函数，就会引发错误</li>
+  <li><code class="highlighter-rouge">HTML</code>和<code class="highlighter-rouge">JavaScript</code>代码紧密耦合</li>
+</ul>
+
+<p>所以很多开发员转而使用<code class="highlighter-rouge">JavaScript</code>指定事件处理程序。有三种方式。</p>
+
+<h3 id="dom0级事件处理函数">DOM0级事件处理函数</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">btn</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"mybtn"</span><span class="p">);</span> <span class="c1">// 取得该按钮的引用</span>
+<span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span>
+<span class="nx">alert</span><span class="p">(</span><span class="s1">'clicked'</span><span class="p">);</span>
+<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span> <span class="c1">// mybtn</span>
+<span class="p">}</span>
+
+<span class="c1">//删除指定的事件处理函数</span>
+<span class="nx">btn</span><span class="p">.</span><span class="nx">onclick</span><span class="o">=</span><span class="kc">null</span><span class="p">;</span> <span class="c1">// 删除事件处理程序</span>
+</code></pre></div></div>
+
+<p>以这种方式添加的事件处理程序会在事件流的冒泡阶段被处理。</p>
+
+<h3 id="dom2级事件处理函数">DOM2级事件处理函数</h3>
+
+<p><code class="highlighter-rouge">DOM2</code>级事件定义了两个方法，用于处理指定和删除事件处理程序的操作：<code class="highlighter-rouge">addEventListener()</code>和<code class="highlighter-rouge">removeEventListener()</code>。所有<code class="highlighter-rouge">DOM</code>节点中都包含这两个方法，并且它们都接受<code class="highlighter-rouge">3</code>个参数：要处理的事件名，做为事件处理程序的函数和一个布尔值。最后这个参数如果是<code class="highlighter-rouge">true</code>，表示在捕获阶段调用事件处理程序；如果是<code class="highlighter-rouge">fasle</code>，表示在冒泡阶段调用事件处理程序。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">btn</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"mybtn"</span><span class="p">);</span>
+<span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+<span class="nx">alert</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+<span class="p">},</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">btn</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span><span class="nx">alert</span><span class="p">(</span><span class="s2">"hello world!"</span><span class="p">);},</span><span class="kc">false</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>使用<code class="highlighter-rouge">DOM2</code>级事件处理程序的主要好处是可以添加多个事件处理程序。</p>
+
+<p>通过<code class="highlighter-rouge">addEventListener()</code>添加的时间处理程序只能使用<code class="highlighter-rouge">removeEventListener()</code>来移除，移除时传入的参数与添加时使用的参数相同。这也意味着通过<code class="highlighter-rouge">addEventListener()</code>添加的匿名函数将无法移除。</p>
+
+<h3 id="ie事件处理函数">IE事件处理函数</h3>
+
+<p><code class="highlighter-rouge">IE</code>实现了与<code class="highlighter-rouge">DOM</code>中类似的两个方法:<code class="highlighter-rouge">attachEvent()</code>和<code class="highlighter-rouge">detachEvent()</code>。这两个方法接受相同的两个参数：事件处理程序名称和事件处理程序函数。由于<code class="highlighter-rouge">IE</code>只支持时间冒泡，所有通过<code class="highlighter-rouge">attachEvent()</code>添加的事件处理程序都会被添加包冒泡阶段。</p>
+
+<hr />
+
+<h2 id="动态创建标记">动态创建标记</h2>
+
+<p>前面我们是查找并更改已存在的元素，但是，<code class="highlighter-rouge">JavaScript</code>也可以用来改变网页的结构和内容。</p>
+
+<h3 id="传统方法">传统方法</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">document.write</code>: <code class="highlighter-rouge">document</code>对象的<code class="highlighter-rouge">write()</code>方法可以方便快捷地把字符串插入到文档中</li>
+  <li><code class="highlighter-rouge">innerHTML</code>: <code class="highlighter-rouge">innerHTML</code>属性可以用来读、写某给定元素里的<code class="highlighter-rouge">HTML</code>内容</li>
+</ul>
+
+<h3 id="dom方法">DOM方法</h3>
+
+<p>首先，我们需要明白的一点是，在浏览器看来，<code class="highlighter-rouge">DOM</code>节点树才是文档。所以，在动态创建标记的时候，我们并不是在创建标记，而是在改变<code class="highlighter-rouge">DOM</code>节点树。</p>
+
+<h4 id="createelement方法">createElement()方法</h4>
+
+<p>语法是：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">nodeName</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>比如：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//创建一个p元素</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"p"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="appendchild方法">appendChild()方法</h4>
+
+<p>把新创建的节点插入某个文档的节点树的最简单的方法，就是让他称为这个文档某个现有节点的一个子节点。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">parent</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">child</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="createtextnode方法">createTextNode()方法</h4>
+
+<p><code class="highlighter-rouge">createElement()</code>方法只能创建元素节点，如果你需要创建一个文本节点，你可以用<code class="highlighter-rouge">createTextNode()</code>方法来实现它。</p>
+
+<p>语法是：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">createTextNode</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>需要了解的是，<code class="highlighter-rouge">JavaScript</code>脚本只应该用来充实文档的内容，避免使用<code class="highlighter-rouge">DOM</code>技术来创建核心的内容。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="css-dom">CSS-DOM</h2>
+
+<p>显而易见，<code class="highlighter-rouge">CSS-DOM</code>显然是操纵表现层<code class="highlighter-rouge">CSS</code>的。</p>
+
+<h3 id="style属性">style属性</h3>
+
+<p>文档的每个元素节点都是一个对象，有着多种类型属性，比如：</p>
+
+<ul>
+  <li>元素在节点树的位置信息: <code class="highlighter-rouge">parentNode</code>/<code class="highlighter-rouge">nextSibling</code>/<code class="highlighter-rouge">previousSlibling</code>/<code class="highlighter-rouge">childNodes</code>/<code class="highlighter-rouge">firstChild</code>/<code class="highlighter-rouge">lastChild</code>这些属性</li>
+  <li>包含元素本身的属性：<code class="highlighter-rouge">nodeType</code>/<code class="highlighter-rouge">nodeName</code>这些属性</li>
+  <li>除此之外，还有一个<code class="highlighter-rouge">style</code>属性，包含了元素的样式，这个属性返回一个对象而不是一个简单的字符串。</li>
+</ul>
+
+<p>样式都存在<code class="highlighter-rouge">style</code>属性的返回对象中：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">property</span>
+</code></pre></div></div>
+
+<h4 id="获取样式">获取样式</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">property</span>
+
+<span class="c1">//比如</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">color</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontFamily</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>注意：当你需要引用一个中间带<code class="highlighter-rouge">-</code>号的<code class="highlighter-rouge">CSS</code>属性时，<code class="highlighter-rouge">DOM</code>要求你用驼峰命名法。即<code class="highlighter-rouge">font-family</code>变成<code class="highlighter-rouge">fontFamily</code>。</p>
+</blockquote>
+
+<h4 id="设置样式">设置样式</h4>
+
+<p>使用<code class="highlighter-rouge">style</code>返回的对象的各个属性都是可读写的。我们还可以通过它去更新样式。解决方法就是获取样式之后，进行赋值。</p>
+
+<h3 id="classname属性">className属性</h3>
+
+<p>要知道，用行为层(<code class="highlighter-rouge">JavaScript</code>)去改变表现层(<code class="highlighter-rouge">CSS</code>)的这种做法通常来说是不可取的。</p>
+
+<p>我们可以使用<code class="highlighter-rouge">className</code>属性去获取或更改样式。</p>
+
+<p>语法是：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">element</span><span class="p">.</span><span class="nx">className</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>通过<code class="highlighter-rouge">CSS-DOM</code>去改变样式有一个最大的障碍就是：无法改变外部引用的<code class="highlighter-rouge">CSS</code></p>
+</blockquote>
+
+<hr />
+
+<h2 id="总结">总结</h2>
+
+<h3 id="常用的dom方法和属性集合">常用的DOM方法和属性集合</h3>
+
+<p>暂略。</p>
+
+<h3 id="混淆概念">混淆概念</h3>
+
+<h3 id="dom-core-vs-html-dom">DOM-Core vs HTML-DOM</h3>
+
+<p><code class="highlighter-rouge">DOM</code>是由<code class="highlighter-rouge">W3C</code>制定的一套访问和操作<code class="highlighter-rouge">XML</code>文档的标准，即<code class="highlighter-rouge">API</code>。<code class="highlighter-rouge">DOM</code>与特定的平台、浏览器、语言无关，很多种语言都实现了<code class="highlighter-rouge">DOM</code>，比如因为<code class="highlighter-rouge">JavaScript</code>和<code class="highlighter-rouge">PHP</code>都实现了<code class="highlighter-rouge">DOM</code>。</p>
+
+<p>但为什么<code class="highlighter-rouge">DOM</code>可以用来访问和操作<code class="highlighter-rouge">HTML</code>呢？</p>
+
+<p><code class="highlighter-rouge">Web</code>语义化的一个发展方向是将<code class="highlighter-rouge">HTML</code>逐渐演变为更有语义、能将数据内容与现实分离的<code class="highlighter-rouge">XML</code>，但<code class="highlighter-rouge">HTML</code>不可能立即演变为<code class="highlighter-rouge">XML</code>，所以出现了一个过渡产物–<code class="highlighter-rouge">XHTML</code>。<code class="highlighter-rouge">HTML</code>与<code class="highlighter-rouge">XHTML</code>网页形成的节点树在结构上与<code class="highlighter-rouge">XML</code>节点树一样，可以看做是一个符合<code class="highlighter-rouge">DOM</code>的<code class="highlighter-rouge">XML</code>文档，因此可以使用实现了<code class="highlighter-rouge">DOM</code>的程序语言（如<code class="highlighter-rouge">JavaScript</code>、<code class="highlighter-rouge">PHP</code>等）来访问和操作<code class="highlighter-rouge">HTML</code>文档，即访问和操作那些节点。</p>
+
+<p>由于<code class="highlighter-rouge">HTML</code>与<code class="highlighter-rouge">XML</code>的相似性及差异，<code class="highlighter-rouge">JavaScript</code>不仅实现了标准的<code class="highlighter-rouge">DOM</code>方法和属性（即由W3C制定的），而且还实现了<code class="highlighter-rouge">HTML</code>特有的<code class="highlighter-rouge">DOM</code>方法和属性，前者称为<code class="highlighter-rouge">DOM-Core</code>，并不专属于<code class="highlighter-rouge">JavaScript</code>，后者称<code class="highlighter-rouge">为HTML-DOM</code>。</p>
+
+<p>比如：<code class="highlighter-rouge">innerHTML</code>就是特有的<code class="highlighter-rouge">HTML-DOM</code>方法</p>
+
+<blockquote>
+  <p><a href="http://blog.csdn.net/w11003060125/article/details/8549434">来源</a></p>
+</blockquote>
+
+<h3 id="dom-vs-bom">DOM vs BOM</h3>
+
+<p><code class="highlighter-rouge">DOM</code>和<code class="highlighter-rouge">BOM</code>的结构关系示意图：</p>
+
+<p><img src="/styles/images/html/BOM-DOM.png" alt="DOM-BOM" /></p>
+
+<p><a href="http://stackoverflow.com/questions/4416317/what-is-the-dom-and-bom-in-javascript"><code class="highlighter-rouge">stackoverflow</code></a>上对这个问题的解释是：</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">BOM</code>包含了<code class="highlighter-rouge">window</code>对象的所有子对象<code class="highlighter-rouge">navigator</code>/<code class="highlighter-rouge">history</code>/<code class="highlighter-rouge">screen</code>/<code class="highlighter-rouge">location</code>/<code class="highlighter-rouge">document</code>，在<code class="highlighter-rouge">document</code>中，节点就是<code class="highlighter-rouge">DOM</code>，表示页面的所有内容。</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">window</code>是一个全局对象，这意味着在网页中定义的任何对象，变量和函数，都以<code class="highlighter-rouge">window</code>作为其<code class="highlighter-rouge">global</code>对象。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">document</code>对象：实际上是<code class="highlighter-rouge">windows</code>对象的属性，<code class="highlighter-rouge">document === window.document</code>为<code class="highlighter-rouge">true</code>，是唯一一个既属于<code class="highlighter-rouge">BOM</code>又属于<code class="highlighter-rouge">DOM</code>的对象。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>document.anchors[0]或document.anchors["anchName"] //访问页面中所有的锚  
+document.forms[0]或document.forms["formName"]  //访问页面中所有的表单  
+document.images[0]或document.images["imgName"]  // 访问页面中所有的图像  
+document.links [0]或document.links["linkName"]  //访问页面中所有的链接 
+document.applets [0]或document.applets["appletName"]  //访问页面中所有的Applet  
+document.embeds [0]或document.embeds["embedName"]  //访问页面中所有的嵌入式对象  
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">location</code>对象: 表示载入窗口的<code class="highlighter-rouge">URL</code>，也可用<code class="highlighter-rouge">window.location</code>引用它</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">navigator</code>对象: 含大量有关<code class="highlighter-rouge">Web</code>浏览器的信息，在检测浏览器及操作系统上非常有用，也可用<code class="highlighter-rouge">window.navigator</code>引用它</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">screen</code>对象: 用于获取某些关于用户屏幕的信息，也可用<code class="highlighter-rouge">window.screen</code>引用它</p>
+  </li>
+</ul>
+
+<h3 id="冒泡型事件-vs-捕获型事件">冒泡型事件 vs 捕获型事件</h3>
+
+<p><code class="highlighter-rouge">DOM</code>同时两种事件模型：冒泡型事件和捕获型事件</p>
+
+<ul>
+  <li>冒泡型事件： 事件按照从最特定的事件目标到最不特定的事件目标的顺序触发</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;body</span> <span class="na">onclick=</span><span class="s">"handleClick()"</span><span class="nt">&gt;</span>  
+    <span class="nt">&lt;div</span> <span class="na">onclick=</span><span class="s">"handleClick()"</span><span class="nt">&gt;</span>Click Me<span class="nt">&lt;/div&gt;</span>  
+<span class="nt">&lt;/body&gt;</span> 
+</code></pre></div></div>
+
+<p>触发的顺序是：<code class="highlighter-rouge">div</code>、<code class="highlighter-rouge">body</code>、<code class="highlighter-rouge">html</code>(IE 6.0和Mozilla 1.0)、<code class="highlighter-rouge">document</code>、<code class="highlighter-rouge">window</code>(Mozilla 1.0)</p>
+
+<ul>
+  <li>捕获型事件： 与冒泡事件相反的过程</li>
+</ul>
+
+<p>上面例子触发的顺序是：<code class="highlighter-rouge">document</code>、<code class="highlighter-rouge">div</code></p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

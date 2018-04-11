@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>High Performance Responsive Design</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>High Performance Responsive Design</h1>
+		    <p>Post on May 25, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#-ref"></a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">High Performance Responsive Design</h1>
+              <!--
+                <p class="post-meta">May 25, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">May 25, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#显然不正确的模式" id="markdown-toc-显然不正确的模式">显然不正确的模式</a></li>
+  <li><a href="#浏览器和web服务器的关系" id="markdown-toc-浏览器和web服务器的关系">浏览器和Web服务器的关系</a></li>
+  <li><a href="#追踪web性能的工具" id="markdown-toc-追踪web性能的工具">追踪Web性能的工具</a></li>
+  <li><a href="#web运行时性能" id="markdown-toc-web运行时性能">Web运行时性能</a>    <ul>
+      <li><a href="#每秒帧数--fps" id="markdown-toc-每秒帧数--fps">每秒帧数 – fps</a></li>
+      <li><a href="#内存分析" id="markdown-toc-内存分析">内存分析</a></li>
+    </ul>
+  </li>
+  <li><a href="#服务端实现" id="markdown-toc-服务端实现">服务端实现</a></li>
+  <li><a href="#响应式前端实现" id="markdown-toc-响应式前端实现">响应式前端实现</a>    <ul>
+      <li><a href="#图片操作" id="markdown-toc-图片操作">图片操作</a>        <ul>
+          <li><a href="#srcset属性" id="markdown-toc-srcset属性">srcset属性</a></li>
+          <li><a href="#picture元素" id="markdown-toc-picture元素">picture元素</a></li>
+        </ul>
+      </li>
+      <li><a href="#延迟加载" id="markdown-toc-延迟加载">延迟加载</a></li>
+    </ul>
+  </li>
+  <li><a href="#持续集成ci" id="markdown-toc-持续集成ci">持续集成(CI)</a></li>
+  <li><a href="#一些响应式框架" id="markdown-toc-一些响应式框架">一些响应式框架</a></li>
+  <li><a href="#增加一些响应式的相关知识" id="markdown-toc-增加一些响应式的相关知识">增加一些响应式的相关知识</a>    <ul>
+      <li><a href="#像素和像素密度的概念" id="markdown-toc-像素和像素密度的概念">像素和像素密度的概念</a></li>
+      <li><a href="#放弃图片" id="markdown-toc-放弃图片">放弃图片</a></li>
+      <li><a href="#了解近年来流行的趋势" id="markdown-toc-了解近年来流行的趋势">了解近年来流行的趋势</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>最近读了<code class="highlighter-rouge">Tom Barker</code>的<em>High Performance Responsive Design</em>。对响应式设计有了更多的新理解，尤其是利弊和测试方面。</p>
+
+<p>在很多响应式架构中，我们都只注意到响应式的优点：能同时兼顾移动端和PC端，方便了开发。但是很多网站在设计时，并不能秉承<strong>移动优先</strong>的策略，或者完全放弃该策略。你就会发现，对于使用响应式构建的网站，需要加载更多的资源。这也意味着，相对于单独进行移动端和PC端建站，响应式页面加载的时间更长。这是值得响应式开发者深思的问题。</p>
+
+<!-- more -->
+
+<h2 id="显然不正确的模式">显然不正确的模式</h2>
+
+<p>我们可以在<a href="https://www.thesearchagency.com/our-work/white-papers/"><code class="highlighter-rouge">The Search Agency</code></a>得到一些有关<code class="highlighter-rouge">.m</code>网站和响应式网站比较的一些报告。设计网站的时候，这样的一些<em>反模式</em>值得我们注意：</p>
+
+<ul>
+  <li>为所有设备加载同样的内容： 比如，一些网站会为手机和桌面渲染加载完全一样的资源。加载同样的<code class="highlighter-rouge">CSS</code>文件，然后通过媒体查询给不同的分辨率设备提供不同的体验</li>
+  <li>加载额外的资源：一般情况下，会为手机体验加载除了通用资源意外的资源</li>
+  <li>加载双倍图片：有些站点会为手机加载另一组图片，这真是个糟糕的注意</li>
+</ul>
+
+<blockquote>
+  <p>在<a href="http://www.alexa.com/"><code class="highlighter-rouge">Alexa</code></a>网站上，你可以查看各大网站排名。可惜，是收费服务。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="浏览器和web服务器的关系">浏览器和Web服务器的关系</h2>
+
+<p>页面是如何达到浏览器并展现给用户的。如下图所示</p>
+
+<p><img src="/styles/images/responsive/web-and-br.png" alt="浏览器和Web服务器的协商过程" /></p>
+
+<p>无论是建立还是关闭<code class="highlighter-rouge">TCP</code>连接，都需要三次握手。</p>
+
+<p>另外，我们还要理解一点，就是现代浏览器的架构。</p>
+
+<p><img src="/styles/images/responsive/br-architure.png" alt="现代浏览器架构" /></p>
+
+<ul>
+  <li><code class="highlighter-rouge">UI</code>层： 浏览器自身的绘制界面，如地址栏，刷新等等</li>
+  <li>网络层： 这一层处理网络连接，将内容下载，传递给渲染引擎</li>
+  <li>渲染引擎： 负责将内容绘制到界面上，最流行的渲染引擎就是<code class="highlighter-rouge">Webkit</code>,当渲染引擎遇到<code class="highlighter-rouge">JavaScript</code>，就将其传递给<code class="highlighter-rouge">JavaScript</code>解释器</li>
+  <li><code class="highlighter-rouge">JavaScript</code>引擎会解析并执行<code class="highlighter-rouge">JavaScript</code>。最流行的就是<code class="highlighter-rouge">Google</code>的<code class="highlighter-rouge">V8</code>了</li>
+</ul>
+
+<hr />
+
+<h2 id="追踪web性能的工具">追踪Web性能的工具</h2>
+
+<p>追踪<code class="highlighter-rouge">Web</code>性能的工具非<strong>瀑布图</strong>莫属了。</p>
+
+<p>一个是，<strong>Firebug</strong>，现在已经集成到<code class="highlighter-rouge">Firefox</code>浏览器<em>Web开发者工具</em>中了。</p>
+
+<p>另一个是<code class="highlighter-rouge">Chrome</code>的开发者工具。</p>
+
+<p>还有另外一个提供免费服务的<a href="http://www.webpagetest.org/"><code class="highlighter-rouge">WebPageTest</code></a>，能提供在线的网站性能分析，相当不错。</p>
+
+<p>对于移动端的性能工具，推荐<code class="highlighter-rouge">HTTPWatch</code>。有免费版提供，但缺失部分功能。付费版贵得吓人。</p>
+
+<p>此外，在控制台(<code class="highlighter-rouge">chrome console</code>)键入<code class="highlighter-rouge">window.performance</code>，这个对象对外暴露了多个对象。</p>
+
+<hr />
+
+<h2 id="web运行时性能">Web运行时性能</h2>
+
+<p>前面<code class="highlighter-rouge">web</code>性能跟踪的是内容传递到用户的耗时。<code class="highlighter-rouge">web</code>运行时性能，跟踪的是用户与应用交互时应用的行为。</p>
+
+<h3 id="每秒帧数--fps">每秒帧数 – fps</h3>
+
+<p><code class="highlighter-rouge">fps</code>是系统重绘屏幕的速率。</p>
+
+<p>按照某些人的说法(这张说法可能没有科学依据)，让人类感觉动作平滑、逼真的理想帧率是<code class="highlighter-rouge">60 FPS</code>。</p>
+
+<p><code class="highlighter-rouge">Google chrome</code>开发者工具<code class="highlighter-rouge">Rendering</code>有追踪<code class="highlighter-rouge">FPS</code>的能力。另外，就是<code class="highlighter-rouge">Timeline</code>工具，对帧率方面体验下降进行调试的最有用的工具。</p>
+
+<h3 id="内存分析">内存分析</h3>
+
+<p>在<code class="highlighter-rouge">Chrome</code>已用的管理工具中，首先看的是<code class="highlighter-rouge">MemoryInfo</code>对象，它存在于<code class="highlighter-rouge">Performance</code>对象中。有三个属性：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">jsHeapSizeLimit</code> : 堆大小的上限</li>
+  <li><code class="highlighter-rouge">usedJSHeapSize</code> : 堆中当前所有对象使用的内存总量</li>
+  <li><code class="highlighter-rouge">totalJSHeapSize</code> : 堆的总大小，包括没有被对象使用的空闲空间</li>
+</ul>
+
+<p>另外，就是<code class="highlighter-rouge">Timeline</code>工具的<code class="highlighter-rouge">Memory</code>模式。</p>
+
+<hr />
+
+<h2 id="服务端实现">服务端实现</h2>
+
+<p><a href="https://www.charlesproxy.com/"><code class="highlighter-rouge">Charles</code></a>是一个可以观察到网络传输情况的工具，能深入分析网络传输。不过很可惜的是，它是收费的。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">HTTP</code>监测工具</li>
+  <li><code class="highlighter-rouge">HTTP</code>代理工具</li>
+</ul>
+
+<p>浏览器请求页面的架构如下图：</p>
+
+<p><img src="/styles/images/responsive/ser.png" alt="服务端架构" /></p>
+
+<p>在我们的<code class="highlighter-rouge">HTTP</code>请求报文当中，有一个<code class="highlighter-rouge">User Agent</code>的选项，它描述了客户端的特征。所以，我们可以在<strong>服务端来确定客户端的特征和能力</strong>。</p>
+
+<p>比如，我们可以对<strong>设备进行检测</strong>，从而以恰当的内容做出响应。<code class="highlighter-rouge">Wurfl</code>能提供这样的一个设备检测服务，现在隶属于<a href="https://www.scientiamobile.com/"><code class="highlighter-rouge">Scientiamobile</code>公司</a>。</p>
+
+<p>不过这个解决方案的一个潜在的风险就是如何处理缓存内容。一个解决方式就是使用响应<code class="highlighter-rouge">header</code>中的<code class="highlighter-rouge">Vary</code>参数。另一种方式就是通过使用<code class="highlighter-rouge">ESA</code>(Edge Side Include)，把我们的设备或者能力检测逻辑从我们的服务器移到<code class="highlighter-rouge">CDN edge</code>服务器上。</p>
+
+<hr />
+
+<h2 id="响应式前端实现">响应式前端实现</h2>
+
+<h3 id="图片操作">图片操作</h3>
+
+<p>无论是哪个网站，对页面负载影响最大的就是页面上的图片。如何避免这些问题产生。建议利用下面两个新型技术，但注意的是，可能不被所有浏览器接受，尤其是老式浏览器版本。</p>
+
+<h4 id="srcset属性">srcset属性</h4>
+
+<p>这个属性用在<code class="highlighter-rouge">&lt;img&gt;</code>标签中为加载响应式图片服务的。使用方式如下：</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"1x.jpg"</span> <span class="na">srcset=</span><span class="s">"2x.jpg 2x"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">1x.jpg</code>是为了向后兼容，防止浏览器不支持<code class="highlighter-rouge">srcset</code>。如果设备像素比是<code class="highlighter-rouge">2</code>，那么我们设置的<code class="highlighter-rouge">srcset</code>属性和它指定的图片就会起作用。设备像素比是物理像素和设备独立像素之间的比例。控制台的<code class="highlighter-rouge">window.devicePixelRatio</code>会告诉你数值，比如大多数<code class="highlighter-rouge">iphone</code>设备就是<code class="highlighter-rouge">2</code>。</p>
+
+<h4 id="picture元素">picture元素</h4>
+
+<p><code class="highlighter-rouge">&lt;picture&gt;</code>是<code class="highlighter-rouge">HTML5</code>新增的一个元素。它是一个容器元素，可以基于不同的视口宽度像素密度指定不同的图片。<code class="highlighter-rouge">&lt;source&gt;</code>元素支持<code class="highlighter-rouge">media</code>属性。</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;picture&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">"(min-width:640px, min-device-pixel-ratio:2)"</span> <span class="na">src=</span><span class="s">"hi-res_small.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">media=</span><span class="s">"(min-width:2048px, min-device-pixel-ratio:2)"</span> <span class="na">src=</span><span class="s">"hi-res_large.jpg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"1x.png&gt;
+&lt;/picture&gt;
+</span></code></pre></div></div>
+
+<p>当然，你可以将<code class="highlighter-rouge">srcset</code>属性和<code class="highlighter-rouge">&lt;picture&gt;</code>一同使用。</p>
+
+<h3 id="延迟加载">延迟加载</h3>
+
+<p>我们在客户端使用一种策略，直到真正需要的时候才去加载相关内容。这就是<em>延迟加载</em>。典型的例子就是无限滚动。</p>
+
+<hr />
+
+<h2 id="持续集成ci">持续集成(CI)</h2>
+
+<p>对软件工程来说，持续集成是一种很好的机制。它可以在新代码提交之后，检查各种软件指标和组织构建，从而有效遏制了问题代码的提交和部署。</p>
+
+<p><img src="/styles/images/responsive/ci.png" alt="CI" /></p>
+
+<p>对<code class="highlighter-rouge">web</code>进行单元测试，<code class="highlighter-rouge">headless web browser</code>是一个极好的选择。其中最流行的测试库是<a href="http://phantomjs.org/"><code class="highlighter-rouge">PhantomJS</code></a></p>
+
+<p>另一个开源的<code class="highlighter-rouge">CI</code>工具是<a href="https://jenkins.io/"><code class="highlighter-rouge">Jenkins</code></a>，可以把相关逻辑集成到<code class="highlighter-rouge">CI</code>工作流中。</p>
+
+<hr />
+
+<h2 id="一些响应式框架">一些响应式框架</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">Twitter Bootstrap</code></li>
+  <li><code class="highlighter-rouge">ZURB Foundation</code></li>
+  <li><code class="highlighter-rouge">Skeleton</code></li>
+  <li><code class="highlighter-rouge">Semantic UI</code></li>
+</ul>
+
+<hr />
+
+<h2 id="增加一些响应式的相关知识">增加一些响应式的相关知识</h2>
+
+<h3 id="像素和像素密度的概念">像素和像素密度的概念</h3>
+
+<p><code class="highlighter-rouge">ppi</code>(Pixel Per Lnch)称为像素密度，指的是<em>每英寸容纳的像素个数</em>。举个例子，<code class="highlighter-rouge">iPhone 5</code>的像素为：1136px * 640px，对角线长度为4英寸，则<code class="highlighter-rouge">ppi = Math.sqrt(1136*1136 + 640*640) / 4</code>计算得到。</p>
+
+<h3 id="放弃图片">放弃图片</h3>
+
+<p>有时候，我们可以选择放弃图片。使用<code class="highlighter-rouge">Data URI</code>，<a href="http://duri.me">http://duri.me</a>提供一个在线的<code class="highlighter-rouge">Data URI</code>转换。但它也并非优秀的可选方案。</p>
+
+<h3 id="了解近年来流行的趋势">了解近年来流行的趋势</h3>
+
+<p>开发设计人员能了解这些年来所流行的趋势是十分必要的，当然我们也应当把创造流行元素作为己任。通常我们在<code class="highlighter-rouge">Google</code>中输入关键词<code class="highlighter-rouge">web design</code>、<code class="highlighter-rouge">trend</code>还有年份等词汇，就能查看很多讨论。这些论点不是真理，因人而异。</p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

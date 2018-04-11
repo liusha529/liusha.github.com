@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>再谈原型和继承</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>再谈原型和继承</h1>
+		    <p>Post on Mar 23, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#JavaScript-ref">JavaScript</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">再谈原型和继承</h1>
+              <!--
+                <p class="post-meta">Mar 23, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Mar 23, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#constructor-prototype-and-instances" id="markdown-toc-constructor-prototype-and-instances">Constructor, Prototype and Instances</a>    <ul>
+      <li><a href="#构造函数" id="markdown-toc-构造函数">构造函数</a></li>
+      <li><a href="#原型" id="markdown-toc-原型">原型</a></li>
+      <li><a href="#prototype属性" id="markdown-toc-prototype属性">[[Prototype]]属性</a></li>
+      <li><a href="#在构造函数中使用原型对象" id="markdown-toc-在构造函数中使用原型对象">在构造函数中使用原型对象</a></li>
+      <li><a href="#内建的对象原型" id="markdown-toc-内建的对象原型">内建的对象原型</a></li>
+    </ul>
+  </li>
+  <li><a href="#继承" id="markdown-toc-继承">继承</a>    <ul>
+      <li><a href="#原型链和objectprototype" id="markdown-toc-原型链和objectprototype">原型链和Object.prototype</a>        <ul>
+          <li><a href="#继承自objectprototype的方法" id="markdown-toc-继承自objectprototype的方法">继承自Object.prototype的方法</a></li>
+          <li><a href="#修改objectprototype" id="markdown-toc-修改objectprototype">修改Object.prototype</a></li>
+        </ul>
+      </li>
+      <li><a href="#对象继承" id="markdown-toc-对象继承">对象继承</a></li>
+      <li><a href="#构造函数继承" id="markdown-toc-构造函数继承">构造函数继承</a></li>
+      <li><a href="#构造函数的窃取" id="markdown-toc-构造函数的窃取">构造函数的窃取</a></li>
+      <li><a href="#访问父类方法" id="markdown-toc-访问父类方法">访问父类方法</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>在<a href="/2017/03/15/Object-model"><code class="highlighter-rouge">Object Model</code></a>这一节简单介绍了一下原型链和继承，由于最近在读<code class="highlighter-rouge">Nicholas C.Zakas</code>的<code class="highlighter-rouge">The Principles of Object-Oriented JavaScript</code>，又有了很多的启发，特记录在本文中。</p>
+
+<p>最开始，也是最基本的，我们需要了解构造函数、原型和实例的概念和它们之间的关系。</p>
+
+<!-- more -->
+
+<h2 id="constructor-prototype-and-instances">Constructor, Prototype and Instances</h2>
+
+<p>先看一段代码：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="nx">Person</span><span class="p">,</span>
+
+    <span class="na">sayName</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="na">toString</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">"[Person"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Nicholas"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Greg"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>下图描述了这个关系：</p>
+
+<p><img src="/styles/images/javascript/prototype-instance-constructor.png" alt="An instance and its constructor are linked via the prototype" /></p>
+
+<p>其中的概念会在接下来一一解释。</p>
+
+<h3 id="构造函数">构造函数</h3>
+
+<p>构造函数就是使用<code class="highlighter-rouge">new</code>创建对象时调用的函数。约定俗成的命名规则要求：首字母大写。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(){</span>
+    <span class="c1">//something</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">();</span>
+
+<span class="c1">// 你可以使用instanceof操作符获取对象的类型</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span> <span class="k">instanceof</span> <span class="nx">Person</span><span class="p">);</span> <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person2</span> <span class="k">instanceof</span> <span class="nx">Person</span><span class="p">);</span> <span class="c1">//true</span>
+
+<span class="c1">//constructor属性</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person1</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">);</span><span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person2</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">===</span> <span class="nx">Person</span><span class="p">);</span><span class="c1">//true</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>每个对象再创建时都自动拥有一个<em>构造器属性</em>(constructor property)，表示一个指向构造器函数的引用。通过对象字面值形式或<code class="highlighter-rouge">Object</code>构造函数创建出来的<em>泛用</em>对象，其构造器属性指向<code class="highlighter-rouge">Object</code>；那些通过自定义构造函数创建出来的对象，其构造器属性指向创建它的构造函数。</p>
+</blockquote>
+
+<h3 id="原型">原型</h3>
+
+<p>You can think of a <em>prototype</em> as a recipe for an object. 几乎所有(除了一些内建函数)的函数都有一个名为<code class="highlighter-rouge">prototype</code>的属性，该属性用在创建实例的过程中。所有创建的实例都共享该原型对象，且这些实例可以访问原型对象的属性。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="s2">"I love China"</span>
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"title"</span> <span class="k">in</span> <span class="nx">book</span><span class="p">);</span>   <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">"title"</span><span class="p">));</span>  <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"hasOwnProperty"</span> <span class="k">in</span> <span class="nx">book</span><span class="p">);</span>      <span class="c1">//true</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">book</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">"hasOwnProperty"</span><span class="p">));</span> <span class="c1">//false</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s2">"hasOwnProperty"</span><span class="p">));</span> <span class="c1">//true</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">hasOwnProperty()</code>方法定义在泛用对象<code class="highlighter-rouge">Object</code>的原型对象中，但却可以被任何对象当作自己的属性访问。</p>
+</blockquote>
+
+<h3 id="prototype属性">[[Prototype]]属性</h3>
+
+<p>一个实例通过内部属性[[Prototype]]跟踪其原型对象，该属性是实例指向原型对象的一个指针。<strong>当你用<code class="highlighter-rouge">new</code>来创建一个新的对象时，构造器(函数)的<code class="highlighter-rouge">prototype</code>属性就赋予给该对象的<code class="highlighter-rouge">[[Prototype]]</code>属性</strong>，请结合例图好好体会这句话。</p>
+
+<p>可以调用对象的<code class="highlighter-rouge">Object.getPrototypeOf()</code>方法读取<code class="highlighter-rouge">[[Prototype]]</code>属性的值。</p>
+
+<blockquote>
+  <p>大部分<code class="highlighter-rouge">JavaScript</code>引擎在所有对象上都支持一个名为<code class="highlighter-rouge">__proto__</code>的属性，该属性使你可以直接读写<code class="highlighter-rouge">[[Prototype]]</code>。<code class="highlighter-rouge">Firefox</code>、<code class="highlighter-rouge">Safari</code>、<code class="highlighter-rouge">Chrome</code>和<code class="highlighter-rouge">Node.js</code>都支持该属性。新的<code class="highlighter-rouge">ECMAScript</code>有望加入该属性到标准中。</p>
+</blockquote>
+
+<p>也可以使用<code class="highlighter-rouge">isPrototypeOf()</code>方法检查某个对象是否是另一个对象的原型对象。该方法被包含在所有对象中。</p>
+
+<p>当读取一个对象的属性时，<code class="highlighter-rouge">JavaScript</code>引擎首先在该对象的自有属性中查找属性名字，如果找到则返回。如果自有属性不包含该名字，则<code class="highlighter-rouge">JavaScript</code>会搜索<code class="highlighter-rouge">[[Prototype]]</code>中的对象。找到则返回，找不到则返回<code class="highlighter-rouge">undefined</code>。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">object</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>     <span class="c1">//"[object Object]"</span>
+
+<span class="nx">object</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">"[object Custom]"</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">object</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>     <span class="c1">//"[object Custom]"</span>
+
+<span class="k">delete</span> <span class="nx">object</span><span class="p">.</span><span class="nx">toString</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">object</span><span class="p">.</span><span class="nx">toString</span><span class="p">());</span>     <span class="c1">//"[object Object]"</span>
+</code></pre></div></div>
+
+<p>代码说明以下几点：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">delete</code>只能删除自有属性，无法删除一个独享的原型属性</li>
+  <li>无法给一个对象的原型属性赋值，试图赋值的结果时创建了一个新的自有属性，而不是改变了原型属性</li>
+</ul>
+
+<h3 id="在构造函数中使用原型对象">在构造函数中使用原型对象</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Nicholas"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Greg"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这样，原型所创建的方法很方便地被所有实例共享。</p>
+</blockquote>
+
+<p>很多人会使用更简洁的方式：使用一个对象字面值形式替换原型对象</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">sayName</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">toString</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">"[Person"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>这种写法的好处在于不用多次键入<code class="highlighter-rouge">Person.prototype</code>，但有一个副作用需要注意：<strong>使用字面值形式改变了构造函数的属性</strong>。原因在于：<strong>原型对象有个一<code class="highlighter-rouge">constructor</code>属性，而实例没有。当一个构造函数被创建时，它的<code class="highlighter-rouge">prototype</code>属性被创建，且该原型对象的<code class="highlighter-rouge">constructor</code>属性指向该构造函数。</strong>所以当使用字面值形式改写原型对象时，<code class="highlighter-rouge">constructor</code>属性的值来自泛用的<code class="highlighter-rouge">object</code>。因此需要重置<code class="highlighter-rouge">constructor</code>的值。这就是我们这一节开头的代码。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="nx">Person</span><span class="p">,</span>
+
+    <span class="na">sayName</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="na">toString</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="k">return</span> <span class="s2">"[Person"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Nicholas"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Greg"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="内建的对象原型">内建的对象原型</h3>
+
+<p>所以呢，原型对象也允许你改变<code class="highlighter-rouge">JavaScript</code>引擎的标准内建对象。所有内建对象都有构造函数，因此也都有原型对象。例如，在所有数组上添加一个新的方法，只需要简单地修改<code class="highlighter-rouge">Array.prototype</code>即可。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">previous</span><span class="p">,</span> <span class="nx">current</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nx">previous</span> <span class="o">+</span> <span class="nx">current</span><span class="p">;</span>
+    <span class="p">});</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">sum</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="继承">继承</h2>
+
+<h3 id="原型链和objectprototype">原型链和Object.prototype</h3>
+
+<p><code class="highlighter-rouge">JavaScript</code>内建的继承方法叫做<code class="highlighter-rouge">prototype chaining</code>或者<code class="highlighter-rouge">prototype inheritance</code>. 原型同样也是个对象。</p>
+
+<p>所有的对象都自动继承自<code class="highlighter-rouge">Object.prototype</code>，这是更为准确的说法。<strong>任何以对象字面值形式定义的对象，其<code class="highlighter-rouge">[[Prototype]]</code>都被设置为<code class="highlighter-rouge">Object.prototype</code></strong>，这意味着它继承<code class="highlighter-rouge">Object.prototype</code>的属性。</p>
+
+<h4 id="继承自objectprototype的方法">继承自Object.prototype的方法</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">hasOwnProperty()</code> : 检查是否存在一个给定名字的自有属性</li>
+  <li><code class="highlighter-rouge">propertyIsEnumerable()</code> : 检查一个自有属性是否可枚举</li>
+  <li><code class="highlighter-rouge">isPrototypeOf()</code> : 检查一个对象是否是另一个对象的原型对象</li>
+  <li><code class="highlighter-rouge">valueOf()</code> : 返回一个对象的值表达</li>
+  <li><code class="highlighter-rouge">toString()</code> : 返回一个对象的字符串表达</li>
+</ul>
+
+<blockquote>
+  <p>这几个方法都是定义在<code class="highlighter-rouge">Object.prototype</code>上的，因此可以别其他对象继承。</p>
+</blockquote>
+
+<h4 id="修改objectprototype">修改Object.prototype</h4>
+
+<p>所有的对象都默认继承自<code class="highlighter-rouge">Object.prototype</code>，所以改变<code class="highlighter-rouge">Object.prototype</code>会影响所有的对象，所以建议不要这样做。</p>
+
+<h3 id="对象继承">对象继承</h3>
+
+<p>对象继承是最简单的继承类型。你需要做的就是指定哪个对象是新对象的<code class="highlighter-rouge">[[Prototype]]</code>。对象字面值形式会隐式指定<code class="highlighter-rouge">Object.prototype</code>为其<code class="highlighter-rouge">[[Prototype]]</code>，你也可以用<code class="highlighter-rouge">Object.create()</code>方法显式指定。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="s2">"I Love China"</span>
+<span class="p">};</span>
+
+<span class="c1">//is the same as</span>
+<span class="kd">var</span> <span class="nx">book</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:{</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="s2">"I Love China"</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">Object.create()</code>接受两个参数，第一个是需要被设置为新对象的<code class="highlighter-rouge">[[Prototype]]</code>的对象，第二个可选参数是一个属性描述对象。</p>
+</blockquote>
+
+<p>下面我们开始玩对象的继承。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Nicholas"</span><span class="p">,</span>
+    <span class="na">sayName</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">person2</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">person1</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:{</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="s2">"Greg"</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>原型链如图：</p>
+
+<p><img src="/styles/images/javascript/prototype-chainning-01.png" alt="prototype-chaining-of-object" /></p>
+
+<p>当访问一个对象的属性时，<code class="highlighter-rouge">JavaScript</code>引擎会执行一个搜索过程，如果在实例上发现该(自有)属性，该属性值就会使用。如果没有，则搜索<code class="highlighter-rouge">[[Prototype]]</code>，如果还没发现，继续搜索该原型的<code class="highlighter-rouge">[[Prototype]]</code>，直至继承链的末端。末端通常是一个<code class="highlighter-rouge">Object.prototype</code>，其<code class="highlighter-rouge">[[Prototype]]</code>被置为<code class="highlighter-rouge">null</code>。</p>
+
+<p>你可以通过<code class="highlighter-rouge">Object.create()</code>创建一个<code class="highlighter-rouge">[[Prototype]]</code>为<code class="highlighter-rouge">null</code>的对象，即没有原型对象的对象。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">nakedObject</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"toString"</span> <span class="k">in</span> <span class="nx">nakedObject</span><span class="p">);</span> <span class="c1">//false</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这是个有趣的诡计。</p>
+</blockquote>
+
+<h3 id="构造函数继承">构造函数继承</h3>
+
+<p>对象继承也是构造函数继承的基础。上面曾提到，几乎所有的函数都有一个<code class="highlighter-rouge">prototype</code>属性，可以被修改或替换。这个属性会自动赋值给一个继承自<code class="highlighter-rouge">Object.prototype</code>的泛型对象，也获得一个自由属性<code class="highlighter-rouge">constructor</code>。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//you write this</span>
+<span class="kd">function</span> <span class="nx">YourConstructor</span><span class="p">(){</span>
+    <span class="c1">//initialization</span>
+<span class="p">}</span>
+
+<span class="c1">//JavaScript自动为你做这些事</span>
+<span class="nx">YourConstructor</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="nx">YourConstructor</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>如下图所示：</p>
+
+<p><img src="/styles/images/javascript/constructor.png" alt="prototype-of-constructor" /></p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">constructor.prototype</code>继承自<code class="highlighter-rouge">Object.prototype</code>。</p>
+</blockquote>
+
+<p>由于<code class="highlighter-rouge">prototype</code>属性可写，你可以通过它来改变原型对象链。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="nx">length</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">length</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getArea</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">"[Rectangle"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">//inherits form Rectangle</span>
+<span class="kd">function</span> <span class="nx">Square</span><span class="p">(</span><span class="nx">size</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">();</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">Square</span><span class="p">;</span>
+
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">"[Square"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">rect</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Rectangle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">square</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Square</span><span class="p">(</span><span class="mi">6</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Square</code>构造函数的<code class="highlighter-rouge">prototype</code>属性被改写为<code class="highlighter-rouge">Rectangle</code>的一个实例。不需要为<code class="highlighter-rouge">Rectangle</code>的调用传递参数，否则参数会被<code class="highlighter-rouge">Square</code>所有实例共享。但是同时，你也必须保证构造函数缺失参数时不会抛出错误。<code class="highlighter-rouge">Square.prototype</code>被改写后，其<code class="highlighter-rouge">constructor</code>属性会被重置为<code class="highlighter-rouge">Square</code>。</p>
+
+<p>如下图所示：</p>
+
+<p><img src="/styles/images/javascript/prototype-chaining-02.png" alt="prototype-of-constructor" /></p>
+
+<p><code class="highlighter-rouge">Square.prototype</code>并不是真的需要被改写为一个<code class="highlighter-rouge">Rectangle</code>对象，只要将<code class="highlighter-rouge">Square.prototype</code>指向<code class="highlighter-rouge">Rectangle.prototype</code>，就能使得继承得以实现。我们使用<code class="highlighter-rouge">Object.create()</code>来简化。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//inherits from Rectangle</span>
+<span class="kd">function</span> <span class="nx">Square</span> <span class="p">(</span><span class="nx">size</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="nx">Square</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">"[Square"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这个版本中，<code class="highlighter-rouge">Square.prototype</code>被改写为一个新的继承自<code class="highlighter-rouge">Rectangle.prototype</code>的对象，而<code class="highlighter-rouge">Rectangle</code>构造函数没有被调用，不需要担心参数调用构造函数会导致错误。除此之外，这段代码与前面的行为完全一致。</p>
+</blockquote>
+
+<p>到这里为止，我们还有两点有关继承的还需要处理。
+其一，构造函数的窃取。</p>
+
+<h3 id="构造函数的窃取">构造函数的窃取</h3>
+
+<p>正如上面说的，继承是通过原型链来实现的，因此不需要调用对象的父类的构造函数。那么问题是：如果你确实需要在子类构造函数中调用父类构造函数，你可以使用<code class="highlighter-rouge">call()</code>和<code class="highlighter-rouge">apply()</code>来调用父类的构造函数，并传入新创建的对象。这种说法，就是利用自己的对象窃取父类的构造函数。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//inherits from Rectangle</span>
+<span class="kd">function</span> <span class="nx">Square</span> <span class="p">(</span><span class="nx">size</span><span class="p">){</span>
+    <span class="nx">Rectangle</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">size</span><span class="p">,</span><span class="nx">size</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="nx">Square</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="k">return</span> <span class="s2">"[Square"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="s2">"x"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">width</span> <span class="o">+</span> <span class="s2">"]"</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这是一种避免在构造函数中重新定义你希望继承的属性的手段，你可以在调用完父类的构造函数后继续添加新属性或覆盖已有的属性。这种做法模仿了那些基于类的语言的特性，通常被称为<strong>伪类继承</strong>。</p>
+</blockquote>
+
+<p>其二，如何访问父类方法。</p>
+
+<h3 id="访问父类方法">访问父类方法</h3>
+
+<p>子类提供新方法覆盖了父类的方法非常常见，但是，如果你还是想访问父类的方法怎么办呢？方法还是通过<code class="highlighter-rouge">call()</code>或则<code class="highlighter-rouge">apply()</code>改变<code class="highlighter-rouge">this</code>的调用来实现。</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//inherits from Rectangle</span>
+<span class="kd">function</span> <span class="nx">Square</span> <span class="p">(</span><span class="nx">size</span><span class="p">){</span>
+    <span class="nx">Rectangle</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="nx">size</span><span class="p">,</span><span class="nx">size</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">,{</span>
+    <span class="na">constructor</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">configurable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">enumerable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="nx">Square</span><span class="p">,</span>
+        <span class="na">writable</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+<span class="c1">//call the supertype method</span>
+<span class="nx">Square</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">vartext</span> <span class="o">=</span> <span class="nx">Rectangle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">,</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s2">"Rectangle"</span><span class="p">,</span><span class="s2">"Square"</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>这种方式有点麻烦，但这是访问父类方法的唯一手段。</p>
+</blockquote>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

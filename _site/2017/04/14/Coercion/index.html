@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>强制类型转换</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>强制类型转换</h1>
+		    <p>Post on Apr 14, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#JavaScript-ref">JavaScript</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">强制类型转换</h1>
+              <!--
+                <p class="post-meta">Apr 14, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Apr 14, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#显式强制类型转换" id="markdown-toc-显式强制类型转换">显式强制类型转换</a>    <ul>
+      <li><a href="#字符串与数字之间的显式转换" id="markdown-toc-字符串与数字之间的显式转换">字符串与数字之间的显式转换</a>        <ul>
+          <li><a href="#日期显式转换为数字" id="markdown-toc-日期显式转换为数字">日期显式转换为数字</a></li>
+        </ul>
+      </li>
+      <li><a href="#显式解析数字字符串" id="markdown-toc-显式解析数字字符串">显式解析数字字符串</a></li>
+      <li><a href="#显式转换为布尔值" id="markdown-toc-显式转换为布尔值">显式转换为布尔值</a></li>
+    </ul>
+  </li>
+  <li><a href="#隐式强制类型转换" id="markdown-toc-隐式强制类型转换">隐式强制类型转换</a>    <ul>
+      <li><a href="#字符串和数字之间的隐式类型转换" id="markdown-toc-字符串和数字之间的隐式类型转换">字符串和数字之间的隐式类型转换</a></li>
+      <li><a href="#隐式强制类型转换为布尔值" id="markdown-toc-隐式强制类型转换为布尔值">隐式强制类型转换为布尔值</a></li>
+    </ul>
+  </li>
+  <li><a href="#-vs-" id="markdown-toc--vs-">== vs ===</a>    <ul>
+      <li><a href="#字符串和数字之间的相等比较" id="markdown-toc-字符串和数字之间的相等比较">字符串和数字之间的相等比较</a></li>
+      <li><a href="#其他类型和布尔类型之间的相等比较" id="markdown-toc-其他类型和布尔类型之间的相等比较">其他类型和布尔类型之间的相等比较</a></li>
+      <li><a href="#null和undefined之间的相等比较" id="markdown-toc-null和undefined之间的相等比较">null和undefined之间的相等比较</a></li>
+      <li><a href="#对象与非对象之间的相等比较" id="markdown-toc-对象与非对象之间的相等比较">对象与非对象之间的相等比较</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>在介绍强制转换之前，不论是显式的还是隐式的，我们需要了解字符串、数字和布尔值之间类型转换的基本规则，这些规则(也叫<em>抽象操作</em>)是仅供内部使用的。</p>
+
+<p><code class="highlighter-rouge">toString</code></p>
+
+<p>抽象操作<code class="highlighter-rouge">toString</code>负责处理非字符串到字符串的强制类型转换。基本类型值得字符串化规则是：<code class="highlighter-rouge">null</code>转换成<code class="highlighter-rouge">"null"</code>，<code class="highlighter-rouge">undefined</code>转换为<code class="highlighter-rouge">"undefined"</code>，<code class="highlighter-rouge">true</code>转换成<code class="highlighter-rouge">"true"</code>。数字的字符串化则遵循通用规则。</p>
+
+<p><code class="highlighter-rouge">toNumber</code></p>
+
+<p>抽象操作<code class="highlighter-rouge">toNumber</code>处理非数字值到数字值的强制类型转换。规则如下：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">true</code>变成<code class="highlighter-rouge">1</code>，<code class="highlighter-rouge">false</code>变成<code class="highlighter-rouge">0</code>，<code class="highlighter-rouge">undefined</code>转换成<code class="highlighter-rouge">NaN</code>，<code class="highlighter-rouge">null</code>变成<code class="highlighter-rouge">0</code></li>
+  <li>对字符串的处理基本遵循数字常量的相关规则和语法，处理失败返回<code class="highlighter-rouge">NaN</code>。</li>
+  <li>对象会首先转换为相应的基本类型值，如果返回的是非数字的基本类型值，则再遵循以上规则将其强制转换为数字。</li>
+</ul>
+
+<p>为了将值转换为相应的基本类型值，抽象操作<code class="highlighter-rouge">ToPrimitive</code>首先通过内部操作<code class="highlighter-rouge">DefaultValue</code>检查改制是否有<code class="highlighter-rouge">valueOf()</code>方法，如果有并且返回基本类型值，就使用该值进行强制类型转换。如果灭有就使用<code class="highlighter-rouge">toString()</code>的返回值来进行强制类型转换。如果两者都没有，产生<code class="highlighter-rouge">TypeError</code>错误。</p>
+
+<!-- more -->
+
+<p><code class="highlighter-rouge">to Boolean</code></p>
+
+<p>假值，即</p>
+
+<ul>
+  <li><code class="highlighter-rouge">undefined</code></li>
+  <li><code class="highlighter-rouge">null</code></li>
+  <li><code class="highlighter-rouge">false</code></li>
+  <li><code class="highlighter-rouge">+0</code>、<code class="highlighter-rouge">-0</code> 和 <code class="highlighter-rouge">NaN</code></li>
+  <li><code class="highlighter-rouge">""</code></li>
+</ul>
+
+<p>都将强制转换为<code class="highlighter-rouge">false</code>。</p>
+
+<p>就算是封装了价值的封装对象，如：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Boolean</span><span class="p">(</span><span class="kc">false</span><span class="p">),</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Number</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">String</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">a</code>、<code class="highlighter-rouge">b</code>、<code class="highlighter-rouge">c</code>的布尔强制转换都是<code class="highlighter-rouge">true</code>，因为所有的对象都是真值。</p>
+
+<p>上述三个操作包括<code class="highlighter-rouge">toPrimitive</code>就是JavaScript处理类型转换的规则，有了他们，就可以更好地了解强制类型转换。</p>
+
+<h2 id="显式强制类型转换">显式强制类型转换</h2>
+
+<h3 id="字符串与数字之间的显式转换">字符串与数字之间的显式转换</h3>
+
+<p>字符串和数字之间的转换是通过<code class="highlighter-rouge">String()</code>和<code class="highlighter-rouge">Number()</code>这两个内建函数，即原生函数来实现的。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">a</span><span class="p">),</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="s2">"3.14"</span><span class="p">,</span>
+    <span class="nx">d</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> <span class="c1">//"42"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">d</span><span class="p">);</span> <span class="c1">//3.14</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>注意，它们前面没有<code class="highlighter-rouge">new</code>关键字，并不是创建封装对象。但<code class="highlighter-rouge">var e = Array(1，2，3)</code>这个语句是构造一个数组对象，<code class="highlighter-rouge">new</code>会被自动添加。</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">String()</code>遵循前面讲的<code class="highlighter-rouge">toString</code>规则，<code class="highlighter-rouge">Number()</code>遵循前面的<code class="highlighter-rouge">toNumber</code>规则。</p>
+
+<p>除了上面的方法外，还有方法可以实现两者的显式转换。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="s2">"3.14"</span><span class="p">,</span>
+    <span class="nx">d</span> <span class="o">=</span> <span class="o">+</span><span class="nx">c</span><span class="p">;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">a.toString()</code>是显式的，不过其中涉及隐式转换。因为<code class="highlighter-rouge">toString()</code>对象<code class="highlighter-rouge">42</code>这种基本类型值不适用，所以会自动为<code class="highlighter-rouge">42</code>创建一个封装对象，从而调用<code class="highlighter-rouge">toString()</code>方法。值得注意的是，我们没有<code class="highlighter-rouge">toNumber()</code>方法。对于<code class="highlighter-rouge">d = +c</code>是通过<strong>一元运算符</strong>显式地将<code class="highlighter-rouge">c</code>转换为数字，而非数字加法运算，也不是字符串拼接。至于说这是隐式还是显式，取决于个人理解。如果你知道这是一元运算符的形式，那就是显式。如果你不知道，你说是隐式也没有关系。但在开源社区里，一元运算符<code class="highlighter-rouge">+</code>普遍认为是显式。</p>
+</blockquote>
+
+<h4 id="日期显式转换为数字">日期显式转换为数字</h4>
+
+<p>一元运算符的另外一个用途是将日期<code class="highlighter-rouge">Date</code>对象强制类型转换为数字，返回<code class="highlighter-rouge">Unix</code>时间戳，以微秒为单位(即从1970年1月1日00:00:00 UTC到当前时间)：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="o">+</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>当然，对于提取时间戳我们有更好的方法。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>或者使用<code class="highlighter-rouge">ES5</code>中新加入的静态方法<code class="highlighter-rouge">Date.now()</code>来获取当前的时间戳。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">timestamp</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h3 id="显式解析数字字符串">显式解析数字字符串</h3>
+
+<p>使用<code class="highlighter-rouge">parseInt()</code>方法将字符串解析为整数，<code class="highlighter-rouge">parseFloat()</code>方法将字符串解析为浮点数。这和将字符串强制类型转换为数字类似但不同的地方在于，<strong>解析允许字符串中含有非数字字符</strong>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">"42px"</span><span class="p">;</span>
+
+<span class="nb">Number</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//NaN</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">//42</span>
+</code></pre></div></div>
+
+<h3 id="显式转换为布尔值">显式转换为布尔值</h3>
+
+<p>与前面的<code class="highlighter-rouge">String()</code>和<code class="highlighter-rouge">Number()</code>一样，<code class="highlighter-rouge">Boolean()</code>是显式的<code class="highlighter-rouge">toBoolean</code>强制类型转换。</p>
+
+<p>虽然<code class="highlighter-rouge">Boolean()</code>是显式的，但并不常用。大家都喜欢使用一元运算符<code class="highlighter-rouge">!</code>将值强制转换为布尔值，但同时它也会将假值变为真值，将真值变为假值，所以，你可以使用<code class="highlighter-rouge">!!</code>来做判断。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">{},</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="o">!!</span><span class="nx">a</span><span class="p">;</span> <span class="c1">//true</span>
+<span class="o">!!</span><span class="nx">b</span><span class="p">;</span> <span class="c1">//true</span>
+</code></pre></div></div>
+
+<p>在<code class="highlighter-rouge">if()</code>语句中，如果没有使用<code class="highlighter-rouge">Boolean()</code>和<code class="highlighter-rouge">!!</code>，就会自动隐式进行<code class="highlighter-rouge">toBoolean</code>转换。</p>
+
+<hr />
+
+<h2 id="隐式强制类型转换">隐式强制类型转换</h2>
+
+<h3 id="字符串和数字之间的隐式类型转换">字符串和数字之间的隐式类型转换</h3>
+
+<p><code class="highlighter-rouge">+</code>运算符既能用于数字加法，用能用于字符串拼接。如果<code class="highlighter-rouge">+</code>的其中一个操作数是字符串(或者通过一定步骤得到的字符串)，则执行字符串拼接操作。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">"42"</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+    <span class="nx">d</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>
+
+<span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//"420"</span>
+<span class="nx">c</span> <span class="o">+</span> <span class="nx">d</span><span class="p">;</span> <span class="c1">//"1,23,4"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">"1,23,4"</code>是怎么来的呢，这就是<em>通过一定步骤得到的字符串</em>。在<code class="highlighter-rouge">ES5</code>规则中，如果其中一个操作数是对象(当然包括数组)，则首先对其调用<code class="highlighter-rouge">toPrimitive</code>抽象操作，该抽象操作再调用<code class="highlighter-rouge">[[DefaultValue]]</code>。因为数组的<code class="highlighter-rouge">ValueOf()</code>操作无法得到简单的基本类型值，于是它转而调用<code class="highlighter-rouge">toString()</code>，因此两个数组变成了<code class="highlighter-rouge">"1,2"</code>和<code class="highlighter-rouge">"3，4"</code>。<code class="highlighter-rouge">+</code>将她们拼接后返回<code class="highlighter-rouge">1,23,4</code>。</p>
+
+<p>依上，可以将数字和空字符串<code class="highlighter-rouge">""</code>和<code class="highlighter-rouge">+</code>来将其转换为字符串。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="s2">""</span><span class="p">;</span>
+<span class="nx">b</span><span class="p">;</span> <span class="c1">//"42"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">a + ""</code>与显式的<code class="highlighter-rouge">String(a)</code>的区别在于，<code class="highlighter-rouge">a + ""</code>会对<code class="highlighter-rouge">a</code>调用<code class="highlighter-rouge">valueOf()</code>方法，然后通过<code class="highlighter-rouge">toString</code>操作将返回值转换为字符串，而<code class="highlighter-rouge">String()</code>则直接调用<code class="highlighter-rouge">toString</code>抽象操作。所以，在定制<code class="highlighter-rouge">valueOf()</code>和<code class="highlighter-rouge">toString()</code>方法时就需要特别小心。</p>
+
+<p>因为<code class="highlighter-rouge">-</code>运算符是不会用于字符串操作的，所以可使用<code class="highlighter-rouge">-</code>将字符串强制类型转换为数字。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="s2">"3.14"</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">-</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nx">b</span><span class="p">;</span> <span class="c1">//3.14</span>
+</code></pre></div></div>
+
+<h3 id="隐式强制类型转换为布尔值">隐式强制类型转换为布尔值</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">if()</code>语句的条件判断表达式</li>
+  <li><code class="highlighter-rouge">for(..;..;..)</code>语句中的条件判断表达式</li>
+  <li><code class="highlighter-rouge">while()</code>和<code class="highlighter-rouge">do...while()</code>循环中的条件判断表达式</li>
+  <li><code class="highlighter-rouge">?:</code>中的条件判断表达式</li>
+  <li><code class="highlighter-rouge">||</code> 、 <code class="highlighter-rouge">&amp;&amp;</code>左边的操作数</li>
+</ul>
+
+<p>这里特地讲一下<code class="highlighter-rouge">||</code>和<code class="highlighter-rouge">&amp;&amp;</code>，这与其他语言(<code class="highlighter-rouge">C</code>、<code class="highlighter-rouge">PHP</code>)中的完全不同。在<code class="highlighter-rouge">JavaScript</code>返回值是两个操作数其中的一个。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="s2">"abc"</span><span class="p">,</span>
+    <span class="nx">c</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+
+<span class="nx">a</span> <span class="o">||</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//42</span>
+<span class="nx">c</span> <span class="o">||</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//"abc"</span>
+
+<span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//"abc"</span>
+<span class="nx">c</span> <span class="o">&amp;&amp;</span> <span class="nx">b</span><span class="p">;</span> <span class="c1">//null</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">||</code>和<code class="highlighter-rouge">&amp;&amp;</code>首先会对第一个操作数执行条件判断，如果其不是布尔值就先进行<code class="highlighter-rouge">toBoolean</code>强制类型转换，再执行条件判断。</p>
+
+<ul>
+  <li>
+    <p>对<code class="highlighter-rouge">||</code>来说，如果条件判断结果为<code class="highlighter-rouge">true</code>就返回第一个操作数的值，如果为<code class="highlighter-rouge">false</code>就返回第二个操作数的值。</p>
+  </li>
+  <li>
+    <p>对<code class="highlighter-rouge">&amp;&amp;</code>来说，刚好相反。判断条件为<code class="highlighter-rouge">true</code>就返回第二个操作数的值，如果为<code class="highlighter-rouge">false</code>就返回第一个操作数的值。</p>
+  </li>
+</ul>
+
+<p>所以，基于上述原理，我们有了一种设置默认值的方法，很是方便。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+    <span class="nx">a</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">||</span> <span class="s2">"hello"</span><span class="p">;</span>
+    <span class="nx">b</span> <span class="o">=</span> <span class="nx">b</span> <span class="o">||</span> <span class="s2">"world"</span><span class="p">;</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">b</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">foo</span> <span class="p">();</span> <span class="c1">// "hello world"</span>
+<span class="nx">foo</span> <span class="p">(</span><span class="s2">"yeah"</span><span class="p">,</span> <span class="s2">"yeah!"</span><span class="p">);</span> <span class="c1">//"yeah yeah!"</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">&amp;&amp;</code>常用语<code class="highlighter-rouge">JavaScript</code>代码压缩工具。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">foo</span><span class="p">(){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">a</span>  <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="nx">a</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">();</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p><code class="highlighter-rouge">foo()</code>只有在条件判断<code class="highlighter-rouge">a</code>通过是才会被调用，如果为通过，<code class="highlighter-rouge">a &amp;&amp; foo()</code>就会<em>短路</em>，<code class="highlighter-rouge">foo()</code>不会被调用。开发人员通常会使用<code class="highlighter-rouge">if (a){foo();}</code>这种写法，但压缩工具通常使用<code class="highlighter-rouge">a &amp;&amp; foo()</code>，因为更简洁。</p>
+</blockquote>
+
+<hr />
+
+<h2 id="-vs-">== vs ===</h2>
+
+<p>宽松相等<code class="highlighter-rouge">==</code>和严格相等<code class="highlighter-rouge">===</code>用来判断两个值是否<em>相等</em>。</p>
+
+<p>正确的解释是：<strong><code class="highlighter-rouge">==</code>允许在相等比较中进行强制类型转换，而<code class="highlighter-rouge">===</code>不可以</strong>。</p>
+
+<blockquote>
+  <p>有些人会认为说<code class="highlighter-rouge">==</code>检查值是否相等，<code class="highlighter-rouge">===</code>检查值和类型是否相等。这是不正确的理解。</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">ES5</code>规范中使用<em>抽象相等比较算法</em>定义了<code class="highlighter-rouge">==</code>运算符的行为。</p>
+
+<ul>
+  <li>如果两个值的类型相同，仅比较他们是否相等</li>
+  <li>两个对象指向同一值时，即视为相等，不发生强制类型转换</li>
+  <li>两个不同类型的值是会发生隐式强制类型转换</li>
+</ul>
+
+<blockquote>
+  <p>特殊例子有：<code class="highlighter-rouge">NaN</code>不等于<code class="highlighter-rouge">NaN</code>，<code class="highlighter-rouge">+0</code>不等于<code class="highlighter-rouge">-0</code>。</p>
+</blockquote>
+
+<h3 id="字符串和数字之间的相等比较">字符串和数字之间的相等比较</h3>
+
+<p><code class="highlighter-rouge">ES5</code>规范11.9.3.4-5这样定义：</p>
+
+<ul>
+  <li>如果<code class="highlighter-rouge">Type(x)</code>是数字，<code class="highlighter-rouge">Type(y)</code>是字符串，则返回<code class="highlighter-rouge">x == toNumber(y)</code>的结果</li>
+  <li>如果<code class="highlighter-rouge">Type(x)</code>是字符串，<code class="highlighter-rouge">Type(y)</code>是数字，则返回<code class="highlighter-rouge">toNumber(x) == y</code>的结果</li>
+</ul>
+
+<h3 id="其他类型和布尔类型之间的相等比较">其他类型和布尔类型之间的相等比较</h3>
+
+<p><code class="highlighter-rouge">ES5</code>规范11.9.3.6-7这样定义：</p>
+
+<ul>
+  <li>如果<code class="highlighter-rouge">Type(x)</code>是布尔类型，则返回<code class="highlighter-rouge">toNumber(x) == y</code>的结果</li>
+  <li>如果<code class="highlighter-rouge">Type(y)</code>是布尔类型，则返回<code class="highlighter-rouge">x == toNumber(y)</code>的结果</li>
+</ul>
+
+<h3 id="null和undefined之间的相等比较">null和undefined之间的相等比较</h3>
+
+<p><code class="highlighter-rouge">ES5</code>规范11.9.3.2-3这样定义：</p>
+
+<ul>
+  <li>如果<code class="highlighter-rouge">x</code>为<code class="highlighter-rouge">null</code>，<code class="highlighter-rouge">y</code>为<code class="highlighter-rouge">undefined</code>，则结果为<code class="highlighter-rouge">true</code></li>
+  <li>如果<code class="highlighter-rouge">x</code>为<code class="highlighter-rouge">undefined</code>，<code class="highlighter-rouge">y</code>为<code class="highlighter-rouge">null</code>，则结果为<code class="highlighter-rouge">true</code></li>
+</ul>
+
+<h3 id="对象与非对象之间的相等比较">对象与非对象之间的相等比较</h3>
+
+<p><code class="highlighter-rouge">ES5</code>规范11.9.3.8-9这样定义：</p>
+
+<ul>
+  <li>如果<code class="highlighter-rouge">Type(x)</code>是数字或字符串，<code class="highlighter-rouge">Type(y)</code>是对象，则返回<code class="highlighter-rouge">x == toPrimitive(y)</code>的结果</li>
+  <li>如果<code class="highlighter-rouge">Type(x)</code>是对象，<code class="highlighter-rouge">Type(y)</code>是数字或字符串，则返回<code class="highlighter-rouge">toPrimitive(x) == y</code>的结果</li>
+</ul>
+
+<p>编辑备注：</p>
+
+<ul>
+  <li>2017-04-17第一次编辑</li>
+</ul>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>集合、字典和散列(哈希)表</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>集合、字典和散列(哈希)表</h1>
+		    <p>Post on Jun 26, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#-ref"></a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">集合、字典和散列(哈希)表</h1>
+              <!--
+                <p class="post-meta">Jun 26, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Jun 26, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#集合" id="markdown-toc-集合">集合</a>    <ul>
+      <li><a href="#数学概念中的集合" id="markdown-toc-数学概念中的集合">数学概念中的集合</a></li>
+      <li><a href="#set对象" id="markdown-toc-set对象">Set对象</a></li>
+    </ul>
+  </li>
+  <li><a href="#字典" id="markdown-toc-字典">字典</a>    <ul>
+      <li><a href="#map对象" id="markdown-toc-map对象">Map对象</a></li>
+    </ul>
+  </li>
+  <li><a href="#散列表" id="markdown-toc-散列表">散列表</a>    <ul>
+      <li><a href="#链接法--chaining" id="markdown-toc-链接法--chaining">链接法 – chaining</a></li>
+      <li><a href="#开放寻址法--open-addressing" id="markdown-toc-开放寻址法--open-addressing">开放寻址法 – open addressing</a>        <ul>
+          <li><a href="#线性探查--linear-probing" id="markdown-toc-线性探查--linear-probing">线性探查 – linear probing</a></li>
+          <li><a href="#二次探查--quadratic-probing" id="markdown-toc-二次探查--quadratic-probing">二次探查 – quadratic probing</a></li>
+          <li><a href="#双重散列--double-hashing" id="markdown-toc-双重散列--double-hashing">双重散列 – double hashing</a></li>
+        </ul>
+      </li>
+      <li><a href="#散列函数" id="markdown-toc-散列函数">散列函数</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>集合是由一组无序的且唯一的项组成的。集合这个结构，可以使用数学概念中的<em>有限集合</em>的概念来类比。在JavaScript中，ECMAScript 6使用<code class="highlighter-rouge">Set</code>类对集合进行了实现。</p>
+
+<p>在字典中，存储的是<em>[键,值]</em>对，其中<strong>键名</strong>用来查询特定的元素。可是使用<em>实际的字典</em>作为类比(单词和它们的释义)。在JavaScript中，ECMAScript 6使用<code class="highlighter-rouge">Map</code>类对集合进行了实现。</p>
+
+<p>散列表(hash table)是实现字典操作的一种有效的数据结构。目的呢，就是为了更方便地查询一个元素。下面会是具体介绍。</p>
+
+<!-- more -->
+
+<h2 id="集合">集合</h2>
+
+<h3 id="数学概念中的集合">数学概念中的集合</h3>
+
+<p>首先我们来理解<em>数学概念中</em>的<a href="https://en.wikipedia.org/wiki/Set_(mathematics)">集合概念</a>。集合是什么呢，集合就是一堆东西<sup>1</sup>。</p>
+
+<blockquote>
+  <p><sup>1</sup>这是来源于<a href="https://en.wikipedia.org/wiki/Naive_set_theory">朴素集合论</a>的说法</p>
+</blockquote>
+
+<p>但是这一堆东西的集合有自己的特性：</p>
+
+<ul>
+  <li>无序性</li>
+  <li>互异性</li>
+  <li>确定性，给定任一个元素，要么属于这个集合，要么不属于</li>
+</ul>
+
+<p>当元素<code class="highlighter-rouge">a</code>属于集合<code class="highlighter-rouge">A</code>，则记作<code class="highlighter-rouge">a∈A</code>。</p>
+
+<h3 id="set对象">Set对象</h3>
+
+<p>在JavaScript中，集合使用内建对象<code class="highlighter-rouge">Set</code>来表现。这里我们主要是关注它，语法如下:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nb">Set</span><span class="p">([</span><span class="nx">iterable</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>所以元素必须是可遍历的基本数据类型或者引用类型。我们举个例子：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Set</span><span class="p">();</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">);</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>我们来看一下Google控制台的输出：</p>
+
+<p><img src="/styles/images/algorithms/set.png" alt="Set" /></p>
+
+<p>可以看到，这个对象的主要方法有<code class="highlighter-rouge">add()</code>、<code class="highlighter-rouge">clear()</code>、<code class="highlighter-rouge">delete()</code>、<code class="highlighter-rouge">has()</code>、<code class="highlighter-rouge">values()</code>以及遍历<code class="highlighter-rouge">forEach()</code>。如果我们试图使用下标去访问其中的某个元素:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="c1">//undefined</span>
+</code></pre></div></div>
+
+<p>好的，集合就介绍到这。</p>
+
+<hr />
+
+<h2 id="字典">字典</h2>
+
+<h3 id="map对象">Map对象</h3>
+
+<p>同样的道理，我们看一下JavaScript中的<code class="highlighter-rouge">Map</code>对象。语法构造如下:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nb">Map</span><span class="p">([</span><span class="nx">iterable</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">[key,value]</code>都可以是可遍历的基本数据类型和引用对象。比如，我们用<code class="highlighter-rouge">Map</code>来构建一个邮件通讯录。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dic</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Map</span><span class="p">();</span>
+<span class="nx">dic</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'timi'</span><span class="p">,</span><span class="s1">'maoxiaoke@outlook.com'</span><span class="p">);</span>
+<span class="nx">dic</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'maoxioake'</span><span class="p">,</span><span class="s1">'thebigyellowbee@qq.com'</span><span class="p">);</span>
+<span class="nx">dic</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'yuer'</span><span class="p">,</span><span class="s1">'yuer@xiaoke.com'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>控制台输出：</p>
+
+<p><img src="/styles/images/algorithms/map.png" alt="Map" /></p>
+
+<p><code class="highlighter-rouge">Map</code>对象的方法有<code class="highlighter-rouge">clear()</code>、<code class="highlighter-rouge">set()</code>、<code class="highlighter-rouge">has()</code>、<code class="highlighter-rouge">delete()</code>、<code class="highlighter-rouge">forEach()</code>。重点我们看一下<code class="highlighter-rouge">get()</code>方法。我们用这个方法在字典中获取一个值。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dic</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'timi'</span><span class="p">));</span>
+<span class="c1">// maoixoake@outlook.com</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dic</span><span class="p">[</span><span class="s1">'timi'</span><span class="p">]);</span>
+<span class="c1">//undefined</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>大家可以看到和对象的区别了吗？</p>
+</blockquote>
+
+<p>是的，这不是我们的重点，重点是我们的哈希表。</p>
+
+<hr />
+
+<h2 id="散列表">散列表</h2>
+
+<p>正如开头说的，散列表实际就是字典的另一种实现方式，目的就是更快地找到一个值。在常规的字典操作中，使用<code class="highlighter-rouge">get()</code>方法获得一个值，需要遍历整个数据结构。为了能在<em>O(1)</em>时间内查找到某个值，我们使用了一种叫做<strong>散列函数</strong>的方法，通过散列函数，就知道值的具体位置。是如何实现的呢？</p>
+
+<p>首先，多数散列函数都假定关键字的全域(<code class="highlighter-rouge">U</code>)为自然数集<code class="highlighter-rouge">N = {0,1,2, ...}</code>。因此，如果所给的关键字(指的是key值)不是自然数，就需要一种方法将它们转换成自然数 – 比如，我们使用字母的ASCII值。</p>
+
+<blockquote>
+  <p>这里，我们所给的所有关键字的自然数的集合(<code class="highlighter-rouge">K</code>)是全域的子集。</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">键</th>
+      <th style="text-align: center">散列函数</th>
+      <th style="text-align: center">散列值</th>
+      <th style="text-align: center">散列表</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">timi</td>
+      <td style="text-align: center">lose lose</td>
+      <td style="text-align: center">116+105+109+105=435</td>
+      <td style="text-align: center">[435] maoxiaoke@outlook.com</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">maoxiaoke</td>
+      <td style="text-align: center">lose lose</td>
+      <td style="text-align: center">958</td>
+      <td style="text-align: center">[453] thebigyellowbee@qq.com</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">yuer</td>
+      <td style="text-align: center">lose lose</td>
+      <td style="text-align: center">121+117+101+114=453</td>
+      <td style="text-align: center">[958] yuer@xiaoke.com</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>在散列值对应的[435]、[453]、[958]位置上，有对应的值。在其他的散列值位置上，是空值。所以说，<strong>散列表是普通数组的推广</strong>，这样你就可以像使用数组下标一样(这种说法可能有纰漏)使用字典了。</p>
+
+<blockquote>
+  <p>“lose lose”是一种非常简单的散列函数，只是简单地将每个键值中的每个字母的ASCII值相加。这种散列函数的缺点是造成的<em>冲突</em>会比较多。另外，上面表格实际上用的markdown作图，所以在表述上还有不太合理的地方。</p>
+</blockquote>
+
+<p>所以，使用散列函数来查找一个元素的步骤是: 我们添加一个元素，对应的散列值就会作为识别码替代元素的key值。当我们给出一个元素的key值，我们使用散列函数将其转换成散列值，从而找到对应元素的value值。平均时间就是<em>O(1)</em>。</p>
+
+<p>当然，这不是唯一的一个原因。</p>
+
+<p>如果我们不使用散列表的话，全域<code class="highlighter-rouge">U</code>很大，电脑的内存空间恐怕很难支持。而实际的<code class="highlighter-rouge">K</code>域可能相对<code class="highlighter-rouge">U</code>域很小，这样的话就造成了很大的浪费。所以，<strong>我们使用散列函数，实际上就是一种映射</strong>。散列函数将大小为<code class="highlighter-rouge">|U|</code>的散列表映射成大小为<code class="highlighter-rouge">m</code>(m&gt;=0)的散列表。<code class="highlighter-rouge">m</code>的最大值由散列函数和key值决定，而且一般比<code class="highlighter-rouge">|U|</code>小的多。</p>
+
+<p>所以，这里还会造成一个问题: 就是多个key值映射到同一个散列值上。比如，我们添加两个元素。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">dic</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'qznl'</span><span class="p">,</span><span class="s1">'qznl@xiaoke.com'</span><span class="p">);</span>
+<span class="nx">dic</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'CheNg'</span><span class="p">,</span><span class="s1">'CheNg@xiaoke.com'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>那么，key值为<code class="highlighter-rouge">yuer</code>、<code class="highlighter-rouge">qznl</code>、<code class="highlighter-rouge">CheNg</code>三个元素的散列值都是一样的，为<code class="highlighter-rouge">453</code>。好尴尬呀，怎么解决呢。一种为<strong>链接法</strong>(chaining)，另一种称为<strong>开放寻址法</strong>(open addressing)。</p>
+
+<h3 id="链接法--chaining">链接法 – chaining</h3>
+
+<p>链接法的思想是，把散列到同一个散列值的所有元素都放在一个链表里。如下图:</p>
+
+<p><img src="/styles/images/algorithms/chaining.png" alt="chaining" /></p>
+
+<p>这种方法的缺陷很明显，会增加额外的内存空间。</p>
+
+<h3 id="开放寻址法--open-addressing">开放寻址法 – open addressing</h3>
+
+<p>虽然说我们的内存空间通过散列函数限制为<code class="highlighter-rouge">m</code>大小了，但是散列值并非是等概率分布的。有些散列值可能对应多个元素，有些则包含<em>空</em>。但是，散列表也可能被填满，从而不能插入任何新的元素。所以，这都不是一定的。开放寻址法的思想就是，我们将散列值相同的元素插入那些对应为空的散列值中。</p>
+
+<p>也有多种思路。</p>
+
+<h4 id="线性探查--linear-probing">线性探查 – linear probing</h4>
+
+<p>第一种就是线性探查。当向表中某个位置插入一个新元素时，如果该散列值对应的位置已经被占据了，则尝试<code class="highlighter-rouge">散列值+1</code>的位置。如果<code class="highlighter-rouge">散列值+2</code>的位置也被占据，则尝试<code class="highlighter-rouge">散列值+3</code>的位置，以此类推。</p>
+
+<p><img src="/styles/images/algorithms/addressing.png" alt="open addresssing" /></p>
+
+<p>让我们来模拟一下查找操作。当我们想查找一个散列值为453的元素，如果是<code class="highlighter-rouge">yuer</code>，查找结束；不是，+1查找找到<code class="highlighter-rouge">qznl</code>，如果是，查找结束；不是，+2查找，找到<code class="highlighter-rouge">CheNg</code>，如果是，查找结束；不是，+3查找，这里对应为空，元素没有找到，即散列表中没有该元素。</p>
+
+<p>这种方法比较容易实现，但存在一个问题: <strong>一次集群</strong>(primary clustering)现象。这让我想到了错误集群现象，就是有bug的地方通常不止一个。</p>
+
+<h4 id="二次探查--quadratic-probing">二次探查 – quadratic probing</h4>
+
+<p>二次探查就是在后续的探查位置上添加一个偏移量，该偏移量以二次的方式依赖于探查序号i。这种方式比线性探查好的多，但是也会出现<strong>二次集群</strong>现象。</p>
+
+<h4 id="双重散列--double-hashing">双重散列 – double hashing</h4>
+
+<p>双重散列是用于开放寻址法最好的方法之一。具体就是后续探查的位置是前一个位置加上偏移量对m的取模。</p>
+
+<h3 id="散列函数">散列函数</h3>
+
+<p>上面我们介绍了一种哈希函数<code class="highlighter-rouge">lose lose</code>，这不是一个表现良好的散列函数，因为它会产生大量的冲突。另一个比较好的散列函数是<code class="highlighter-rouge">djb2</code>。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">djbHashCode</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">hash</span> <span class="o">=</span> <span class="mi">5381</span><span class="p">;</span> <span class="c1">//{1}</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">key</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+        <span class="nx">hash</span> <span class="o">=</span> <span class="nx">hash</span> <span class="o">*</span> <span class="mi">33</span> <span class="o">+</span> <span class="nx">key</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">//{2}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">hash</span> <span class="o">%</span> <span class="mi">1013</span><span class="p">;</span> <span class="c1">//{3}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>解释一下，<code class="highlighter-rouge">5381</code>是一个质数，与<code class="highlighter-rouge">33</code>想乘得到一个魔力数。最后得到的相加结果与另一个随机质数<code class="highlighter-rouge">1013</code>(这个质数取值一般比我们认为的散列表大小要大)相除得到的余数。</p>
+
+<p>这也许不算是最好的哈希函数，但是被社区推荐。</p>
+
+<p>更多散列函数，可参见:</p>
+
+<ul>
+  <li><a href="http://www.cse.yorku.ca/~oz/hash.html">Hash function</a></li>
+</ul>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

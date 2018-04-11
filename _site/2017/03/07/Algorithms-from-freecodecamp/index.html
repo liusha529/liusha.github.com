@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>FreeCodeCamp的算法题</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>FreeCodeCamp的算法题</h1>
+		    <p>Post on Mar 07, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#Algorithms-ref">Algorithms</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">FreeCodeCamp的算法题</h1>
+              <!--
+                <p class="post-meta">Mar 7, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Mar 07, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#1-reverse-a-string" id="markdown-toc-1-reverse-a-string">1. Reverse a String</a>    <ul>
+      <li><a href="#description" id="markdown-toc-description">Description</a></li>
+      <li><a href="#way-to-solve-it" id="markdown-toc-way-to-solve-it">Way to solve it</a></li>
+      <li><a href="#code" id="markdown-toc-code">Code</a></li>
+      <li><a href="#output" id="markdown-toc-output">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-check-for-palindromes--判断回文" id="markdown-toc-2-check-for-palindromes--判断回文">2. Check for Palindromes – 判断回文</a>    <ul>
+      <li><a href="#description-1" id="markdown-toc-description-1">Description</a></li>
+      <li><a href="#way-to-solve-it-1" id="markdown-toc-way-to-solve-it-1">Way to solve it</a></li>
+      <li><a href="#code-1" id="markdown-toc-code-1">Code</a></li>
+      <li><a href="#output-1" id="markdown-toc-output-1">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-find-the-longest-word-in-a-string" id="markdown-toc-3-find-the-longest-word-in-a-string">3. Find the Longest Word in a String</a>    <ul>
+      <li><a href="#description-2" id="markdown-toc-description-2">Description</a></li>
+      <li><a href="#way-to-solve-it-2" id="markdown-toc-way-to-solve-it-2">Way to solve it</a></li>
+      <li><a href="#code-2" id="markdown-toc-code-2">Code</a></li>
+      <li><a href="#output-2" id="markdown-toc-output-2">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-confirm-the-ending" id="markdown-toc-4-confirm-the-ending">4. Confirm the Ending</a>    <ul>
+      <li><a href="#description-3" id="markdown-toc-description-3">Description</a></li>
+      <li><a href="#way-to-solve-it-3" id="markdown-toc-way-to-solve-it-3">Way to solve it</a></li>
+      <li><a href="#code-3" id="markdown-toc-code-3">Code</a></li>
+      <li><a href="#output-3" id="markdown-toc-output-3">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-falsy-bouncer--假值删除" id="markdown-toc-5-falsy-bouncer--假值删除">5. Falsy Bouncer – 假值删除</a>    <ul>
+      <li><a href="#description-4" id="markdown-toc-description-4">Description</a></li>
+      <li><a href="#way-to-solve-it-4" id="markdown-toc-way-to-solve-it-4">Way to solve it</a></li>
+      <li><a href="#code-4" id="markdown-toc-code-4">Code</a></li>
+      <li><a href="#output-4" id="markdown-toc-output-4">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-seek-and-destroy--删除选定的值" id="markdown-toc-6-seek-and-destroy--删除选定的值">6. Seek and Destroy – 删除选定的值</a>    <ul>
+      <li><a href="#description-5" id="markdown-toc-description-5">Description</a></li>
+      <li><a href="#way-to-solve-it-5" id="markdown-toc-way-to-solve-it-5">Way to solve it</a></li>
+      <li><a href="#code-5" id="markdown-toc-code-5">Code</a></li>
+      <li><a href="#output-5" id="markdown-toc-output-5">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#7-caesars-cipher--凯撒密码" id="markdown-toc-7-caesars-cipher--凯撒密码">7. Caesars Cipher – 凯撒密码</a>    <ul>
+      <li><a href="#description-6" id="markdown-toc-description-6">Description</a></li>
+      <li><a href="#way-to-solve-it-6" id="markdown-toc-way-to-solve-it-6">Way to solve it</a></li>
+      <li><a href="#code-6" id="markdown-toc-code-6">Code</a></li>
+      <li><a href="#output-6" id="markdown-toc-output-6">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#8-sum-all-numbers-in-a-range" id="markdown-toc-8-sum-all-numbers-in-a-range">8. Sum All Numbers in a Range</a>    <ul>
+      <li><a href="#description-7" id="markdown-toc-description-7">Description</a></li>
+      <li><a href="#way-to-solve-it-7" id="markdown-toc-way-to-solve-it-7">Way to solve it</a></li>
+      <li><a href="#code-7" id="markdown-toc-code-7">Code</a></li>
+      <li><a href="#output-7" id="markdown-toc-output-7">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#9-roman-numeral-converter" id="markdown-toc-9-roman-numeral-converter">9. Roman Numeral Converter</a>    <ul>
+      <li><a href="#description-8" id="markdown-toc-description-8">Description</a></li>
+      <li><a href="#way-to-solve-it-8" id="markdown-toc-way-to-solve-it-8">Way to solve it</a></li>
+      <li><a href="#code-8" id="markdown-toc-code-8">Code</a></li>
+      <li><a href="#output-8" id="markdown-toc-output-8">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#10-search-and-replace" id="markdown-toc-10-search-and-replace">10. Search and Replace</a>    <ul>
+      <li><a href="#description-9" id="markdown-toc-description-9">Description</a></li>
+      <li><a href="#way-to-solve-it-9" id="markdown-toc-way-to-solve-it-9">Way to solve it</a></li>
+      <li><a href="#code-9" id="markdown-toc-code-9">Code</a></li>
+      <li><a href="#output-9" id="markdown-toc-output-9">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#11-missing-letters" id="markdown-toc-11-missing-letters">11. Missing letters</a>    <ul>
+      <li><a href="#description-10" id="markdown-toc-description-10">Description</a></li>
+      <li><a href="#way-to-solve-it-10" id="markdown-toc-way-to-solve-it-10">Way to solve it</a></li>
+      <li><a href="#code-10" id="markdown-toc-code-10">Code</a></li>
+      <li><a href="#output-10" id="markdown-toc-output-10">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#12-convert-html-entities" id="markdown-toc-12-convert-html-entities">12. Convert HTML Entities</a>    <ul>
+      <li><a href="#description-11" id="markdown-toc-description-11">Description</a></li>
+      <li><a href="#way-to-solve-it-11" id="markdown-toc-way-to-solve-it-11">Way to solve it</a></li>
+      <li><a href="#code-11" id="markdown-toc-code-11">Code</a></li>
+      <li><a href="#output-11" id="markdown-toc-output-11">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#13-spinal-tap-case" id="markdown-toc-13-spinal-tap-case">13. Spinal Tap Case</a>    <ul>
+      <li><a href="#description-12" id="markdown-toc-description-12">Description</a></li>
+      <li><a href="#way-to-solve-it-12" id="markdown-toc-way-to-solve-it-12">Way to solve it</a></li>
+      <li><a href="#code-12" id="markdown-toc-code-12">Code</a></li>
+      <li><a href="#output-12" id="markdown-toc-output-12">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#14-sum-all-primes" id="markdown-toc-14-sum-all-primes">14. Sum All Primes</a>    <ul>
+      <li><a href="#description-13" id="markdown-toc-description-13">Description</a></li>
+      <li><a href="#way-to-solve-it-13" id="markdown-toc-way-to-solve-it-13">Way to solve it</a></li>
+      <li><a href="#code-13" id="markdown-toc-code-13">Code</a></li>
+      <li><a href="#output-13" id="markdown-toc-output-13">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#15-smallest-common-multiple" id="markdown-toc-15-smallest-common-multiple">15. Smallest Common Multiple</a>    <ul>
+      <li><a href="#description-14" id="markdown-toc-description-14">Description</a></li>
+      <li><a href="#way-to-solve-it-14" id="markdown-toc-way-to-solve-it-14">Way to solve it</a></li>
+      <li><a href="#code-14" id="markdown-toc-code-14">Code</a></li>
+      <li><a href="#output-14" id="markdown-toc-output-14">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#16-binary-agents" id="markdown-toc-16-binary-agents">16. Binary Agents</a>    <ul>
+      <li><a href="#description-15" id="markdown-toc-description-15">Description</a></li>
+      <li><a href="#way-to-solve-it-15" id="markdown-toc-way-to-solve-it-15">Way to solve it</a></li>
+      <li><a href="#code-15" id="markdown-toc-code-15">Code</a></li>
+      <li><a href="#output-15" id="markdown-toc-output-15">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#17-everything-be-true" id="markdown-toc-17-everything-be-true">17. Everything Be True</a>    <ul>
+      <li><a href="#description-16" id="markdown-toc-description-16">Description</a></li>
+      <li><a href="#way-to-solve-it-16" id="markdown-toc-way-to-solve-it-16">Way to solve it</a></li>
+      <li><a href="#code-16" id="markdown-toc-code-16">Code</a></li>
+      <li><a href="#output-16" id="markdown-toc-output-16">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#18-arguments-optional" id="markdown-toc-18-arguments-optional">18. Arguments Optional</a>    <ul>
+      <li><a href="#description-17" id="markdown-toc-description-17">Description</a></li>
+      <li><a href="#way-to-solve-it-17" id="markdown-toc-way-to-solve-it-17">Way to solve it</a></li>
+      <li><a href="#code-17" id="markdown-toc-code-17">Code</a></li>
+      <li><a href="#output-17" id="markdown-toc-output-17">Output</a></li>
+    </ul>
+  </li>
+  <li><a href="#19-symmetric-difference" id="markdown-toc-19-symmetric-difference">19. Symmetric Difference</a>    <ul>
+      <li><a href="#description-18" id="markdown-toc-description-18">Description</a></li>
+      <li><a href="#way-to-solve-it-18" id="markdown-toc-way-to-solve-it-18">Way to solve it</a></li>
+      <li><a href="#code-18" id="markdown-toc-code-18">Code</a></li>
+      <li><a href="#output-18" id="markdown-toc-output-18">Output</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>这里收集<a href="https://www.freecodecamp.com"><code class="highlighter-rouge">FreeCodeCamp</code></a>上的所有的<code class="highlighter-rouge">Javascript</code>算法题目，自己的解答以及运行结果和思考。</p>
+
+<!-- more -->
+
+<h2 id="1-reverse-a-string">1. Reverse a String</h2>
+
+<h4 id="description">Description</h4>
+
+<p>Reverse the provided string.</p>
+
+<h4 id="way-to-solve-it">Way to solve it</h4>
+
+<p>Turn the string into an array before reversing it.</p>
+
+<h4 id="code">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">reverseString</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">reverseString</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="output">Output</h4>
+
+<p>olleh</p>
+
+<hr />
+
+<h2 id="2-check-for-palindromes--判断回文">2. Check for Palindromes – 判断回文</h2>
+
+<h4 id="description-1">Description</h4>
+
+<p>A <strong>palindrome</strong> is a word or sentence that’s spelled the same way both forward and backward, ignoring punctuation(标点), case(大小写), symbols(符号)，and spacing(空格).</p>
+
+<h4 id="way-to-solve-it-1">Way to solve it</h4>
+
+<p>删除所有非字母字符，然后将所得字符全都变成大写或小写。删除字符使用<strong>正则表达式</strong>。</p>
+
+<h4 id="code-1">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">palindrome</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Good luck!</span>
+  <span class="kd">var</span> <span class="nx">pd</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">[\W</span><span class="sr">_</span><span class="se">]</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">();</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">pd</span> <span class="o">===</span> <span class="nx">pd</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">''</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">palindrome</span><span class="p">(</span><span class="s2">"eye"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="output-1">Output</h4>
+
+<p>true</p>
+
+<hr />
+
+<h2 id="3-find-the-longest-word-in-a-string">3. Find the Longest Word in a String</h2>
+
+<h4 id="description-2">Description</h4>
+
+<p>Return the length of the longest word in the provided sentence.</p>
+
+<h4 id="way-to-solve-it-2">Way to solve it</h4>
+
+<p>None.</p>
+
+<h4 id="code-2">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">findLongestWord</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">).</span><span class="nx">sort</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">curr</span><span class="p">,</span> <span class="nx">next</span><span class="p">){</span><span class="k">return</span> <span class="nx">curr</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">next</span><span class="p">.</span><span class="nx">length</span><span class="p">;})[</span><span class="mi">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">findLongestWord</span><span class="p">(</span><span class="s2">"The quick brown fox jumped over the lazy dog"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="output-2">Output</h4>
+
+<p>6</p>
+
+<hr />
+
+<h2 id="4-confirm-the-ending">4. Confirm the Ending</h2>
+
+<h4 id="description-3">Description</h4>
+
+<p>Check if a string (first argument, <code class="highlighter-rouge">str</code>) ends with the given target string (second argument, <code class="highlighter-rouge">target</code>).</p>
+
+<h4 id="way-to-solve-it-3">Way to solve it</h4>
+
+<p>None.</p>
+
+<h4 id="code-3">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">confirmEnding</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">pos</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">target</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">return</span> <span class="p">(</span><span class="nx">pos</span> <span class="o">+</span> <span class="nx">target</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="o">===</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">confirmEnding</span><span class="p">(</span><span class="s2">"Bastian"</span><span class="p">,</span> <span class="s2">"n"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="output-3">Output</h4>
+
+<p>true</p>
+
+<hr />
+
+<h2 id="5-falsy-bouncer--假值删除">5. Falsy Bouncer – 假值删除</h2>
+
+<h4 id="description-4">Description</h4>
+
+<p>Remove all falsy values from an array.</p>
+
+<p>Falsy values in JavaScript are <code class="highlighter-rouge">false</code>, <code class="highlighter-rouge">null</code>, <code class="highlighter-rouge">0</code>, <code class="highlighter-rouge">""</code>, <code class="highlighter-rouge">undefined</code>, and <code class="highlighter-rouge">NaN</code>.</p>
+
+<h4 id="way-to-solve-it-4">Way to solve it</h4>
+
+<p>None.</p>
+
+<h4 id="code-4">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bouncer</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Don't show a false ID to this bouncer.</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">bouncer</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="s2">"ate"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">9</span><span class="p">]));</span>
+</code></pre></div></div>
+
+<h4 id="output-4">Output</h4>
+
+<p>[ 7, ‘ate’, 9 ]</p>
+
+<hr />
+
+<h2 id="6-seek-and-destroy--删除选定的值">6. Seek and Destroy – 删除选定的值</h2>
+
+<h4 id="description-5">Description</h4>
+
+<p>You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.</p>
+
+<h4 id="way-to-solve-it-5">Way to solve it</h4>
+
+<p>None.</p>
+
+<h4 id="code-5">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">destroyer</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Remove all the values</span>
+  <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="kr">arguments</span><span class="p">).</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">args</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+  <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">destroyer</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="output-5">Output</h4>
+
+<p>[ 1, 1 ]</p>
+
+<hr />
+
+<h2 id="7-caesars-cipher--凯撒密码">7. Caesars Cipher – 凯撒密码</h2>
+
+<h4 id="description-6">Description</h4>
+
+<p>A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus ‘A’ ↔ ‘N’, ‘B’ ↔ ‘O’ and so on</p>
+
+<h4 id="way-to-solve-it-6">Way to solve it</h4>
+
+<p>使用ASCII码。</p>
+
+<h4 id="code-6">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">rot13</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span> 
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">''</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">subStr</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">decode</span><span class="p">(</span><span class="nx">subStr</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+  <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+
+  <span class="kd">function</span> <span class="nx">decode</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Takes care of characters that are not in [A-Z] such as ! and ? and decodes [A-Z]</span>
+    <span class="kd">var</span> <span class="nx">decoded</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">arg</span> <span class="o">&gt;=</span> <span class="mi">65</span> <span class="o">&amp;&amp;</span> <span class="nx">arg</span> <span class="o">&lt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">decoded</span> <span class="o">=</span> <span class="p">(</span><span class="nx">arg</span> <span class="o">+</span> <span class="mi">13</span><span class="p">)</span> <span class="o">%</span> <span class="mi">91</span><span class="p">;</span>
+      <span class="k">return</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">decoded</span> <span class="o">&lt;</span> <span class="mi">65</span> <span class="p">?</span> <span class="nx">decoded</span> <span class="o">+=</span> <span class="mi">65</span> <span class="p">:</span> <span class="nx">decoded</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="nx">rot13</span><span class="p">(</span><span class="s2">"SERR PBQR PNZC"</span><span class="p">));</span>
+</code></pre></div></div>
+
+<h4 id="output-6">Output</h4>
+
+<p>FREE CODE CAMP</p>
+
+<hr />
+
+<h2 id="8-sum-all-numbers-in-a-range">8. Sum All Numbers in a Range</h2>
+
+<h4 id="description-7">Description</h4>
+
+<p>We’ll pass you an array of two numbers. Return the sum of those two numbers and all numbers between them.</p>
+
+<p>The lowest number will not always come first.</p>
+
+<h4 id="way-to-solve-it-7">Way to solve it</h4>
+
+<p><code class="highlighter-rouge">Math</code>对象的<code class="highlighter-rouge">Min()</code>和<code class="highlighter-rouge">Max()</code>方法。</p>
+
+<h4 id="code-7">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sumAll</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">maxValue</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+<span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">minValue</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">);</span>
+  <span class="p">});</span>
+  <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">maxValue</span> <span class="o">-</span> <span class="nx">minValue</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">n</span> <span class="o">*</span> <span class="nx">minValue</span> <span class="o">+</span> <span class="nx">n</span> <span class="o">*</span> <span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">sumAll</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]);</span>
+
+</code></pre></div></div>
+
+<h4 id="output-7">Output</h4>
+
+<p>10</p>
+
+<hr />
+
+<h2 id="9-roman-numeral-converter">9. Roman Numeral Converter</h2>
+
+<h4 id="description-8">Description</h4>
+
+<p>Convert the given number into a roman numeral.</p>
+
+<h4 id="way-to-solve-it-8">Way to solve it</h4>
+
+<p>比较简单的方法，使用一个对照表。</p>
+
+<h4 id="code-8">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">convertToRoman</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lookup</span> <span class="o">=</span>  <span class="p">{</span><span class="na">M</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span><span class="na">CM</span><span class="p">:</span><span class="mi">900</span><span class="p">,</span><span class="na">D</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="na">CD</span><span class="p">:</span><span class="mi">400</span><span class="p">,</span><span class="na">C</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="na">XC</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span><span class="na">L</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span><span class="na">XL</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span><span class="na">X</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="na">IX</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="na">V</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="na">IV</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="na">I</span><span class="p">:</span><span class="mi">1</span><span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">romanStr</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">lookup</span><span class="p">){</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&gt;=</span> <span class="nx">lookup</span><span class="p">[</span><span class="nx">i</span><span class="p">]){</span>
+      <span class="nx">romanStr</span><span class="o">+=</span><span class="nx">i</span><span class="p">;</span>
+      <span class="nx">num</span> <span class="o">-=</span> <span class="nx">lookup</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">romanStr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">convertToRoman</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<h4 id="output-8">Output</h4>
+
+<p>XXXVI</p>
+
+<hr />
+
+<h2 id="10-search-and-replace">10. Search and Replace</h2>
+
+<h4 id="description-9">Description</h4>
+
+<p>Perform a search and replace on the sentence using the arguments provided and return the new sentence.</p>
+
+<p>First argument is the sentence to perform the search and replace on.Second argument is the word that you will be replacing (before).Third argument is what you will be replacing the second argument with (after).</p>
+
+<p>NOTE: Preserve the case of the original word when you are replacing it. For example if you mean to replace the word “Book” with the word “dog”, it should be replaced as “Dog”</p>
+
+<h4 id="way-to-solve-it-9">Way to solve it</h4>
+
+<p>问题的关键是如果被替换的单词第一个是大写的时候该怎么办。</p>
+
+<h4 id="code-9">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myReplace</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="nx">before</span><span class="p">,</span> <span class="nx">after</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">before</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">===</span> <span class="nx">before</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()){</span>
+    <span class="nx">after</span> <span class="o">=</span> <span class="nx">after</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">toUpperCase</span><span class="p">()</span> <span class="o">+</span> <span class="nx">after</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">after</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">before</span><span class="p">,</span><span class="nx">after</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">myReplace</span><span class="p">(</span><span class="s2">"A quick brown fox Jumped over the lazy dog"</span><span class="p">,</span> <span class="s2">"Jumped"</span><span class="p">,</span> <span class="s2">"leaped"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="output-9">Output</h4>
+
+<p>A quick brown for Leaped over the lazy dog</p>
+
+<hr />
+
+<h2 id="11-missing-letters">11. Missing letters</h2>
+
+<h4 id="description-10">Description</h4>
+
+<p>Find the missing letter in the passed letter range and return it.</p>
+
+<p>If all letters are present in the range, return undefined.</p>
+
+<h4 id="way-to-solve-it-10">Way to solve it</h4>
+
+<p><code class="highlighter-rouge">String.prototype.charCodeAt()</code> 和 <code class="highlighter-rouge">String.fromCharCode()</code></p>
+
+<h4 id="code-10">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">fearNotLetter</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="o">++</span> <span class="nx">i</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">!==</span> <span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+      <span class="k">return</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">str</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+<span class="p">}</span>
+  <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">fearNotLetter</span><span class="p">(</span><span class="s2">"abce"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="output-10">Output</h4>
+
+<p>d</p>
+
+<hr />
+
+<h2 id="12-convert-html-entities">12. Convert HTML Entities</h2>
+
+<h4 id="description-11">Description</h4>
+
+<p>Convert the characters <code class="highlighter-rouge">&amp;</code>, <code class="highlighter-rouge">&lt;</code>, <code class="highlighter-rouge">&gt;</code>, “ (double quote), and <code class="highlighter-rouge">'</code>(apostrophe), in a string to their corresponding HTML entities.</p>
+
+<h4 id="way-to-solve-it-11">Way to solve it</h4>
+
+<p>虽然有提示说使用正则表达式以及<code class="highlighter-rouge">String.replace()</code>，但还是很容易会想到例9的罗马转换问题，使用一个<code class="highlighter-rouge">lookup table</code>。问题的关键是，很多情况下，我们是不是应该将字符串转换成数组来解决问题。另外注意的是，我们利用<code class="highlighter-rouge">split('')</code>将每个字母进行分割，而不是<code class="highlighter-rouge">split(' ')</code>将单词进行分割，因为还有可能有<code class="highlighter-rouge">"abc"</code>这样的输入。</p>
+
+<h4 id="code-11">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">convertHTML</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lookup</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'&amp;'</span><span class="p">:</span><span class="s1">'&amp;amp;'</span><span class="p">,</span><span class="s1">'&gt;'</span><span class="p">:</span><span class="s1">'&amp;gt;'</span><span class="p">,</span><span class="s1">'&lt;'</span><span class="p">:</span><span class="s1">'&amp;lt;'</span><span class="p">,</span><span class="s1">'</span><span class="err">\</span><span class="s1">"'</span><span class="p">:</span><span class="s1">'&amp;quot;'</span><span class="p">,</span><span class="s1">'</span><span class="se">\'</span><span class="s1">'</span><span class="p">:</span><span class="s1">'&amp;apos;'</span><span class="p">};</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">''</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">entity</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">lookup</span><span class="p">[</span><span class="nx">entity</span><span class="p">]</span> <span class="o">||</span> <span class="nx">entity</span><span class="p">;</span>
+  <span class="p">}).</span><span class="nx">join</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">convertHTML</span><span class="p">(</span><span class="s2">"Dolce &amp; Gabbana"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="output-11">Output</h4>
+
+<p>Dolce &amp; Gabbana</p>
+
+<hr />
+
+<h2 id="13-spinal-tap-case">13. Spinal Tap Case</h2>
+
+<h4 id="description-12">Description</h4>
+
+<p>Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.</p>
+
+<h4 id="way-to-solve-it-12">Way to solve it</h4>
+
+<p>这个问题看上去挺简单，使用正则表达式，然后<code class="highlighter-rouge">String.prototype.replace()</code>，接着用<code class="highlighter-rouge">String.prototype.toLowerCase()</code>变成大小写。问题在于提供的输入有<code class="highlighter-rouge">thisIsSpinalTap</code>这种形式，就算是分割成字母数组，也不好判断<code class="highlighter-rouge">-</code>该怎么添加。我们观察到，一个单词的末尾是小写字母，而开头是大写的。我们是不是可以用正则表达式匹配。其实这里只是因为输入的例子是这样的，但实际上可能并不是这样。所有有很大的局限性。</p>
+
+<h4 id="code-12">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">spinalCase</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">regExp</span> <span class="o">=</span> <span class="sr">/</span><span class="se">[\W</span><span class="sr">_</span><span class="se">]</span><span class="sr">/gi</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">([</span><span class="sr">a-z</span><span class="se">])([</span><span class="sr">A-Z</span><span class="se">])</span><span class="sr">/g</span><span class="p">,</span><span class="s2">"$1 $2"</span><span class="p">).</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regExp</span><span class="p">,</span><span class="s1">'-'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">spinalCase</span><span class="p">(</span><span class="s2">"AllThe-small Things"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="output-12">Output</h4>
+
+<p>all-the-small things</p>
+
+<hr />
+
+<h2 id="14-sum-all-primes">14. Sum All Primes</h2>
+
+<h4 id="description-13">Description</h4>
+
+<p>Sum all the prime numbers up to and including the provided number.</p>
+
+<p>A prime number is defined as a number greater than one and having only two divisors, one and itself. For example, 2 is a prime number because it’s only divisible by one and two.</p>
+
+<p>The provided number may not be a prime.</p>
+
+<h4 id="way-to-solve-it-13">Way to solve it</h4>
+
+<p>素数是什么：除了<code class="highlighter-rouge">1</code>和其本身，无法被其他数整除。特别的，<code class="highlighter-rouge">1</code>不是素数，<code class="highlighter-rouge">2</code>是素数。</p>
+
+<p>这里的重点是如何取得小于或等于<code class="highlighter-rouge">num</code>的所有素数，对数组元素进行加法运算可以使用迭代遍历，但我觉得最好的方法还是<code class="highlighter-rouge">array.prototype.reduce()</code>函数，会箭头函数那就更好了。</p>
+
+<h4 id="code-13">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sumPrimes</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">i</span><span class="p">,</span><span class="nx">j</span><span class="p">,</span><span class="nx">arr</span><span class="o">=</span><span class="p">[];</span>
+  <span class="k">for</span><span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="nx">num</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">for</span><span class="p">(</span><span class="nx">j</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span><span class="nx">j</span><span class="o">&lt;</span><span class="nx">i</span><span class="p">;</span><span class="o">++</span><span class="nx">j</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="k">if</span><span class="p">(</span><span class="nx">i</span><span class="o">%</span><span class="nx">j</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span>
+          <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">j</span> <span class="o">&amp;&amp;</span><span class="nx">i</span> <span class="o">!==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="nx">arr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span>
+
+  <span class="k">return</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+                 <span class="k">return</span> <span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">;</span>
+                 <span class="p">});</span>
+<span class="c1">//return arr.reduce((a,b)=&gt; a+b,0);</span>
+<span class="p">}</span>
+
+<span class="nx">sumPrimes</span><span class="p">(</span><span class="mi">977</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="output-13">Output</h4>
+
+<p>73156</p>
+
+<hr />
+
+<h2 id="15-smallest-common-multiple">15. Smallest Common Multiple</h2>
+
+<h4 id="description-14">Description</h4>
+
+<p>Find the smallest common multiple of the provided parameters that can be evenly divided by both, as well as by all sequential numbers in the range between these parameters.</p>
+
+<p>The range will be an array of two numbers that will not necessarily be in numerical order.</p>
+
+<p>e.g. for 1 and 3 - find the smallest common multiple of both 1 and 3 that is evenly divisible by all numbers between 1 and 3.</p>
+
+<h4 id="way-to-solve-it-14">Way to solve it</h4>
+
+<p>要求得给出两数范围内所有的数的最小公倍数，我们可以先求出每两个的公倍数，采用循环就好。问题在于如何求得两数的最小公倍数。经过分析，我们知道两数的最小公倍数<code class="highlighter-rouge">[a,b]= |a*b|/(a,b)</code>，所以问题转化成求两数的最大公约数，如何求最大公约数，有多种算法，这里采用辗转相除法。代码段发布在<a href="https://gist.github.com/maoxiaoke/5f1d6e0cfe89666888a822c4af9215bb"><code class="highlighter-rouge">Github gist</code></a>上。</p>
+
+<h4 id="code-14">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">smallestCommons</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">minValue</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">?</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+      <span class="nx">maxValue</span> <span class="o">=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">?</span> <span class="nx">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span><span class="nx">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+      <span class="nx">mul</span> <span class="o">=</span> <span class="nx">minValue</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="nx">minValue</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span><span class="nx">maxValue</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="nx">mul</span> <span class="o">=</span> <span class="nx">smalltestCommonsMultiple</span><span class="p">(</span><span class="nx">mul</span><span class="p">,</span><span class="nx">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">mul</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">smalltestCommonsMultiple</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">){</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nx">x</span><span class="o">*</span><span class="nx">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="nx">greatestCommonsDivisor</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="kd">function</span> <span class="nx">greatestCommonsDivisor</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">){</span>
+  <span class="c1">//递归</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="k">return</span> <span class="nx">greatestCommonsDivisor</span><span class="p">(</span><span class="nx">b</span><span class="p">,</span><span class="nx">a</span><span class="o">%</span><span class="nx">b</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nx">a</span><span class="p">;</span>
+
+  <span class="c1">//非递归</span>
+  <span class="cm">/*  var r = 0;
+  if (r)
+  do {
+    r = a%b; a = b; b=r;
+  }while(r !== 0);
+  return a;*/</span>
+<span class="p">}</span>
+
+
+<span class="nx">smallestCommons</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<h4 id="output-14">Output</h4>
+
+<p>60</p>
+
+<hr />
+
+<h2 id="16-binary-agents">16. Binary Agents</h2>
+
+<h4 id="description-15">Description</h4>
+
+<p>Return an English translated sentence of the passed binary string.</p>
+
+<p>The binary string will be space separated.</p>
+
+<h4 id="way-to-solve-it-15">Way to solve it</h4>
+
+<p>这题的难度之一就在于将二进制转化为十进制，才可以使用<code class="highlighter-rouge">String.fromCharCode()</code>函数，庆幸的是，进制转换在<code class="highlighter-rouge">JavaScript</code>中非常方便，十进制转其他进制，使用<code class="highlighter-rouge">x.toString(a)</code>，<code class="highlighter-rouge">x</code>表示一个十进制数，<code class="highlighter-rouge">a</code>表示进制。其他进制转十进制，使用<code class="highlighter-rouge">parseInt(x,a)</code>，<code class="highlighter-rouge">x</code>表示进制字符串，<code class="highlighter-rouge">a</code>表示字符串的进制。</p>
+
+<h4 id="code-15">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">binaryAgent</span><span class="p">(</span><span class="nx">str</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">),</span><span class="nx">tr</span><span class="o">=</span><span class="s1">''</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">a</span> <span class="k">in</span> <span class="nx">arr</span><span class="p">)</span>
+    <span class="nx">tr</span> <span class="o">+=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">arr</span><span class="p">[</span><span class="nx">a</span><span class="p">],</span><span class="mi">2</span><span class="p">));</span>
+  <span class="k">return</span> <span class="nx">tr</span><span class="p">;</span>
+
+<span class="p">}</span>
+
+<span class="nx">binaryAgent</span><span class="p">(</span><span class="s2">"01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="output-15">Output</h4>
+
+<p>Aren’t bonfires fun!?</p>
+
+<hr />
+
+<h2 id="17-everything-be-true">17. Everything Be True</h2>
+
+<h4 id="description-16">Description</h4>
+
+<p>Check if the predicate (second argument) is truthy on all elements of a collection (first argument).</p>
+
+<h4 id="way-to-solve-it-16">Way to solve it</h4>
+
+<p>第一个参数是一个对象数组，第二个参数是一个字符串，表示第一个数组中对象的属性，如果前一个参数中没有该属性，或者该属性的值为<code class="highlighter-rouge">0</code>、<code class="highlighter-rouge">null</code>、<code class="highlighter-rouge">''</code>一类的也判断为<code class="highlighter-rouge">false</code>。那么第一种情况，对象没有该属性的情况，我们联想到一个<a href="/2017/03/22/Objects">对象的属性探测</a>，可以使用<code class="highlighter-rouge">in</code>操作符或者<code class="highlighter-rouge">hasOwnProperty()</code>方法。对于第二种情况，刚开始我以为是假值，但发现并不是。后来一想，这些值进行强制类型转换，不都是<code class="highlighter-rouge">false</code>吗。</p>
+
+<h4 id="code-16">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">truthCheck</span><span class="p">(</span><span class="nx">collection</span><span class="p">,</span> <span class="nx">pre</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Is everyone being true?</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">collection</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">collection</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">pre</span><span class="p">))</span> <span class="o">||</span> <span class="o">!</span><span class="nx">collection</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">pre</span><span class="p">])</span>
+      <span class="c1">//or if(!(pre in collection[i]) || !collection[i][pre])</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">truthCheck</span><span class="p">([{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"Tinky-Winky"</span><span class="p">,</span> <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"Dipsy"</span><span class="p">,</span> <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"male"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"Laa-Laa"</span><span class="p">,</span> <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"female"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"user"</span><span class="p">:</span> <span class="s2">"Po"</span><span class="p">,</span> <span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"female"</span><span class="p">}],</span> <span class="s2">"sex"</span><span class="p">);</span>
+
+<span class="cm">/*
+truthCheck([{"user": "Tinky-Winky", "sex": "male", "age": 0}, {"user": "Dipsy", "sex": "male", "age": 3}, {"user": "Laa-Laa", "sex": "female", "age": 5}, {"user": "Po", "sex": "female", "age": 4}], "age")
+*/</span>
+</code></pre></div></div>
+
+<h4 id="output-16">Output</h4>
+
+<p>true</p>
+
+<hr />
+
+<h2 id="18-arguments-optional">18. Arguments Optional</h2>
+
+<h4 id="description-17">Description</h4>
+
+<p>Create a function that sums two arguments together. If only one argument is provided, then return a function that expects one argument and returns the sum.</p>
+
+<p>For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.</p>
+
+<p>Calling this returned function with a single argument will then return the sum:</p>
+
+<p>var sumTwoAnd = addTogether(2);</p>
+
+<p>sumTwoAnd(3) returns 5.</p>
+
+<p>If either argument isn’t a valid number, return undefined.</p>
+
+<h4 id="way-to-solve-it-17">Way to solve it</h4>
+
+<p>对于闭包，以下是一个很好的例子</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">y</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">);</span><span class="c1">//5</span>
+</code></pre></div></div>
+
+<p>对于传递了多少个参数，我们可以用<code class="highlighter-rouge">arguments</code>对象来解决。</p>
+
+<h4 id="code-17">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">addTogether</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="kr">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">2</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">((</span><span class="k">typeof</span> <span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'number'</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="k">typeof</span> <span class="kr">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'number'</span><span class="p">))</span>
+      <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="k">return</span> <span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="kr">arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">if</span><span class="p">(</span><span class="kr">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!==</span> <span class="s1">'number'</span><span class="p">)</span>
+      <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="kr">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="nx">sumTwoAnd</span><span class="p">(</span><span class="nx">b</span><span class="p">){</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">b</span> <span class="o">!==</span><span class="s1">'number'</span><span class="p">){</span>
+           <span class="k">return</span> <span class="kc">undefined</span><span class="p">;</span>
+           <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">addTogether</span><span class="p">(</span><span class="mi">2</span><span class="p">)([</span><span class="mi">3</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<h4 id="output-17">Output</h4>
+
+<p>undefined</p>
+
+<hr />
+
+<h2 id="19-symmetric-difference">19. Symmetric Difference</h2>
+
+<h4 id="description-18">Description</h4>
+
+<p>Create a function that takes two or more arrays and returns an array of the symmetric difference (△ or ⊕) of the provided arrays.</p>
+
+<p>Given two sets (for example set A = {1, 2, 3} and set B = {2, 3, 4}), the mathematical term “symmetric difference” of two sets is the set of elements which are in either of the two sets, but not in both (A △ B = C = {1, 4}). For every additional symmetric difference you take (say on a set D = {2, 3}), you should get the set with elements which are in either of the two the sets but not both (C △ D = {1, 4} △ {2, 3} = {1, 2, 3, 4}).</p>
+
+<h4 id="way-to-solve-it-18">Way to solve it</h4>
+
+<p>这里的问题是，是不知传入多少参数。这个我们可以使用<code class="highlighter-rouge">arguments</code>参数。因为考虑到是两个两个数组处理，如果我们想使用得是<code class="highlighter-rouge">Array.prototype.reduce()</code>方法。</p>
+
+<p>其次，我们要判断数组<code class="highlighter-rouge">A</code>的每项元素是否存在<code class="highlighter-rouge">B</code>当中，反之也是如此。所以我们可以使用<code class="highlighter-rouge">forEach()</code>遍历，使用<code class="highlighter-rouge">indexOf()</code>判断某元素是否是数组中，如果不存在，返回<code class="highlighter-rouge">-1</code>。</p>
+
+<p><code class="highlighter-rouge">in</code>操作符可以替代<code class="highlighter-rouge">indexOf()</code>的操作吗？</p>
+
+<h4 id="code-18">Code</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sym</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="kr">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">args</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="kr">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">symDiff</span><span class="p">(</span><span class="nx">arrayOne</span><span class="p">,</span> <span class="nx">arrayTwo</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[];</span>
+
+        <span class="nx">arrayOne</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">arrayTwo</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="nx">arrayTwo</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">arrayOne</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">result</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">sort</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">args</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="nx">symDiff</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">sym</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<h4 id="output-18">Output</h4>
+
+<p>[1,4,5]</p>
+
+<hr />
+
+<p>编辑备注：</p>
+
+<ul>
+  <li>2017-03-07第一次编辑</li>
+  <li>2017-03-28第二次编辑</li>
+</ul>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

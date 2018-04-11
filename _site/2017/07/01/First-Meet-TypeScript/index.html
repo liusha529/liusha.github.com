@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>TypeScript详解</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>TypeScript详解</h1>
+		    <p>Post on Jul 01, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#TypeScript-ref">TypeScript</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">TypeScript详解</h1>
+              <!--
+                <p class="post-meta">Jul 1, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Jul 01, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />
+              <blockquote><p>本文章采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"> 知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议 </a>进行许可。转载请注明来自<a href="http://xiaokedada.com">小可嗒嗒的博客</a></p></blockquote>
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#typescript的编译" id="markdown-toc-typescript的编译">TypeScript的编译</a>    <ul>
+      <li><a href="#到es5的转换器" id="markdown-toc-到es5的转换器">到ES5的转换器</a></li>
+      <li><a href="#升级版node" id="markdown-toc-升级版node">升级版Node</a></li>
+      <li><a href="#vscode上配置typescript--nodejs-开发环境" id="markdown-toc-vscode上配置typescript--nodejs-开发环境">VSCode上配置typescript + nodejs 开发环境</a></li>
+    </ul>
+  </li>
+  <li><a href="#typescript的特性" id="markdown-toc-typescript的特性">TypeScript的特性</a>    <ul>
+      <li><a href="#类型" id="markdown-toc-类型">类型</a>        <ul>
+          <li><a href="#type-assertions" id="markdown-toc-type-assertions">Type assertions</a></li>
+        </ul>
+      </li>
+      <li><a href="#高级类型" id="markdown-toc-高级类型">高级类型</a>        <ul>
+          <li><a href="#intersection-types" id="markdown-toc-intersection-types">Intersection Types</a></li>
+          <li><a href="#union-types" id="markdown-toc-union-types">Union Types</a></li>
+          <li><a href="#type-guards-and-differentiating-types" id="markdown-toc-type-guards-and-differentiating-types">Type Guards and Differentiating Types</a></li>
+          <li><a href="#type-aliases" id="markdown-toc-type-aliases">Type Aliases</a></li>
+        </ul>
+      </li>
+      <li><a href="#函数" id="markdown-toc-函数">函数</a>        <ul>
+          <li><a href="#为函数定义类型" id="markdown-toc-为函数定义类型">为函数定义类型</a></li>
+          <li><a href="#默认参数" id="markdown-toc-默认参数">默认参数</a></li>
+          <li><a href="#可选参数" id="markdown-toc-可选参数">可选参数</a></li>
+          <li><a href="#剩余参数" id="markdown-toc-剩余参数">剩余参数</a></li>
+          <li><a href="#函数重载" id="markdown-toc-函数重载">函数重载</a></li>
+        </ul>
+      </li>
+      <li><a href="#类" id="markdown-toc-类">类</a>        <ul>
+          <li><a href="#继承" id="markdown-toc-继承">继承</a></li>
+          <li><a href="#修饰符" id="markdown-toc-修饰符">修饰符</a></li>
+          <li><a href="#存取器" id="markdown-toc-存取器">存取器</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<blockquote>
+  <p>TypeScript is a typed superset of JavaScript that compiles to plain JavaScript<sup><a href="http://www.typescriptlang.org/index.html">来源</a></sup>.</p>
+</blockquote>
+
+<p>这意味着所有的<code class="highlighter-rouge">ES6</code>代码都是完全有效的且可编译的TypeScript代码(通俗一点，就是任何合法的JavaScript程序都是合法的TypeScript程序)。</p>
+
+<p><strong>为什么我们需要使用TypeScript呢？</strong>目前广泛应用的JavaScript标准还是ES5，在如今大规模JavaScript应用中，由于它缺乏很多必要的特性，一些可维护性问题就暴露出来了。ES6旨在解决上述可维护性问题，但并没有完全实现，其次该标准的广泛采用，也是个漫长的过程。TypeScript应运而生，其中类型检查是它的一个非常重要的特性。</p>
+
+<p><strong>如何学习TypeScript？</strong>目前我推荐的是<a href="http://www.typescriptlang.org/index.html">官方的语言主页</a>和该语言开源仓库的<a href="https://github.com/Microsoft/TypeScript/wiki">wiki主页</a>，我尤其推荐后者，非常便于学习和查询。</p>
+
+<!-- more -->
+
+<p><strong>为啥我会学习TypeScript呢？</strong>因为最近在学习<a href="https://angular.io/"><code class="highlighter-rouge">Angular 2</code></a>，而且TypeScript是开发<code class="highlighter-rouge">Angular 2</code>的官方语言。</p>
+
+<p>TypeScript最初是微软开发的，现在通过开源框架Angular2，Google也强势加入合作。在<em>后诺基亚时代</em>，我向来是不喜欢微软的，但不得不说他旗下的两个产品还是很优秀的，一个是<code class="highlighter-rouge">Visual Studio Code</code>，另一个就是<code class="highlighter-rouge">TypeScript</code>。</p>
+
+<p>首先我们来看一下ES5、ES6和TypeScript的关系。</p>
+
+<p><img src="/styles/images/typescript/typescript.png" alt="ES5、ES6和TypeScript的关系" /></p>
+
+<p>从上图可以看到，TypeScript的野心很大，不仅是想做ES6的超集，恐怕也是后续所有JavaScript版本的超集。</p>
+
+<blockquote>
+  <p>这个图是我所修改过的，原图还有介绍了<a href="https://docs.google.com/document/d/11YUzC-1d0V1-Q3V0fQ7KSit97HnZoKVygDxpWzEYW0U/mobilebasic?viewopt=127">AtScript</a>，它由Google开发，定义为TypeScript的超集。但目前已经全部整合进TypeScript，促进相互合作，促进大一统，Google也是放下了面子。</p>
+</blockquote>
+
+<h2 id="typescript的编译">TypeScript的编译</h2>
+
+<h3 id="到es5的转换器">到ES5的转换器</h3>
+
+<p>最开始先讲一下TypeScript的转换，因为我觉得这对TypeScript的理解很有好处，而且也适合边学边用。</p>
+
+<p>通常来讲，我们会将TypeScript代码转换到ES5代码，唯一的一个转换器是由TypeScript核心团队编写的，也集成到<a href="https://www.npmjs.com/package/typescript">typescript</a>包当中。将<code class="highlighter-rouge">ES6</code>转换到<code class="highlighter-rouge">ES5</code>，通常使用社区创建的<a href="http://babeljs.io/"><code class="highlighter-rouge">Babel</code></a>。</p>
+
+<p>所以，为了转译typescript，我们需要安装:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> typescript
+</code></pre></div></div>
+
+<p>然后，我来创建一个<code class="highlighter-rouge">test.ts</code>文件。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//test.ts</span>
+<span class="kd">let</span> <span class="nx">arr</span><span class="p">:</span><span class="nx">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="o">=&gt;</span> <span class="nx">n</span><span class="o">**</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>第一行我使用了标准的typescript语法，第二行使用了ES6语法。</p>
+</blockquote>
+
+<p>然后，我们在控制台执行下面的命令:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tsc test.ts
+</code></pre></div></div>
+<p>在同目录下，我们可以看到生成的一个<code class="highlighter-rouge">test.js</code>文件夹。打开文件查看代码:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//test.js</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<p>已经转换成标准的ES5代码。</p>
+
+<h3 id="升级版node">升级版Node</h3>
+
+<p>Node并不支持所有的TypeScript特性，所以我们没办法来使用Node对TypeScript进行编译。</p>
+
+<p>有位大神编写了一个小工具，叫做<a href="https://github.com/HerringtonDarkholme/typescript-repl"><code class="highlighter-rouge">TSUN</code></a>(TypeScript Upgraded Node)。类似于一个升级版的Node，提供控制台程序书写。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> tsun
+</code></pre></div></div>
+
+<p>然后我们可以启动它。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>tsun
+TSUN : TypeScript Upgraded Node
+<span class="nb">type </span><span class="k">in </span>TypeScript expression to evaluate
+<span class="nb">type</span> :help <span class="k">for </span>commands <span class="k">in </span>repl
+
+<span class="o">&gt;</span> <span class="nb">let </span>arr:number[] <span class="o">=</span> <span class="o">[</span>1,2,3]<span class="p">;</span>
+undefined
+<span class="o">&gt;</span> arr.map<span class="o">(</span>n <span class="o">=&gt;</span> n<span class="k">**</span>2<span class="o">)</span><span class="p">;</span>
+<span class="o">[</span> 1, 4, 9 <span class="o">]</span>
+</code></pre></div></div>
+
+<p>哎哟，不错哦。不过我看他的<code class="highlighter-rouge">readme.md</code>，好像目前只支持到typescript 2.0。</p>
+
+<h3 id="vscode上配置typescript--nodejs-开发环境">VSCode上配置typescript + nodejs 开发环境</h3>
+
+<p>这个听起来也好棒，不过并非我想折腾的。所以，需要的伙伴们可以参看这个链接: <a href="https://github.com/nshen/ts-node-vscode-starter">Click me</a></p>
+
+<hr />
+
+<h2 id="typescript的特性">TypeScript的特性</h2>
+
+<p>虽然我们总说TypeScript是ES6的超集，但这里所说的很多，还是相对ES5的改善，其中很多在ES6中已经得到了实现，为此我会特别说明。包括:</p>
+
+<ul>
+  <li><a href="#类型">类型</a></li>
+  <li><a href="#函数">函数</a></li>
+  <li><a href="#类">类</a></li>
+</ul>
+
+<h3 id="类型">类型</h3>
+
+<p>TypeScript的一个非常非常棒的功能就是: 通过向JavaScript增加可选的静态类型声明来把JavaScript变成强类型的程序语言。而且，TypeScript的类型检查在编译器进行并且没有运行时开销。</p>
+
+<blockquote>
+  <p>虽然有时候，我们会觉得缺乏类型检查正是JavaScript的优点之一。但这是仁者见仁，智者见智的。某些情况下，类型检查有其需要的原因，比如便于代码书写，预防编译期的bug；比如有助于代码阅读。</p>
+</blockquote>
+
+<p>当然，TypeScript的类型是可选的，你并不一定都需要加上。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">类型</th>
+      <th style="text-align: center">举例</th>
+      <th style="text-align: center">描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">boolean</td>
+      <td style="text-align: center">let isDone: boolean = false;</td>
+      <td style="text-align: center">空</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">number</td>
+      <td style="text-align: center">let decimal: number = 6;</td>
+      <td style="text-align: center">所有的数字都是浮点数，这些浮点数都是number类型，支持多种进制</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">let color: string = ‘blue’;</td>
+      <td style="text-align: center">表示文本，也可以使用双引号</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">array</td>
+      <td style="text-align: center">let list: number[] = [1,2,3];</td>
+      <td style="text-align: center">第二种写法可以使用泛型数组类型 var list: Array<number> = [1,2,3];</number></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">tuple</td>
+      <td style="text-align: center">let x: [string, number]; x=[‘hello’, 10];</td>
+      <td style="text-align: center">元组类型允许表示一个已知元素数量和类型的数组</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">enum</td>
+      <td style="text-align: center">enum Color {Red, Green, Blue}; let c: Clor = Color.Green;</td>
+      <td style="text-align: center">enum给一个数字集合更好的命名，默认从0开始，可手动改变</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">any</td>
+      <td style="text-align: center">let notSure: any = 4;</td>
+      <td style="text-align: center">可以表示任意的JavaScript值</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">void</td>
+      <td style="text-align: center">function warnUser(): void {…}</td>
+      <td style="text-align: center">any的对立面，在函数中使用表示没有返回值。对一个变量使用void类型没啥意义，因为你可以直接赋值undefined或null</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">null</td>
+      <td style="text-align: center">let n: null = null;</td>
+      <td style="text-align: center">一个字面量，表示没有值的变量，其他类型的子类型，意味着你可以将它赋值给一个number类型的变量</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">undefined</td>
+      <td style="text-align: center">let u: undefined = undefined;</td>
+      <td style="text-align: center">全局作用域的一个属性，表示经声明但未被初始化的变量，也是其他类型的子类型</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">never</td>
+      <td style="text-align: center">空</td>
+      <td style="text-align: center">never类型表示那些永远不存在的值的类型。是任何类型的子类型</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p><code class="highlighter-rouge">let</code>和<code class="highlighter-rouge">const</code>已被ES6所支持，可以这样说，尽可能的使用<code class="highlighter-rouge">let</code>是一个最佳实践。</p>
+</blockquote>
+
+<p>TypeScript当然也支持模板字符串(template string)。模板字符串可以表示多行文本和内嵌表达式。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">fullName</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">`Bob Bobbington`</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">age</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">sentence</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">`Hello, my name is </span><span class="p">${</span> <span class="nx">fullName</span> <span class="p">}</span><span class="s2">.
+
+I'll be </span><span class="p">${</span> <span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span><span class="s2"> years old next month.`</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="type-assertions">Type assertions</h4>
+
+<p>类型断言指的是某些特殊情况下，你知道一个变量(实体)具有比它现有类型更确切的类型，从而通过<em>类型断言</em>告诉编译器。比如，我们有一个变量具有<code class="highlighter-rouge">any</code>类型。但是，作为程序员，我知道该变量存储的字符串。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">someValue</span><span class="p">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="s2">"this is a string"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">strLength</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="nx">someValue</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>这是一种<em>尖括号</em>语法来表示类型断言，有点类型于其他语言的类型转换。还有一种是使用<code class="highlighter-rouge">as</code>语法。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">someValue</span><span class="p">:</span> <span class="nx">any</span> <span class="o">=</span> <span class="s2">"this is a string"</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">strLength</span><span class="p">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="p">(</span><span class="nx">someValue</span> <span class="k">as</span> <span class="nx">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="高级类型">高级类型</h3>
+
+<h4 id="intersection-types">Intersection Types</h4>
+
+<p>Intersection types是将多种类型合并成一种类型。这可以把现有多种类型叠加一起成为一种类型，它包含了所需的所有类型的特性。使用<code class="highlighter-rouge">&amp;</code>。</p>
+
+<h4 id="union-types">Union Types</h4>
+
+<p>Union types用来声明那些可以存储多种类型值的变量。比如，有一个变量既可以是<code class="highlighter-rouge">number</code>类型，也可以是<code class="highlighter-rouge">string</code>类型。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">value</span><span class="p">:</span> <span class="nx">string</span> <span class="o">|</span> <span class="nx">number</span><span class="p">;</span>
+<span class="nx">value</span> <span class="o">=</span> <span class="s1">'xiaokedada.com'</span><span class="p">;</span> <span class="c1">// ok</span>
+<span class="nx">value</span> <span class="o">=</span> <span class="s1">'10'</span><span class="p">;</span> <span class="c1">// ok</span>
+</code></pre></div></div>
+
+<h4 id="type-guards-and-differentiating-types">Type Guards and Differentiating Types</h4>
+
+<h4 id="type-aliases">Type Aliases</h4>
+
+<p>TypeScript使用<code class="highlighter-rouge">type</code>关键字声明类型别名。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">string</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">:</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'maoxiaoke'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="函数">函数</h3>
+
+<h4 id="为函数定义类型">为函数定义类型</h4>
+
+<p>函数类型包含两个部分: 参数类型和返回值类型</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//具名函数</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//函数表达式(匿名函数)</span>
+<span class="kd">let</span> <span class="nx">myAdd</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">;</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p>下面，我们来看函数本身的类型。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">myAdd</span><span class="p">:</span> <span class="p">(</span><span class="nx">x</span><span class="p">:</span><span class="nx">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span><span class="nx">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">number</span> <span class="o">=</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">;</span> <span class="p">};</span>
+<span class="c1">// 拆解</span>
+<span class="kd">let</span> <span class="nx">myAdd</span><span class="p">:</span> <span class="p">(</span><span class="nx">x</span><span class="p">:</span><span class="nx">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span><span class="nx">number</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">number</span><span class="p">;</span>
+<span class="nx">myAdd</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">y</span><span class="p">:</span> <span class="nx">number</span><span class="p">):</span> <span class="nx">number</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="o">+</span><span class="nx">y</span><span class="p">;</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p>这里使用了<code class="highlighter-rouge">=&gt;</code>符号，并对匿名函数进行了拆解。第四行声明了变量<code class="highlighter-rouge">myAdd</code>的类型(接受两个<code class="highlighter-rouge">number</code>类型参数并返回<code class="highlighter-rouge">number</code>类型值的函数类型)。第五行也可以写成<code class="highlighter-rouge">myAdd = function(x, y) { return x+y; };</code>，因为有了第四行，TypeScript可以进行简单的类型推断。</p>
+
+<h4 id="默认参数">默认参数</h4>
+
+<p>TypeScript里的每个函数参数都是必须的。这意味着，传递给一个函数的参数个数必须与函数期望的参数个数一致。在TypeScript里，我们可以为参数提供一个默认值。这个值在用户灭有传递这个参数或传递的值为<code class="highlighter-rouge">undefined</code>时触发。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//参数放在参数列表后面</span>
+<span class="kd">function</span> <span class="nx">bulidName</span> <span class="p">(</span><span class="nx">firstName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"Mao"</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">lastName</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//参数不放在参数列表后面</span>
+<span class="kd">function</span> <span class="nx">bulidName</span> <span class="p">(</span><span class="nx">firstName</span> <span class="o">=</span> <span class="s2">"xiaoke"</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">:</span> <span class="nx">string</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">lastName</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>像第二种情况，你必须明确传入<code class="highlighter-rouge">undefined</code>值来获得默认值。</p>
+
+<h4 id="可选参数">可选参数</h4>
+
+<p>在JavaScript中，每个参数都是可传可不传的。没有传递的时候值就是<code class="highlighter-rouge">undefined</code>。TypeScript使用<code class="highlighter-rouge">?</code>实现该功能。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">bulidName</span> <span class="p">(</span><span class="nx">firstName</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">lastName</span><span class="p">?:</span> <span class="nx">string</span><span class="p">){</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">lastName</span><span class="p">)</span>
+      <span class="k">return</span> <span class="nx">firstName</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="nx">lastName</span><span class="p">;</span>
+    <span class="k">else</span>
+      <span class="k">return</span> <span class="nx">firstName</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="剩余参数">剩余参数</h4>
+
+<p>使用过JavaScript的程序员都知道，可以向函数传入随意个数的参数，然后使用<code class="highlighter-rouge">arguments</code>来访问所有传入的参数就好。而TypeScript这样搞，恐怕我们会生气。所以呢，TypeScript也有办法: 把所有的参数收集到一个变量数组里。</p>
+
+<p>比如，我们想定义一个加法运算，输入任意数量的加数。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">add</span> <span class="p">(...</span><span class="nx">foo</span><span class="p">:</span> <span class="nx">number</span><span class="p">[])</span> <span class="p">:</span> <span class="nx">number</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">acc</span><span class="o">+</span><span class="nx">val</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="函数重载">函数重载</h4>
+
+<p>JavaScript中，函数是没有重载的。但是TypeScript严格函数参数，所以存在重载。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="nx">name</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">:</span> <span class="nx">string</span><span class="p">;</span>  <span class="c1">//重载签名</span>
+<span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="nx">age</span><span class="p">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">:</span> <span class="nx">string</span><span class="p">;</span>  <span class="c1">//重载签名</span>
+<span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="nx">single</span><span class="p">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">:</span> <span class="nx">string</span><span class="p">;</span>  <span class="c1">//重载签名</span>
+
+<span class="kd">function</span> <span class="nx">test</span> <span class="p">(</span><span class="nx">value</span><span class="p">:</span> <span class="p">(</span><span class="nx">string</span> <span class="o">|</span> <span class="nx">number</span> <span class="o">|</span> <span class="kr">boolean</span><span class="p">)):</span> <span class="nx">string</span> <span class="p">{</span>  <span class="c1">//实现</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="类">类</h3>
+
+<p>之前的版本中，JavaScript是基于<em>原型</em>的面向对象，在ES6中，类已经作为一个重要属性添加到标准中了，也意味着，JavaScript也同时拥有基于<em>类</em>的面向对象。</p>
+
+<p>一个使用类的TypeScript实例。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
+    <span class="nl">greeting</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">message</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">greet</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">"Hello, "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeter</span><span class="p">(</span><span class="s2">"world"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>我们声明了一个<code class="highlighter-rouge">Greeter</code>类，这个类有三个成员: 一个叫<code class="highlighter-rouge">greeting</code>的属性，一个构造函数和<code class="highlighter-rouge">greet()</code>方法。这三者在很多基于类的面向对象语言中都很好理解。</p>
+
+<h4 id="继承">继承</h4>
+
+<p>类中的继承，TypeScript使用<code class="highlighter-rouge">extends</code>关键字实现。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Animal</span> <span class="p">{</span>
+    <span class="p">....</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nx">Snake</span> <span class="kd">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="修饰符">修饰符</h4>
+
+<p>默认为<code class="highlighter-rouge">public</code>，当成员被标记为<code class="highlighter-rouge">private</code>是，它就不能在声明它的类的外部访问。标记为<code class="highlighter-rouge">protected</code>成员在派生类中可以被访问。</p>
+
+<p><code class="highlighter-rouge">readonly</code>关键字可以将属性设置为只读的。只读属性必须在声明时或构造函数里被初始化。</p>
+
+<h4 id="存取器">存取器</h4>
+
+<p>TypeScript支持通过<code class="highlighter-rouge">getters</code>和<code class="highlighter-rouge">setters</code>来截取对对象成员的访问。举个栗子。</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">passcode</span> <span class="o">=</span> <span class="s2">"secret passcode"</span><span class="p">;</span>
+<span class="kd">class</span> <span class="nx">Employee</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="nx">_fullName</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+    <span class="kd">get</span> <span class="nx">fullName</span><span class="p">():</span> <span class="nx">string</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_fullName</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">set</span> <span class="nx">fullName</span><span class="p">(</span><span class="nx">newName</span><span class="p">:</span> <span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">passcode</span> <span class="o">&amp;&amp;</span> <span class="nx">passcode</span> <span class="o">==</span> <span class="s2">"secret passcode"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">_fullName</span> <span class="o">=</span> <span class="nx">newName</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Error: Unauthorized update of employee!"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>未完待续。</p>
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <!--comment-->
+      <!--code for 网易云跟帖
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+            <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+            <script>
+            var cloudTieConfig = {
+            url: document.location.href, 
+            sourceId: "",
+            productKey: "b6d55f09637f497389b80bafc11aada1",
+            target: "cloud-tie-wrapper"
+            };
+            var yunManualLoad = true;
+            Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+            </script>
+          </div>
+        </article>
+      </div> -->
+      <!--Gitment-->
+      <div id="container"></div>
+      <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+      <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+      <script>
+        var gitment = new Gitment({
+          id: window.location.pathname, 
+          owner: 'liusha529',
+          repo: 'liusha529.github.io',
+          oauth: {
+          client_id: 'b389957bf0758092f3eb',
+          client_secret: 'b84e22f17551d822d114d1d1d06244bc8d5fc987',
+          },
+        })
+        gitment.render('container')
+      </script>
+      
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>

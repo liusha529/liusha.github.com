@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+	<title>Flexbox的完全教程[翻译]</title>
+	<meta name="description" content="云飞的个人博客、web、后端、javascript、css、html、H5、CSS3、web工程师、gulp、jekyll、git">
+	<meta name="keywords" content="web、后端、webapp、个人博客、技术博客、github博客、javascript、css、html、H5、CSS3、web工程师、gulp" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="author" contect="maoxiaoke, maoxiaoke@outlook.com">
+	<meta name="robots" content="index,follow">
+	<link rel="shortcut icon" href="/styles/images/favicon.png">
+	<link rel="icon" href="/styles/images/favicon.png">
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="canonical" href="http://localhost:4000">
+	<!--[if lte IE 9]>
+    	<script src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js"></script>
+  	<![endif]-->
+	<!--[if lt IE 9]>
+    	<script>window.location.href='/upgrade-your-browser.html';</script>
+    <![endif]-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+  			var hm = document.createElement("script");
+  			hm.src = "https://hm.baidu.com/hm.js?40ab350f7c60a488b8e8093960c0faf2";
+  			var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+  <body class="index">
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.png" alt="小可嗒嗒的个人博客">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">
+        <li></li>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="/categories/">博文分类</a>
+        </li>
+        <li>
+          <a href="/tag">标签目录</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a rel="nofollow" href="/about">关于我</a></li>
+
+
+
+        <!--<li><a rel="nofollow" target="_blank" href="https://liusha529.github.io/">关于我</a></li>-->
+
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header pa" id="content">
+    <canvas id="mycanvas">你的浏览器不支持canvas</canvas>
+    <div class="container" >
+  	
+        <!--
+		    <h1>Flexbox的完全教程[翻译]</h1>
+		    <p>Post on Jul 15, 2017 by <a href="/about">LiuSha</a></p>
+		-->
+        <h1>我们笑着说再见，却深知再见遥遥无期。</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container lh30">
+  	
+    	<a href="/categories/#研究生涯-ref">研究生涯</a>	/
+    	<a href="/tag/#CSS-ref">CSS</a>
+    
+      <div id="search-container" class="pull-right">
+          <input type="text" id="search-input" placeholder=" 试试直接搜索吧...">
+          <label class="searchIcon glyphicon glyphicon-search" for="search-input"></label>
+          <ul id="results-container"></ul>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+<!--
+    
+      
+      
+      
+      
+
+      
+        <li><a href="#year_2018">2018</a>
+          <ul class="nav">
+            <li><a href="#month_2018_January">January</a></li>
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2017">2017</a>
+            <ul class="nav">
+              <li><a href="#month_2017_October">October</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_August">August</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_July">July</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_June">June</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_May">May</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_April">April</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_March">March</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_February">February</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+              <li><a href="#month_2017_January">January</a></li>
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            
+          
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+        
+            </ul>
+          </li>
+          <li><a href="#year_2015">2015</a>
+            <ul class="nav">
+              <li><a href="#month_2015_February">February</a></li>
+        
+      
+    
+      
+      
+      
+      
+
+      
+
+      
+            </ul>
+          </li>
+      
+    
+-->
+  </ul>
+</div> 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">Flexbox的完全教程[翻译]</h1>
+              <!--
+                <p class="post-meta">Jul 15, 2017</p>
+              -->
+              <div class="meta">Date： <span class="postdate">Jul 15, 2017</span> Author： <a target="_blank" href="http://localhost:4000">LiuSha</a></div>
+              <br />  
+              <blockquote><p>本文章属原创文章，未经作者许可，禁止转载，复制，下载，以及用作商业用途。原作者保留所有解释权。</p></blockquote>            
+            </header>
+            <article class="post-content">
+              <ul id="markdown-toc">
+  <li><a href="#basics--terminology" id="markdown-toc-basics--terminology">Basics &amp; Terminology</a></li>
+  <li><a href="#properties" id="markdown-toc-properties">Properties</a>    <ul>
+      <li><a href="#properties-for-the-parent" id="markdown-toc-properties-for-the-parent">Properties for the Parent</a>        <ul>
+          <li><a href="#display" id="markdown-toc-display">display</a></li>
+          <li><a href="#flex-flow" id="markdown-toc-flex-flow">flex-flow</a></li>
+          <li><a href="#justify-content" id="markdown-toc-justify-content">justify-content</a></li>
+          <li><a href="#align-items" id="markdown-toc-align-items">align-items</a></li>
+          <li><a href="#align-content" id="markdown-toc-align-content">align-content</a></li>
+        </ul>
+      </li>
+      <li><a href="#properties-for-the-children" id="markdown-toc-properties-for-the-children">Properties for the Children</a>        <ul>
+          <li><a href="#flex" id="markdown-toc-flex">flex</a></li>
+          <li><a href="#order" id="markdown-toc-order">order</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a></li>
+</ul>
+
+<p>文章翻译自<a href="https://css-tricks.com/">CSS-TRICKS</a>的<a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">A Complete Guide to Flexbox</a>。本译文会在不破坏原文的基础上进行删除和修正。</p>
+
+<p>弹性盒布局(Flexbox Layout)旨在为容器(container)内的项目(item)的布局、对齐和空间分配提供一个更为便捷的方式，即便它们的尺寸是未知的或可变(弹性)的。</p>
+
+<p>它的主要思想是，让容器可以改变子元素(项目)的宽度和长度，从而充分地填充空间。一个弹性容器通过扩展子元素可以有效地填满自由空间，或者收缩它们以防止溢出。</p>
+
+<!-- more -->
+
+<p>更重要的是，相对于常规布局(垂直方向的block布局和水平方向的inline布局)来说，弹性布局是方向无关的。虽然它们都表现不错，但是在大型和复杂项目中还是缺乏弹性(尤其是改变方向、重设大小、伸展、收缩等问题)。</p>
+
+<blockquote>
+  <p>Note: 弹性盒布局最适合应用组件或者小型布局，而<a href="https://css-tricks.com/snippets/css/complete-guide-grid/">网格布局</a>(Grid)则是为大型布局设计的。</p>
+</blockquote>
+
+<!-- TOC -->
+
+<ul>
+  <li><a href="#basics--terminology">Basics &amp; Terminology</a></li>
+  <li><a href="#properties">Properties</a>
+    <ul>
+      <li><a href="#properties-for-the-parent">Properties for the Parent</a>
+        <ul>
+          <li><a href="#display">display</a></li>
+          <li><a href="#flex-flow">flex-flow</a></li>
+          <li><a href="#justify-content">justify-content</a></li>
+          <li><a href="#align-items">align-items</a></li>
+          <li><a href="#align-content">align-content</a></li>
+        </ul>
+      </li>
+      <li><a href="#properties-for-the-children">Properties for the Children</a>
+        <ul>
+          <li><a href="#flex">flex</a></li>
+          <li><a href="#order">order</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#examples">Examples</a></li>
+</ul>
+
+<!-- /TOC -->
+
+<h2 id="basics--terminology">Basics &amp; Terminology</h2>
+
+<p>因为弹性盒是一整个模块而不是一个单一的属性，所以包含一系列的属性。其中一部分设置在容器上(父元素，也叫做flex container)，另外的设置在子元素上(叫做flex-items)。</p>
+
+<p>下面的这张图解释了弹性布局的主要思想。</p>
+
+<p><img src="/styles/images/css/flexbox.png" alt="Flexbox" /></p>
+
+<p>一般，子元素(items)要么按照主轴(main axis, from main-start to main-end)排列，要么按照交叉轴(cross axis, from cross-start to cross-end)排列。</p>
+
+<ul>
+  <li><strong>main axis</strong> - flex container的主轴是flex items排列的首要轴线。需要注意的是，它们并不一定是水平的。它由<code class="highlighter-rouge">flex-direction</code>确定。</li>
+  <li><strong>main size</strong> - A flex item’s width or height, whichever is in the main dimension, is the item’s main size.</li>
+  <li><strong>cross axis</strong> - 对应main axis垂直方向就是cross axis，方向取决于main axis的方向。</li>
+  <li><strong>cross size</strong> - The width or height of a flex item, whichever is in the cross dimension, is the item’s cross size.</li>
+</ul>
+
+<hr />
+
+<h2 id="properties">Properties</h2>
+
+<blockquote>
+  <p>译者注：有些属性作用在flex-container上，有些作用在flex items上。</p>
+</blockquote>
+
+<h3 id="properties-for-the-parent">Properties for the Parent</h3>
+
+<p><img src="/styles/images/css/flex-container.svg" alt="flex-container" /></p>
+
+<h4 id="display">display</h4>
+
+<p>这个属性定义一个弹性容器(flex container)；给定值确定是inline或是block。它为所有子元素提供一个弹性上下文(flex context)。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">display</span><span class="p">:</span> <span class="n">flex</span><span class="p">;</span> <span class="c">/* or inline-flex */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>Note: CSS columns have no effect on a flex container.</p>
+</blockquote>
+
+<h4 id="flex-flow">flex-flow</h4>
+
+<p>flex-flow是属性flex-direction和flex-wrap的简写方式，这两者一起确定flex container的main axis和cross axis。默认值为: <code class="highlighter-rouge">row nowrap</code>。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flex-flow: &lt;‘flex-direction’&gt; || &lt;‘flex-wrap’&gt;
+</code></pre></div></div>
+
+<p>flex-direction属性</p>
+
+<p><img src="/styles/images/css/flex-direction2.svg" alt="flex-direction" /></p>
+
+<p>建立main-axis，结果是确定了flex items在flex container的方向。弹性盒是一个(除了换行)单方向的布局概念。我们可以认为它要么在水平行上进行布局，要么在水平列上进行布局。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">flex-direction</span><span class="p">:</span> <span class="n">row</span> <span class="err">|</span> <span class="n">row-reverse</span> <span class="err">|</span> <span class="n">column</span> <span class="err">|</span> <span class="n">column-reverse</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>row (default): 从左至右并排显示</li>
+  <li>row-reverse: 从右至左并排显示</li>
+  <li>column: 从上到下纵向叠放</li>
+  <li>column-reverse: 和column相反</li>
+</ul>
+
+<p>flex-wrap属性</p>
+
+<p><img src="/styles/images/css/flex-wrap.svg" alt="flex-wrap" /></p>
+
+<p>默认情况下，flex items会尽量在一行排列。你可是使用这个属性保证它们可以换行。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span><span class="p">{</span>
+  <span class="nl">flex-wrap</span><span class="p">:</span> <span class="nb">nowrap</span> <span class="err">|</span> <span class="n">wrap</span> <span class="err">|</span> <span class="n">wrap-reverse</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>nowrap (default): 所有flex items在一行</li>
+  <li>wrap: 允许换行，从上往下</li>
+  <li>warp-reverse: 和wrap相反，从下往上</li>
+</ul>
+
+<h4 id="justify-content">justify-content</h4>
+
+<p><img src="/styles/images/css/justify-content.svg" alt="justify-content" /></p>
+
+<p>这个属性定义了沿main axis的对齐方式。它会帮助分配多余的自由空间，无论一行中的flex items是非弹性(译注: 尺寸固定的)的，还是弹性但达到了最大尺寸。如果flex items溢出了一行，它同样对于对齐它们发挥着效力。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">justify-content</span><span class="p">:</span> <span class="n">flex-start</span> <span class="err">|</span> <span class="n">flex-end</span> <span class="err">|</span> <span class="nb">center</span> <span class="err">|</span> <span class="n">space-between</span> <span class="err">|</span> <span class="n">space-around</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>flex-start (default) : items沿着起始线堆积</li>
+  <li>flex-end : items沿着终点线堆积</li>
+  <li>center : items在一行内居中对齐</li>
+  <li>space-between : items均匀分布在一行。第一个item在起始线，最后一个item在终点线</li>
+  <li>space-around : items均匀分布在一行，items之间有相等的空间分隔。注意的是，视觉上这些空间并不相等，因为所有的items在两边有相等的空间。第一个item相对于container有一个单元的空间，但是相对于下一个item却又两个单元的空间，因为下一个item也将自己两边的空间叠加上去了。</li>
+</ul>
+
+<h4 id="align-items">align-items</h4>
+
+<p><img src="/styles/images/css/align-items.svg" alt="align-items" /></p>
+
+<p>这个属性定义了flex items如何沿着cross axis布局的默认行为。可以把它认为是cross-axis的justify-content。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">align-items</span><span class="p">:</span> <span class="n">flex-start</span> <span class="err">|</span> <span class="n">flex-end</span> <span class="err">|</span> <span class="nb">center</span> <span class="err">|</span> <span class="nb">baseline</span> <span class="err">|</span> <span class="n">stretch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>flex-start : items放置在cross-start行的margin边界</li>
+  <li>flex-end : items放置在corss-end行的margina边界</li>
+  <li>center : items在cross-axis的居中位置</li>
+  <li>baseline : items沿着它们的baselines对齐</li>
+  <li>stretch (default) : 伸展以填充整个容器(min-width/max-width仍起作用)</li>
+</ul>
+
+<h4 id="align-content">align-content</h4>
+
+<p><img src="/styles/images/css/align-content.svg" alt="align-content" /></p>
+
+<p>在cross-axis有多余的空间的时候，这个属性用来对齐容器的行(line)(译注: 指的是一行一行的flex items)。类似于justify-content在main-axis处对齐单个items。</p>
+
+<blockquote>
+  <p>Note: 当flex items只占据一行时，这个属性没有作用</p>
+</blockquote>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">align-content</span><span class="p">:</span> <span class="n">flex-start</span> <span class="err">|</span> <span class="n">flex-end</span> <span class="err">|</span> <span class="nb">center</span> <span class="err">|</span> <span class="n">space-between</span> <span class="err">|</span> <span class="n">space-around</span> <span class="err">|</span> <span class="n">stretch</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>flex-start : 行沿着container的开始堆积</li>
+  <li>flex-end : 行沿着container的结尾堆积</li>
+  <li>center : 行沿着container的中心堆积</li>
+  <li>space-between : 行平均分配。第一行在container的开始位置，最后一行在结尾位置</li>
+  <li>space-around : 行平均分配，行中间有固定空间</li>
+  <li>stretch (default) : 行拉伸以占领整个空间</li>
+</ul>
+
+<h3 id="properties-for-the-children">Properties for the Children</h3>
+
+<blockquote>
+  <p>译注: 子元素的属性是相对于单个item来说的，此处有删节</p>
+</blockquote>
+
+<p><img src="/styles/images/css/flex-items.svg" alt="flex-items" /></p>
+
+<h4 id="flex">flex</h4>
+
+<p>flex属性是flex-grow、flex-shrink和flex-basis组合的简写。第二个和第三个参数(就是flex-shrink 和flex-basis)是可选的。默认为: 0 1 auto。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">flex</span><span class="p">:</span> <span class="nb">none</span> <span class="err">|</span> <span class="p">[</span> <span class="err">&lt;</span><span class="s2">'flex-grow'</span><span class="err">&gt;</span> <span class="err">&lt;</span><span class="s2">'flex-shrink'</span><span class="err">&gt;?</span> <span class="err">||</span> <span class="err">&lt;</span><span class="s2">'flex-basis'</span><span class="err">&gt;</span> <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>建议使用简写方式而不是为每个属性单独设置参数。</p>
+</blockquote>
+
+<p>flex-grow</p>
+
+<p>这个熟悉提供给一个item生长(grow)的能力。它接受一个无单位的值作为比例。它决定item在flex container所占据的有效空间大小。</p>
+
+<p>如果所有的items的flex-grow属性都设置为1，则容器内剩余的空间会均等分配给所有子元素。如果其中有一个子元素的值设置为2，则会比其他元素多占据两倍的空间。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">flex-grow</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">number</span><span class="err">&gt;</span><span class="p">;</span> <span class="c">/* default 0 */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>flex-shrink</p>
+
+<p>这个属性确定一个flex item收缩的能力。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">flex-shrink</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">number</span><span class="err">&gt;</span><span class="p">;</span> <span class="c">/* default 1 */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>负值是无效的。</p>
+
+<p>flex-basis</p>
+
+<p>这个属性定义剩余空间被分配前一个元素的默认尺寸。<code class="highlighter-rouge">auto</code>关键词的意思是: 请查看我的width和height属性。<code class="highlighter-rouge">content</code>关键字的意思是: 尺寸基于item的内容。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">flex-basis</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">length</span><span class="err">&gt;</span> <span class="err">|</span> <span class="nb">auto</span><span class="p">;</span> <span class="c">/* default auto */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="order">order</h4>
+
+<p><img src="/styles/images/css/order-2.svg" alt="order-2" /></p>
+
+<blockquote>
+  <p>译注: 图片中的数字指代的是items的序号，很index属性的值相似</p>
+</blockquote>
+
+<p>默认情况下，flex items按照资源顺序排列。然而，order属性可以控制他们出现在flex container的顺序。</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.item</span> <span class="p">{</span>
+  <span class="nl">order</span><span class="p">:</span> <span class="err">&lt;</span><span class="n">integer</span><span class="err">&gt;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="examples">Examples</h2>
+
+<blockquote>
+  <p>译注: 对原文提供的examples有修改</p>
+</blockquote>
+
+<p data-height="265" data-theme-id="light" data-slug-hash="LLvNyY" data-default-tab="html,result" data-user="maoxiake" data-embed-version="2" data-pen-title="a flex example" class="codepen">See the Pen <a href="https://codepen.io/maoxiake/pen/LLvNyY/">a flex example</a> by maoxiaoke (<a href="https://codepen.io/maoxiake">@maoxiake</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+            </article>
+          <hr>
+          <blockquote><p>对于本文内容有问题或建议的小伙伴，欢迎在文章底部留言交流讨论。</p></blockquote>
+        </div>
+      </div>
+      <div class="panel docs-content">
+        <article class="post-content">
+          <div class="wrapper">
+            
+
+
+  <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://xiaokedada.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+ 
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <footer class="footer" role="contentinfo">
+	<!--不蒜子pv/uv统计-->
+	<div class="post-meta">
+            <p>Total <span id="busuanzi_value_site_pv"></span> views，您是本站的第<span id="busuanzi_value_site_uv"></span>个小伙伴，<span id="busuanzi_value_page_pv"></span> Hits</p><br/>
+    </div>
+	<div class="container">
+		<p class="copyright">Copyright © 2017   <a href="https://github.com/maoxiaoke/maoxiaoke.github.io" target="_blank"><code>M/J.</code></a> All rights reserved. </p>
+		<p>Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>， Data by <a href="https://tongji.baidu.com/web/23811489/overview/index" target="_blank">Bai Du</a>.</p>
+	</div>
+	<ul id="gotop"><li><span>TOP</span></li></ul>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="/styles/js/function.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.min.js"></script>
+  </body>
+</html>
