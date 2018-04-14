@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "docker 学习笔记"
+title: "Docker笔记"
 date: 2018-04-11 18:25:15 +0800 
 categories: 我的笔记
 tag: Node
@@ -8,7 +8,7 @@ tag: Node
 * content
 {:toc}
 
-`Node`docker 学习笔记
+`Node`笔记
 
 <!-- more -->
 
