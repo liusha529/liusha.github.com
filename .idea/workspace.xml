@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8c30048-6bb5-4e93-a7d3-098c2e4c17f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/about.html" afterPath="$PROJECT_DIR$/_includes/about.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" afterPath="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" />
     </list>
     <ignored path="liusha529.github.com.iws" />
@@ -48,18 +47,18 @@
         <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="3360">
-                <caret line="361" column="5" selection-start-line="361" selection-start-column="5" selection-end-line="361" selection-end-column="5" />
+              <first_editor relative-caret-position="432">
+                <caret line="17" column="129" selection-start-line="17" selection-start-column="129" selection-end-line="17" selection-end-column="129" />
                 <folding>
-                  <marker date="1523691089583" expanded="true" signature="12281:12525" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="12431:12523" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="12527:12772" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="12677:12770" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="12838:13109" ph="[...]" />
-                  <marker date="1523691089583" expanded="true" signature="12856:12951" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="12865:12950" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="13120:13209" ph="{...}" />
-                  <marker date="1523691089583" expanded="true" signature="13211:13300" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="12325:12569" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="12475:12567" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="12571:12816" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="12721:12814" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="12882:13153" ph="[...]" />
+                  <marker date="1523691620053" expanded="true" signature="12900:12995" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="12909:12994" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="13164:13253" ph="{...}" />
+                  <marker date="1523691620053" expanded="true" signature="13255:13344" ph="{...}" />
                 </folding>
               </first_editor>
               <second_editor />
@@ -274,12 +273,12 @@
       <workItem from="1523447866698" duration="6608000" />
       <workItem from="1523462022267" duration="1266000" />
       <workItem from="1523506987804" duration="308000" />
-      <workItem from="1523671060709" duration="6701000" />
+      <workItem from="1523671060709" duration="6832000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26430000" />
+    <option name="totallyTimeSpent" value="26561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="214" y="23" width="1475" height="862" extended-state="0" />
@@ -641,18 +640,18 @@
     <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="3360">
-            <caret line="361" column="5" selection-start-line="361" selection-start-column="5" selection-end-line="361" selection-end-column="5" />
+          <first_editor relative-caret-position="432">
+            <caret line="17" column="129" selection-start-line="17" selection-start-column="129" selection-end-line="17" selection-end-column="129" />
             <folding>
-              <marker date="1523691089583" expanded="true" signature="12281:12525" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="12431:12523" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="12527:12772" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="12677:12770" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="12838:13109" ph="[...]" />
-              <marker date="1523691089583" expanded="true" signature="12856:12951" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="12865:12950" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="13120:13209" ph="{...}" />
-              <marker date="1523691089583" expanded="true" signature="13211:13300" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="12325:12569" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="12475:12567" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="12571:12816" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="12721:12814" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="12882:13153" ph="[...]" />
+              <marker date="1523691620053" expanded="true" signature="12900:12995" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="12909:12994" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="13164:13253" ph="{...}" />
+              <marker date="1523691620053" expanded="true" signature="13255:13344" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />

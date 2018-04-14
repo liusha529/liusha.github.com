@@ -15,7 +15,7 @@ tag: 笔记
 
 ## 官方文档地址：
 
-[http://docs.mongoing.com/aggregation.html](http://docs.mongoing.com/aggregation.html)
+[https://docs.mongodb.com/manual/reference/operator/aggregation/](https://docs.mongodb.com/manual/reference/operator/aggregation/)
 
 -------
 
