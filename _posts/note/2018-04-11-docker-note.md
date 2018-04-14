@@ -3,12 +3,11 @@ layout: post
 title: "Docker笔记"
 date: 2018-04-11 18:25:15 +0800 
 categories: 我的笔记
-tag: Node
+tag: 笔记
 ---
 * content
 {:toc}
 
-`Node`笔记
 
 <!-- more -->
 

@@ -1461,7 +1461,7 @@ hr{margin-top:20px;margin-bottom:20px;border:0;border-top:1px solid #eee}
 .docs-content .container-fluid{padding:0}
 .docs-section+.docs-section{padding-top:40px}
 .sidebar{display:none}
-.sidebar.affix{position:static}
+.sidebar.affix{position:static;    top: 50px;}
 .sidenav{padding-top:10px;padding-bottom:10px;text-shadow:0 1px 0 rgba(255,255,255,.5);background-color:#f7f7f7;border-radius:5px}
 .sidebar .nav>li>a{display:block;color:#36556e;padding:5px 20px}
 .sidebar .nav>li>a:focus,.sidebar .nav>li>a:hover{text-decoration:none;background-color:#e8ebee;border-right:1px solid #d8dde2}

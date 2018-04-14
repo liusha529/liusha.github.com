@@ -3,12 +3,10 @@ layout: post
 title: "Mongodb聚合、联表、分组"
 date: 2018-04-14 10:25:15 +0800 
 categories: 我的笔记
-tag: Node
+tag: 笔记
 ---
 * content
 {:toc}
-
-`Node`笔记
 
 <!-- more -->
 
