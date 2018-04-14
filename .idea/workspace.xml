@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8c30048-6bb5-4e93-a7d3-098c2e4c17f2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-install-note.md" afterPath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-install-note.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" afterPath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_includes/about.html" afterPath="$PROJECT_DIR$/_includes/about.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" afterPath="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/css/index.css" afterPath="$PROJECT_DIR$/styles/css/index.css" />
     </list>
     <ignored path="liusha529.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,12 +24,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
               <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_includes/about.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2018-04-14-mongodb-aggregate.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="3360">
+                <caret line="361" column="5" selection-start-line="361" selection-start-column="5" selection-end-line="361" selection-end-column="5" />
+                <folding>
+                  <marker date="1523691089583" expanded="true" signature="12281:12525" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="12431:12523" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="12527:12772" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="12677:12770" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="12838:13109" ph="[...]" />
+                  <marker date="1523691089583" expanded="true" signature="12856:12951" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="12865:12950" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="13120:13209" ph="{...}" />
+                  <marker date="1523691089583" expanded="true" signature="13211:13300" ph="{...}" />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -75,8 +105,9 @@
         <option value="$PROJECT_DIR$/styles/css/index.css" />
         <option value="$PROJECT_DIR$/_posts/note/2018-04-11-docker-install-note.md" />
         <option value="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" />
-        <option value="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/_includes/about.html" />
+        <option value="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" />
       </list>
     </option>
   </component>
@@ -88,7 +119,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="178" />
+    <option name="x" value="214" />
     <option name="y" value="23" />
     <option name="width" value="1475" />
     <option name="height" value="862" />
@@ -135,6 +166,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="liusha529.github.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liusha529.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="liusha529.github.com" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_posts" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="note" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -225,15 +274,15 @@
       <workItem from="1523447866698" duration="6608000" />
       <workItem from="1523462022267" duration="1266000" />
       <workItem from="1523506987804" duration="308000" />
-      <workItem from="1523671060709" duration="5746000" />
+      <workItem from="1523671060709" duration="6701000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25475000" />
+    <option name="totallyTimeSpent" value="26430000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="178" y="23" width="1475" height="862" extended-state="0" />
+    <frame x="214" y="23" width="1475" height="862" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27076066" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -492,14 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_includes/docs_header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -581,32 +622,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="216">
-            <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-            <folding>
-              <marker date="1523684262391" expanded="true" signature="12290:12534" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="12440:12532" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="12536:12781" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="12686:12779" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="12829:13100" ph="[...]" />
-              <marker date="1523684262391" expanded="true" signature="12847:12942" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="12856:12941" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="13111:13200" ph="{...}" />
-              <marker date="1523684262391" expanded="true" signature="13202:13291" ph="{...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/about.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="3360">
+            <caret line="361" column="5" selection-start-line="361" selection-start-column="5" selection-end-line="361" selection-end-column="5" />
+            <folding>
+              <marker date="1523691089583" expanded="true" signature="12281:12525" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="12431:12523" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="12527:12772" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="12677:12770" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="12838:13109" ph="[...]" />
+              <marker date="1523691089583" expanded="true" signature="12856:12951" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="12865:12950" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="13120:13209" ph="{...}" />
+              <marker date="1523691089583" expanded="true" signature="13211:13300" ph="{...}" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

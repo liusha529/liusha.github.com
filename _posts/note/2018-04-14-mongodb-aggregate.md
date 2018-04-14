@@ -15,7 +15,7 @@ tag: 笔记
 
 ## 官方文档地址：
 
-[http://docs.mongoing.com/manual-zh/aggregation.html](http://docs.mongoing.com/manual-zh/aggregation.html)
+[http://docs.mongoing.com/aggregation.html](http://docs.mongoing.com/aggregation.html)
 
 -------
 
@@ -126,6 +126,9 @@ db.user.aggregate(
 #### $skip 跳过文档数 
 
 #### $limit 返回文档数
+
+
+
 ```javascript 
 mongodb shell命令:
      
@@ -222,7 +225,8 @@ db.orderDriver.aggregate(
 }
 ``` 	
 
-#### $sample 随机返回指定文档数量
+#### $sample 随机返回指定文档数量 
+
 ```javascript 
 mongodb shell命令:
      
@@ -247,10 +251,10 @@ db.user.aggregate(
 }
 ```   	
     
-### $group  分组 
+#### $group  分组 
     
     
-#### $sum 计算总和
+##### $sum 计算总和
 ```javascript     	
 mongodb shell命令:
      
@@ -272,9 +276,9 @@ db.user.aggregate(
 	"userName" : 9
 }
 ```
-    	
+ 	
         
-#### `$min` `$max` 最小 最大值
+##### `$min` `$max` 最小 最大值
 ```javascript     	
 mongodb shell命令:
      
@@ -310,7 +314,7 @@ $min 最小
 ```
     
     
-#### $push 在结果文档中插入值到一个数组中
+##### $push 在结果文档中插入值到一个数组中
 ```javascript     	
 mongodb shell命令:
      
@@ -335,7 +339,7 @@ db.orderShipper.aggregate(
 }
 ```
 
-#### $first 根据资源文档的排序获取第一个文档数据
+##### $first 根据资源文档的排序获取第一个文档数据
 ```javascript     
 mongodb shell命令:
      
@@ -355,7 +359,7 @@ db.orderShipper.aggregate(
 }
 ```    
     
-#### $last 根据资源文档的排序获取最后一个文档数据
+##### $last 根据资源文档的排序获取最后一个文档数据
 ```javascript         
 mongodb shell命令:
      
@@ -520,7 +524,7 @@ db.user.aggregate([
        }
        
    }
-]
+  ]
 )
     
 结果如下：
@@ -611,7 +615,7 @@ db.user.aggregate([
 
 #### $replaceRoot 用指定的嵌入文档替换文档。操作代替输入文档中的现有的所有领域，包括_id场。指定嵌入在输入文档中的文档，以将嵌入式文档提升到顶层
 
-```javascript
+```javascript 
 原数据：
 {
 	"_id" : ObjectId("58193bce07a9bdc8258b4576"),
@@ -633,7 +637,9 @@ db.user.aggregate([
 		"name" : "测试1"
 	}
 }
-	
+```
+
+```javascript	
 mongodb shell命令:
 	
 db.orderShipper.aggregate([
@@ -662,7 +668,6 @@ db.orderShipper.aggregate([
 	"phone" : "xxxx1111",
 	"name" : "测试2"
 } 
-
 ```
 
 
@@ -717,8 +722,9 @@ authRolePrivilege表
 ```
     
 #### php代码：
-
-    PHP框架  YII2
+ PHP框架  YII2
+ 详情介绍在这里 ： [http://www.yiiframework.com/doc-2.0/yii-mongodb-collection.html](http://www.yiiframework.com/doc-2.0/yii-mongodb-collection.html)
+   
     
     以用户类型查询到该类型所拥有的模块，其中关联了2张表，
     authRolePrivilege表 对应该类型拥有那些模块的ID,是以数组形式存入模块ID
@@ -763,7 +769,7 @@ $userRols = User::getCollection()->aggregate(
       ['$replaceRoot'=>['newRoot'=>'$list']] // 将每一个list里面的数据提到顶层
   ); 
  ```      
-  详情介绍在这里 ： [http://www.yiiframework.com/doc-2.0/yii-mongodb-collection.html](http://www.yiiframework.com/doc-2.0/yii-mongodb-collection.html)
+ 
  
   
         
