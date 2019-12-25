@@ -2,102 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8c30048-6bb5-4e93-a7d3-098c2e4c17f2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CNAME" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/LessOrMore/comments" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/LessOrMore/comments-providers/disqus" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/LessOrMore/comments-providers/facebook" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/LessOrMore/comments-providers/intensedebate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/LessOrMore/comments-providers/livefyre" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/LessOrMore/pages_list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/banner.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/docs_header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/lefttree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/copy.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/original.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_plugins/simple_search_filter.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-install-note.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/note/2018-04-11-docker-note.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/note/2018-04-14-mongodb-aggregate.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/note/2018-04-27-lnmpr.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/note/2018-07-08-git-common-commands.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/note/2018-07-08-linux-common-commands.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sass/_base.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_sass/_layout.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/about/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/about/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reference.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/font-awesome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/iconfont.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/iconfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/iconfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/iconfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/css/iconfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fontawesome/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/Gotham-Book.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/Gotham-Book.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/Gotham-Book.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/Gotham-Book.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/Gotham-Book.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/monaco-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/monaco-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/monaco-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/monaco-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/fonts/monaco-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/css/sweetalert.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/20180620113451746.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/404.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/Me.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/QQqt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/Wchatqt.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/application.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/calendar.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/clipboard.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/function.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/html5shiv.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/lessismore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/sweetalert.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/js/tag.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tag/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/build/botui-theme-default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/build/botui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/build/botui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/build/botui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/build/vue.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/src/botui.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/src/scripts/botui.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/src/styles/botui.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/src/styles/normal.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/botui/src/styles/themes/default.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/js/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/talktome/me.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/upgrade-your-browser.html" beforeDir="false" />
     </list>
     <ignored path="liusha529.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,6 +22,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
@@ -156,7 +70,6 @@
         <option value="$PROJECT_DIR$/styles/js/html5shiv.min.js" />
         <option value="$PROJECT_DIR$/_includes/head.html" />
         <option value="$PROJECT_DIR$/_includes/header.html" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_site/talktome/botui/src/scripts/botui.js" />
         <option value="$PROJECT_DIR$/_includes/footer.html" />
         <option value="$PROJECT_DIR$/_layouts/about.html" />
@@ -172,6 +85,7 @@
         <option value="$PROJECT_DIR$/_posts/note/2018-07-08-git-common-commands.md" />
         <option value="$PROJECT_DIR$/_posts/note/2018-07-08-linux-common-commands.md" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/_config.yml" />
       </list>
     </option>
   </component>
@@ -192,11 +106,6 @@
             <path>
               <item name="liusha529.github.com" type="b2602c69:ProjectViewProjectNode" />
               <item name="liusha529.github.com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="liusha529.github.com" type="b2602c69:ProjectViewProjectNode" />
-              <item name="liusha529.github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="about" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -267,12 +176,12 @@
       <workItem from="1525915032098" duration="256000" />
       <workItem from="1531013103967" duration="1238000" />
       <workItem from="1577257250907" duration="969000" />
-      <workItem from="1577259118336" duration="3803000" />
+      <workItem from="1577259118336" duration="4154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33451000" />
+    <option name="totallyTimeSpent" value="33802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="0" width="1920" height="1080" extended-state="6" />
@@ -570,13 +479,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -584,6 +486,13 @@
             <caret column="22" selection-start-column="22" selection-end-column="22" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
         </state>
       </provider>
     </entry>
